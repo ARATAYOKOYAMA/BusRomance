@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="dWz-zB-Hfd">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="dWz-zB-Hfd">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--時間割-->
         <scene sceneID="18x-gc-dyy">
             <objects>
-                <viewController id="dWz-zB-Hfd" sceneMemberID="viewController">
+                <viewController id="dWz-zB-Hfd" customClass="ScheduleViewController" customModule="BusRomance" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="lNN-lG-4EQ"/>
                         <viewControllerLayoutGuide type="bottom" id="CDk-Wf-lqf"/>
@@ -20,14 +20,49 @@
                     <view key="view" contentMode="scaleToFill" id="EAk-PI-rp9">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="6RF-SD-RZT">
+                                <rect key="frame" x="0.0" y="20" width="375" height="598"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="2" id="Bn0-lP-wRH">
+                                    <size key="itemSize" width="69" height="70"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="TimeCell" id="3dJ-X7-HKP" customClass="TimeCell" customModule="BusRomance" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="69" height="70"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="69" height="70"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </view>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="dWz-zB-Hfd" id="u9z-gG-2YI"/>
+                                    <outlet property="delegate" destination="dWz-zB-Hfd" id="ylG-Mf-SYn"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="6RF-SD-RZT" firstAttribute="top" secondItem="lNN-lG-4EQ" secondAttribute="bottom" id="8Sw-xA-QLJ"/>
+                            <constraint firstAttribute="trailing" secondItem="6RF-SD-RZT" secondAttribute="trailing" id="Mk8-M0-jA3"/>
+                            <constraint firstItem="6RF-SD-RZT" firstAttribute="leading" secondItem="EAk-PI-rp9" secondAttribute="leading" id="pLC-HE-eyg"/>
+                            <constraint firstItem="CDk-Wf-lqf" firstAttribute="top" secondItem="6RF-SD-RZT" secondAttribute="bottom" id="yBC-M1-HAA"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="時間割" id="6rX-wr-XXW"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="myCollectionView" destination="6RF-SD-RZT" id="FhO-ac-Ug4"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5OC-If-qcr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="41" y="66"/>
+            <point key="canvasLocation" x="40.799999999999997" y="65.217391304347828"/>
         </scene>
     </scenes>
 </document>
