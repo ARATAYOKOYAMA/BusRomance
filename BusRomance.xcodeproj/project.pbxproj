@@ -52,9 +52,9 @@
 		DF79AF4D1F717A61006D7AF6 /* BusRomanceUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusRomanceUITests.swift; sourceTree = "<group>"; };
 		DF79AF4F1F717A61006D7AF6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DF79AF631F717F92006D7AF6 /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
-		DF79AF651F717F9E006D7AF6 /* Search.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Search.storyboard; path = ../Search.storyboard; sourceTree = "<group>"; };
-		DF79AF671F717FA7006D7AF6 /* Schedule.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Schedule.storyboard; path = ../Schedule.storyboard; sourceTree = "<group>"; };
-		DF79AF691F717FAE006D7AF6 /* Config.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Config.storyboard; path = ../Config.storyboard; sourceTree = "<group>"; };
+		DF79AF651F717F9E006D7AF6 /* Search.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
+		DF79AF671F717FA7006D7AF6 /* Schedule.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Schedule.storyboard; sourceTree = "<group>"; };
+		DF79AF691F717FAE006D7AF6 /* Config.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Config.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,7 +85,6 @@
 		DF79AF211F717A60006D7AF6 = {
 			isa = PBXGroup;
 			children = (
-				DF79AF631F717F92006D7AF6 /* Home.storyboard */,
 				DF79AF2C1F717A60006D7AF6 /* BusRomance */,
 				DF79AF411F717A61006D7AF6 /* BusRomanceTests */,
 				DF79AF4C1F717A61006D7AF6 /* BusRomanceUITests */,
@@ -106,6 +105,7 @@
 		DF79AF2C1F717A60006D7AF6 /* BusRomance */ = {
 			isa = PBXGroup;
 			children = (
+				DF79AF631F717F92006D7AF6 /* Home.storyboard */,
 				DF79AF651F717F9E006D7AF6 /* Search.storyboard */,
 				DF79AF671F717FA7006D7AF6 /* Schedule.storyboard */,
 				DF79AF691F717FAE006D7AF6 /* Config.storyboard */,
