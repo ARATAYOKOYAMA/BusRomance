@@ -48,21 +48,31 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="6RF-SD-RZT" firstAttribute="top" secondItem="lNN-lG-4EQ" secondAttribute="bottom" id="8Sw-xA-QLJ"/>
-                            <constraint firstAttribute="trailing" secondItem="6RF-SD-RZT" secondAttribute="trailing" id="Mk8-M0-jA3"/>
-                            <constraint firstItem="6RF-SD-RZT" firstAttribute="leading" secondItem="EAk-PI-rp9" secondAttribute="leading" id="pLC-HE-eyg"/>
-                            <constraint firstItem="CDk-Wf-lqf" firstAttribute="top" secondItem="6RF-SD-RZT" secondAttribute="bottom" id="yBC-M1-HAA"/>
+                            <constraint firstItem="6RF-SD-RZT" firstAttribute="leading" secondItem="EAk-PI-rp9" secondAttribute="leading" id="KTH-dK-c8i"/>
+                            <constraint firstAttribute="trailing" secondItem="6RF-SD-RZT" secondAttribute="trailing" id="ZvT-2L-3ja"/>
+                            <constraint firstItem="6RF-SD-RZT" firstAttribute="top" secondItem="lNN-lG-4EQ" secondAttribute="bottom" id="acN-A8-jZx"/>
+                            <constraint firstItem="CDk-Wf-lqf" firstAttribute="top" secondItem="6RF-SD-RZT" secondAttribute="bottom" id="glr-Dk-6JQ"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="時間割" id="6rX-wr-XXW"/>
+                    <navigationItem key="navigationItem" title="時間割" id="tW7-dD-ZXo"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="myCollectionView" destination="6RF-SD-RZT" id="FhO-ac-Ug4"/>
+                        <segue destination="HHO-dQ-oRO" kind="show" identifier="toDetilsSchedule" id="vTP-3a-qx1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5OC-If-qcr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="40.799999999999997" y="65.217391304347828"/>
+        </scene>
+        <!--DetilsSchedule-->
+        <scene sceneID="kk9-RV-bqi">
+            <objects>
+                <viewControllerPlaceholder storyboardName="DetilsSchedule" id="HHO-dQ-oRO" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bx1-xt-FVh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="640" y="65"/>
         </scene>
     </scenes>
 </document>

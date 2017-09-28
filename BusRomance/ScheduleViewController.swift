@@ -12,26 +12,36 @@ class ScheduleViewController: UIViewController, UICollectionViewDataSource,UICol
     
     @IBOutlet weak var myCollectionView: UICollectionView!
     
-    
-    let weekArray = ["月","火","水","木","金"]
-    let numOfDays = 5       //1週間の日数
+    let weekArray = ["","月","火","水","木","金"]
+    let schedule = ["1","","","","","","2","","","","","","3","","","","","","4","","","","","","5","","","","","",]
+    let numOfDays = 6       //1週間の日数 + 時間割の枠
     let cellMargin : CGFloat = 1.0  //セルのマージン。セルのアイテムのマージンも別にあって紛らわしい。アイテムのマージンはゼロに設定し直してる
-    
+    var cellHeight:CGFloat = 0.0
+    var cellWidth:CGFloat = 0.0
+    var tapCell = 0
+    var timeTitle = ""
+    var weekTitle = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         myCollectionView.delegate = self
         myCollectionView.dataSource = self
+        //firstLabel.center =
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+    
+    }
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-    
-    //コレクションビューのセクション数　今回は2つに分ける
+
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 2
     }
@@ -41,23 +51,23 @@ class ScheduleViewController: UIViewController, UICollectionViewDataSource,UICol
         if(section == 0){   //section:0は曜日を表示
             return numOfDays
         }else{
-            return 25        //section:1は日付を表示 　今の時点では適当な数字30日くらいなので30を入れる
+            return 30
         }
     }
     
-    //データを返すメソッド（DataSourceを設定した場合に必要な項目）
-    //動作確認の為セルの背景を変える。曜日については表示する
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
-        //コレクションビューから識別子「CalendarCell」のセルを取得する
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TimeCell", for: indexPath) as! TimeCell
         if(indexPath.section == 0){             //曜日表示
-            cell.backgroundColor = UIColor.gray
+            cell.backgroundColor = UIColor.lightGray
             cell.textLabel.text = weekArray[indexPath.row]
+            cell.textLabel.center = CGPoint(x:cellWidth/2,y:cellHeight/2)
+            cell.textLabel.font = UIFont.systemFont(ofSize: 20)
             
-        }else{                                  //日付表示
+        }else{
             cell.backgroundColor = UIColor.white
-            cell.textLabel.text = ""
+            cell.textLabel.text = schedule[indexPath.row]
+            cell.textLabel.center = CGPoint(x:cellWidth/2,y:cellHeight/2)
+            cell.textLabel.font = UIFont.systemFont(ofSize: 20)
         }
         return cell
     }
@@ -65,19 +75,40 @@ class ScheduleViewController: UIViewController, UICollectionViewDataSource,UICol
     //セルをクリックしたら呼ばれる
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print("Num：\(indexPath.row) Section:\(indexPath.section)")
+        if indexPath.section == 1 && indexPath.row != 0 && indexPath.row != 6 && indexPath.row != 12 && indexPath.row != 18 && indexPath.row != 24 && indexPath.row != 30{
+            tapCell = indexPath.row
+            if tapCell >= 1 && tapCell <= 5{
+                timeTitle = "1限"
+            }else if tapCell >= 7 && tapCell <= 11{
+                timeTitle = "2限"
+            }else if tapCell >= 13 && tapCell <= 17{
+                timeTitle = "3限"
+            }else if tapCell >= 19 && tapCell <= 23{
+                timeTitle = "4限"
+            }else if tapCell >= 25 && tapCell <= 29{
+                timeTitle = "5限"
+            }
+            if tapCell==1||tapCell==7||tapCell==13||tapCell==19||tapCell==25{
+                weekTitle = "月曜日"
+            }else if tapCell==2||tapCell==8||tapCell==14||tapCell==20||tapCell==26{
+                weekTitle = "火曜日"
+            }else if tapCell==3||tapCell==9||tapCell==15||tapCell==21||tapCell==27{
+                weekTitle = "水曜日"
+            }else if tapCell==4||tapCell==10||tapCell==16||tapCell==22||tapCell==28{
+                weekTitle = "木曜日"
+            }else if tapCell==5||tapCell==11||tapCell==17||tapCell==23||tapCell==29{
+                weekTitle = "金曜日"
+            }
+            performSegue(withIdentifier: "toDetilsSchedule",sender: nil)
+        }
     }
-    
-    /*
-     
-     セルのレイアウト設定
-     
-     */
     //セルサイズの指定（UICollectionViewDelegateFlowLayoutで必須）　横幅いっぱいにセルが広がるようにしたい
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let numberOfMargin:CGFloat = 8.0
         let widths:CGFloat = (collectionView.frame.size.width - cellMargin * numberOfMargin)/CGFloat(numOfDays)
-        let heights:CGFloat = widths * 1.25//0.8
-        
+        let heights:CGFloat = widths * 1.5
+        cellHeight = heights
+        cellWidth = widths
         return CGSize(width:widths,height:heights)
     }
     
@@ -93,6 +124,14 @@ class ScheduleViewController: UIViewController, UICollectionViewDataSource,UICol
     //セルの垂直方向のマージンを設定
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return cellMargin
+    }
+    
+    // Segue 準備
+    override func prepare(for segue: UIStoryboardSegue, sender: Any!) {
+        if (segue.identifier == "toDetilsSchedule") {
+            let detilsVC: DetilsScheduleViewController = (segue.destination as? DetilsScheduleViewController)!
+            detilsVC.naviText = "\(weekTitle)\(timeTitle)"
+        }
     }
 }
 

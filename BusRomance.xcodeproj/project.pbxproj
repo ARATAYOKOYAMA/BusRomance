@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		15342A631F78F242000EB611 /* ScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15342A621F78F242000EB611 /* ScheduleViewController.swift */; };
 		15342A651F790180000EB611 /* TimeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15342A641F790180000EB611 /* TimeCell.swift */; };
+		158381801F7C99CA00733F56 /* DetilsScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1583817F1F7C99CA00733F56 /* DetilsScheduleViewController.swift */; };
+		158381841F7C9C7500733F56 /* DetilsSchedule.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 158381831F7C9C7500733F56 /* DetilsSchedule.storyboard */; };
 		DF79AF2E1F717A60006D7AF6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF79AF2D1F717A60006D7AF6 /* AppDelegate.swift */; };
 		DF79AF301F717A60006D7AF6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF79AF2F1F717A60006D7AF6 /* ViewController.swift */; };
 		DF79AF331F717A60006D7AF6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DF79AF311F717A60006D7AF6 /* Main.storyboard */; };
@@ -42,6 +44,8 @@
 /* Begin PBXFileReference section */
 		15342A621F78F242000EB611 /* ScheduleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleViewController.swift; sourceTree = "<group>"; };
 		15342A641F790180000EB611 /* TimeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeCell.swift; sourceTree = "<group>"; };
+		1583817F1F7C99CA00733F56 /* DetilsScheduleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetilsScheduleViewController.swift; sourceTree = "<group>"; };
+		158381831F7C9C7500733F56 /* DetilsSchedule.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DetilsSchedule.storyboard; sourceTree = "<group>"; };
 		DF79AF2A1F717A60006D7AF6 /* BusRomance.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BusRomance.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF79AF2D1F717A60006D7AF6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DF79AF2F1F717A60006D7AF6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -112,6 +116,8 @@
 				DF79AF631F717F92006D7AF6 /* Home.storyboard */,
 				DF79AF651F717F9E006D7AF6 /* Search.storyboard */,
 				DF79AF671F717FA7006D7AF6 /* Schedule.storyboard */,
+				158381831F7C9C7500733F56 /* DetilsSchedule.storyboard */,
+				1583817F1F7C99CA00733F56 /* DetilsScheduleViewController.swift */,
 				15342A621F78F242000EB611 /* ScheduleViewController.swift */,
 				15342A641F790180000EB611 /* TimeCell.swift */,
 				DF79AF691F717FAE006D7AF6 /* Config.storyboard */,
@@ -253,6 +259,7 @@
 			files = (
 				DF79AF381F717A60006D7AF6 /* LaunchScreen.storyboard in Resources */,
 				DF79AF351F717A60006D7AF6 /* Assets.xcassets in Resources */,
+				158381841F7C9C7500733F56 /* DetilsSchedule.storyboard in Resources */,
 				DF79AF331F717A60006D7AF6 /* Main.storyboard in Resources */,
 				DF79AF6A1F717FAE006D7AF6 /* Config.storyboard in Resources */,
 				DF79AF641F717F92006D7AF6 /* Home.storyboard in Resources */,
@@ -282,6 +289,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				158381801F7C99CA00733F56 /* DetilsScheduleViewController.swift in Sources */,
 				15342A651F790180000EB611 /* TimeCell.swift in Sources */,
 				15342A631F78F242000EB611 /* ScheduleViewController.swift in Sources */,
 				DF79AF301F717A60006D7AF6 /* ViewController.swift in Sources */,
