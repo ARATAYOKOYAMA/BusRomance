@@ -22,17 +22,17 @@ class ScheduleViewController: UIViewController, UICollectionViewDataSource,UICol
     var timeTitle = ""
     var weekTitle = ""
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         myCollectionView.delegate = self
         myCollectionView.dataSource = self
-        //firstLabel.center =
+       self.navigationItem.title = "時間割"
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-    
+        self.navigationItem.title = "時間割"
     }
     
     

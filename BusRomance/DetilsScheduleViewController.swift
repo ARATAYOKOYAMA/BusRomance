@@ -7,6 +7,11 @@
 //
 
 import UIKit
+import RealmSwift
+/*
+class SaveScheduleObject:Object{
+    @objc dynamic var schedule = ["1","","","","","","2","","","","","","3","","","","","","4","","","","","","5","","","","","",]
+}*/
 
 class DetilsScheduleViewController: UIViewController {
     
@@ -15,6 +20,11 @@ class DetilsScheduleViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "\(naviText)"
+       /* let realm = try! Realm()
+        let results = realm.objects(SaveScheduleObject.self)
+        let result = results.last
+        print("\(result?.schedule))")*/
+        
     }
 
     override func didReceiveMemoryWarning() {
