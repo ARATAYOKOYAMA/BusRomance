@@ -113,6 +113,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DF4F1D561F8215B8005EF84D /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				DF79AF651F717F9E006D7AF6 /* Search.storyboard */,
+				DF79AF671F717FA7006D7AF6 /* Schedule.storyboard */,
+				158381831F7C9C7500733F56 /* DetilsSchedule.storyboard */,
+				DF79AF631F717F92006D7AF6 /* Home.storyboard */,
+				DF79AF311F717A60006D7AF6 /* Main.storyboard */,
+				DF79AF361F717A60006D7AF6 /* LaunchScreen.storyboard */,
+				DF79AF691F717FAE006D7AF6 /* Config.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		DF4F1D571F82165D005EF84D /* Swift */ = {
+			isa = PBXGroup;
+			children = (
+				1583817F1F7C99CA00733F56 /* DetilsScheduleViewController.swift */,
+				15342A621F78F242000EB611 /* ScheduleViewController.swift */,
+				DF79AF2F1F717A60006D7AF6 /* ViewController.swift */,
+				15342A641F790180000EB611 /* TimeCell.swift */,
+			);
+			path = Swift;
+			sourceTree = "<group>";
+		};
 		DF79AF211F717A60006D7AF6 = {
 			isa = PBXGroup;
 			children = (
@@ -138,19 +163,10 @@
 		DF79AF2C1F717A60006D7AF6 /* BusRomance */ = {
 			isa = PBXGroup;
 			children = (
-				DF79AF631F717F92006D7AF6 /* Home.storyboard */,
-				DF79AF651F717F9E006D7AF6 /* Search.storyboard */,
-				DF79AF671F717FA7006D7AF6 /* Schedule.storyboard */,
-				158381831F7C9C7500733F56 /* DetilsSchedule.storyboard */,
-				1583817F1F7C99CA00733F56 /* DetilsScheduleViewController.swift */,
-				15342A621F78F242000EB611 /* ScheduleViewController.swift */,
-				15342A641F790180000EB611 /* TimeCell.swift */,
-				DF79AF691F717FAE006D7AF6 /* Config.storyboard */,
+				DF4F1D561F8215B8005EF84D /* Storyboard */,
+				DF4F1D571F82165D005EF84D /* Swift */,
 				DF79AF2D1F717A60006D7AF6 /* AppDelegate.swift */,
-				DF79AF2F1F717A60006D7AF6 /* ViewController.swift */,
-				DF79AF311F717A60006D7AF6 /* Main.storyboard */,
 				DF79AF341F717A60006D7AF6 /* Assets.xcassets */,
-				DF79AF361F717A60006D7AF6 /* LaunchScreen.storyboard */,
 				DF79AF391F717A60006D7AF6 /* Info.plist */,
 			);
 			path = BusRomance;
