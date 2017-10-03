@@ -62,11 +62,18 @@
                                 <state key="normal" title="登録">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="entryButton:" destination="4ps-ot-tkk" eventType="touchUpInside" id="5m8-lC-anm"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <viewLayoutGuide key="safeArea" id="7DB-Q8-g8G"/>
                     </view>
+                    <connections>
+                        <outlet property="nameTextField" destination="AlJ-9V-qMV" id="c3a-9e-c4Z"/>
+                        <outlet property="placeTextField" destination="hYZ-Mt-P9u" id="HMq-nO-ghu"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EyW-Nk-v1u" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

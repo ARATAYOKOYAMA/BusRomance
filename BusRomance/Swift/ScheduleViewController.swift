@@ -7,19 +7,20 @@
 //
 
 import UIKit
+import RealmSwift
 
 class ScheduleViewController: UIViewController, UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout {
     
     @IBOutlet weak var myCollectionView: UICollectionView!
     
     let weekArray = ["","月","火","水","木","金"]
-    let schedule = ["1","","","","","","2","","","","","","3","","","","","","4","","","","","","5","","","","","",]
+    var schedule:[String]=["1","","","","","","2","","","","","","3","","","","","","4","","","","","","5","","","","","",]
     let numOfDays = 6       //1週間の日数 + 時間割の枠
     let cellMargin : CGFloat = 1.0  //セルのマージン。セルのアイテムのマージンも別にあって紛らわしい。アイテムのマージンはゼロに設定し直してる
     var cellHeight:CGFloat = 0.0
     var cellWidth:CGFloat = 0.0
     var tapCell = 0
-    var timeTitle = ""
+    var timeTitle = 0
     var weekTitle = ""
     
     
@@ -28,11 +29,54 @@ class ScheduleViewController: UIViewController, UICollectionViewDataSource,UICol
         myCollectionView.delegate = self
         myCollectionView.dataSource = self
        self.navigationItem.title = "時間割"
+        //deleateRealm()
+        let realm = try! Realm()
+        var results = realm.objects(SaveScheduleObject.self)
+        results = results.sorted(byKeyPath: "time",
+                                 ascending: true)
+        schedule = []
+        var flag = 0
+        print("\(results)")
+        for i in 0...29{
+            for h in results{
+                if i == h.time{
+                    schedule.append(h.name+"\n"+h.place)
+                    flag = 1
+                }
+            }
+            if flag == 0{
+                schedule.append("")
+            }
+            flag = 0
+        }
+        print(schedule)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationItem.title = "時間割"
+        let realm = try! Realm()
+        var results = realm.objects(SaveScheduleObject.self)
+        results = results.sorted(byKeyPath: "time",
+                                 ascending: true)
+        schedule = []
+        var flag = 0
+        print("\(results)")
+        for i in 0...29{
+            for h in results{
+                if i == h.time{
+                    schedule.append(h.name+"\n"+h.place)
+                    flag = 1
+                }
+            }
+            if flag == 0{
+                schedule.append("")
+            }
+            flag = 0
+        }
+        print(schedule)
+        myCollectionView.reloadData()
+        
     }
     
     
@@ -78,15 +122,15 @@ class ScheduleViewController: UIViewController, UICollectionViewDataSource,UICol
         if indexPath.section == 1 && indexPath.row != 0 && indexPath.row != 6 && indexPath.row != 12 && indexPath.row != 18 && indexPath.row != 24 && indexPath.row != 30{
             tapCell = indexPath.row
             if tapCell >= 1 && tapCell <= 5{
-                timeTitle = "1限"
+                timeTitle = 1
             }else if tapCell >= 7 && tapCell <= 11{
-                timeTitle = "2限"
+                timeTitle = 2
             }else if tapCell >= 13 && tapCell <= 17{
-                timeTitle = "3限"
+                timeTitle = 3
             }else if tapCell >= 19 && tapCell <= 23{
-                timeTitle = "4限"
+                timeTitle = 4
             }else if tapCell >= 25 && tapCell <= 29{
-                timeTitle = "5限"
+                timeTitle = 5
             }
             if tapCell==1||tapCell==7||tapCell==13||tapCell==19||tapCell==25{
                 weekTitle = "月曜日"
@@ -130,7 +174,9 @@ class ScheduleViewController: UIViewController, UICollectionViewDataSource,UICol
     override func prepare(for segue: UIStoryboardSegue, sender: Any!) {
         if (segue.identifier == "toDetilsSchedule") {
             let detilsVC: DetilsScheduleViewController = (segue.destination as? DetilsScheduleViewController)!
-            detilsVC.naviText = "\(weekTitle)\(timeTitle)"
+            detilsVC.naviWeekText = "\(weekTitle)"
+            detilsVC.naviTimeText = timeTitle
+            detilsVC.tappedCell = tapCell
         }
     }
 }
