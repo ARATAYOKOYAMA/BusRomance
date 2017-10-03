@@ -65,7 +65,7 @@ class ScheduleViewController: UIViewController, UICollectionViewDataSource,UICol
         for i in 0...29{
             for h in results{
                 if i == h.time{
-                    schedule.append(h.name+"\n"+h.place)
+                    schedule.append("\(h.name)\n\(h.place)")
                     flag = 1
                 }
             }
@@ -111,7 +111,10 @@ class ScheduleViewController: UIViewController, UICollectionViewDataSource,UICol
             cell.backgroundColor = UIColor.white
             cell.textLabel.text = schedule[indexPath.row]
             cell.textLabel.center = CGPoint(x:cellWidth/2,y:cellHeight/2)
-            cell.textLabel.font = UIFont.systemFont(ofSize: 20)
+            cell.textLabel.numberOfLines = 0
+            cell.textLabel.adjustsFontSizeToFitWidth = true  // 自動調整を有効にする
+            cell.textLabel.minimumScaleFactor = 0.5  // 半分の大きさまで縮小させられる
+            cell.textLabel.font = UIFont.systemFont(ofSize: 16)
         }
         return cell
     }
