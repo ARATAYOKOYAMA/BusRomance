@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Title-->
+        <!--検索-->
         <scene sceneID="3fB-eL-zzc">
             <objects>
-                <viewController id="GSK-nf-Iiy" sceneMemberID="viewController">
+                <viewController id="GSK-nf-Iiy" customClass="SearchViewController" customModule="BusRomance" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="iXX-Lp-lRo"/>
                         <viewControllerLayoutGuide type="bottom" id="HDc-57-rYZ"/>
@@ -29,7 +29,7 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="乗車するバス停を選択してください" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="llu-oo-Vfe">
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="乗車するバス停を選択してください" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="llu-oo-Vfe" customClass="PickerTextField" customModule="BusRomance" customModuleProvider="target">
                                 <rect key="frame" x="61" y="121" width="298" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
@@ -44,7 +44,7 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="降車するバス停を選択してください" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fgC-Tr-fgh">
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="降車するバス停を選択してください" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fgC-Tr-fgh" customClass="PickerTextField" customModule="BusRomance" customModuleProvider="target">
                                 <rect key="frame" x="61" y="211" width="298" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
@@ -74,14 +74,18 @@
                         <color key="backgroundColor" white="0.90253906250000004" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="検索" id="Ien-gm-o0m"/>
-                    <navigationItem key="navigationItem" title="Title" id="xEO-ZE-Wyy"/>
+                    <navigationItem key="navigationItem" title="検索" id="xEO-ZE-Wyy"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="arrivalTextField" destination="fgC-Tr-fgh" id="dPH-HI-OxA"/>
+                        <outlet property="departureTextField" destination="llu-oo-Vfe" id="rnH-xx-BgY"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gnu-cT-W5n" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="512.79999999999995" y="133.5832083958021"/>
         </scene>
-        <!--Title-->
+        <!--検索結果-->
         <scene sceneID="P0W-7i-c05">
             <objects>
                 <viewController id="MM0-sp-s5I" sceneMemberID="viewController">
@@ -149,7 +153,7 @@
                         </subviews>
                         <color key="backgroundColor" white="0.90000000000000002" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Title" id="uMG-UG-2q0"/>
+                    <navigationItem key="navigationItem" title="検索結果" id="s8Y-Nh-NJg"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xk7-oF-dwC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
