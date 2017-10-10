@@ -17,6 +17,7 @@
 		158381841F7C9C7500733F56 /* DetilsSchedule.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 158381831F7C9C7500733F56 /* DetilsSchedule.storyboard */; };
 		DF4F1D591F822B53005EF84D /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF4F1D581F822B52005EF84D /* SearchViewController.swift */; };
 		DF4F1D5D1F8B6596005EF84D /* PickerTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF4F1D5C1F8B6596005EF84D /* PickerTextField.swift */; };
+		DF4F1D5F1F8B6DC8005EF84D /* PickerDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF4F1D5E1F8B6DC8005EF84D /* PickerDate.swift */; };
 		DF79AF2E1F717A60006D7AF6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF79AF2D1F717A60006D7AF6 /* AppDelegate.swift */; };
 		DF79AF301F717A60006D7AF6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF79AF2F1F717A60006D7AF6 /* ViewController.swift */; };
 		DF79AF331F717A60006D7AF6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DF79AF311F717A60006D7AF6 /* Main.storyboard */; };
@@ -71,6 +72,7 @@
 		158381831F7C9C7500733F56 /* DetilsSchedule.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DetilsSchedule.storyboard; sourceTree = "<group>"; };
 		DF4F1D581F822B52005EF84D /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		DF4F1D5C1F8B6596005EF84D /* PickerTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerTextField.swift; sourceTree = "<group>"; };
+		DF4F1D5E1F8B6DC8005EF84D /* PickerDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerDate.swift; sourceTree = "<group>"; };
 		DF79AF2A1F717A60006D7AF6 /* BusRomance.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BusRomance.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF79AF2D1F717A60006D7AF6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DF79AF2F1F717A60006D7AF6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -140,6 +142,7 @@
 				15342A641F790180000EB611 /* TimeCell.swift */,
 				DF4F1D581F822B52005EF84D /* SearchViewController.swift */,
 				DF4F1D5C1F8B6596005EF84D /* PickerTextField.swift */,
+				DF4F1D5E1F8B6DC8005EF84D /* PickerDate.swift */,
 			);
 			path = Swift;
 			sourceTree = "<group>";
@@ -344,6 +347,7 @@
 				DF4F1D5D1F8B6596005EF84D /* PickerTextField.swift in Sources */,
 				DF79AF301F717A60006D7AF6 /* ViewController.swift in Sources */,
 				DF79AF2E1F717A60006D7AF6 /* AppDelegate.swift in Sources */,
+				DF4F1D5F1F8B6DC8005EF84D /* PickerDate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

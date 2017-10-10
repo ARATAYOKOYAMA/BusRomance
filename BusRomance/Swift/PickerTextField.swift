@@ -6,7 +6,6 @@
 //  Copyright © 2017年 バスロマン. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
 class PickerTextField: UITextField, UIPickerViewDelegate, UIPickerViewDataSource {
