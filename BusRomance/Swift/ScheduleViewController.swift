@@ -79,7 +79,6 @@ class ScheduleViewController: UIViewController, UICollectionViewDataSource,UICol
         
     }
     
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -177,10 +176,20 @@ class ScheduleViewController: UIViewController, UICollectionViewDataSource,UICol
     override func prepare(for segue: UIStoryboardSegue, sender: Any!) {
         if (segue.identifier == "toDetilsSchedule") {
             let detilsVC: DetilsScheduleViewController = (segue.destination as? DetilsScheduleViewController)!
-            detilsVC.naviWeekText = "\(weekTitle)"
-            detilsVC.naviTimeText = timeTitle
-            detilsVC.tappedCell = tapCell
+            let realm = try! Realm()
+            let results = realm.objects(SaveScheduleObject.self)
+                for h in results{
+                    if tapCell == h.time{
+                        detilsVC.loadTime = h.time
+                        detilsVC.loadName = h.name
+                        detilsVC.loadPlace = h.place
+                    }
+                }
+                detilsVC.naviWeekText = "\(weekTitle)"
+                detilsVC.naviTimeText = timeTitle
+                detilsVC.tappedCell = tapCell
+            }
         }
     }
-}
+
 

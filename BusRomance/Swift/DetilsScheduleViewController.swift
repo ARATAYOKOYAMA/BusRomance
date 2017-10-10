@@ -28,12 +28,25 @@ class DetilsScheduleViewController: UIViewController {
     
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var placeTextField: UITextField!
+    @IBOutlet weak var entryButton: UIButton!
     var naviWeekText = ""
     var naviTimeText = 0
     var tappedCell = 0
+    
+    var loadTime = 0
+    var loadName = ""
+    var loadPlace = ""
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "\(naviWeekText)\(naviTimeText)限"
+        if loadName != ""{
+            nameTextField.text = loadName
+            placeTextField.text = loadPlace
+            entryButton.isEnabled = false
+            entryButton.alpha = 0.3
+        }
     }
     
     @IBAction func entryButton(_ sender: Any) {
@@ -49,9 +62,26 @@ class DetilsScheduleViewController: UIViewController {
         }
         self.navigationController?.popViewController(animated: true)
     }
+    
+    @IBAction func nameTextFieldEvent(_ sender: Any) {
+        if loadName != (sender as AnyObject).text{
+            entryButton.isEnabled = true
+            entryButton.alpha = 1.0
+        }
+    }
+    
+    @IBAction func placeTextFieldEvent(_ sender: Any) {
+        if loadPlace != (sender as AnyObject).text{
+            entryButton.isEnabled = true
+            entryButton.alpha = 1.0
+        }
+    }
+    
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
 }
+

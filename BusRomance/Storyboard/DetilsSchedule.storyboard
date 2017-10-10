@@ -39,6 +39,10 @@
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="nameTextFieldEvent:" destination="4ps-ot-tkk" eventType="editingDidEnd" id="Pt8-Lq-9fJ"/>
+                                    <action selector="nameTextFieldEvent:" destination="4ps-ot-tkk" eventType="editingDidEndOnExit" id="i3d-E5-7U8"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="登録する教室を入力してください" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hYZ-Mt-P9u">
                                 <rect key="frame" x="61" y="251" width="298" height="30"/>
@@ -46,6 +50,9 @@
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="placeTextFieldEvent:" destination="4ps-ot-tkk" eventType="editingDidEndOnExit" id="N9U-4u-p6e"/>
+                                </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="教室" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zgK-yw-dFs">
                                 <rect key="frame" x="16" y="251" width="42" height="30"/>
@@ -71,13 +78,14 @@
                         <viewLayoutGuide key="safeArea" id="7DB-Q8-g8G"/>
                     </view>
                     <connections>
+                        <outlet property="entryButton" destination="cOu-ux-Z18" id="Tih-27-Sfr"/>
                         <outlet property="nameTextField" destination="AlJ-9V-qMV" id="c3a-9e-c4Z"/>
                         <outlet property="placeTextField" destination="hYZ-Mt-P9u" id="HMq-nO-ghu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EyW-Nk-v1u" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="296.80000000000001" y="263.11844077961024"/>
+            <point key="canvasLocation" x="286" y="255"/>
         </scene>
     </scenes>
 </document>
