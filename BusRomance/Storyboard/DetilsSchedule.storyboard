@@ -73,11 +73,23 @@
                                     <action selector="entryButton:" destination="4ps-ot-tkk" eventType="touchUpInside" id="5m8-lC-anm"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Kd-QH-Ehp">
+                                <rect key="frame" x="57" y="456" width="260" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="削除">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="deleateButton:" destination="4ps-ot-tkk" eventType="touchUpInside" id="ZqY-6H-Bm3"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <viewLayoutGuide key="safeArea" id="7DB-Q8-g8G"/>
                     </view>
                     <connections>
+                        <outlet property="deleateButton" destination="7Kd-QH-Ehp" id="tIE-vN-RhJ"/>
                         <outlet property="entryButton" destination="cOu-ux-Z18" id="Tih-27-Sfr"/>
                         <outlet property="nameTextField" destination="AlJ-9V-qMV" id="c3a-9e-c4Z"/>
                         <outlet property="placeTextField" destination="hYZ-Mt-P9u" id="HMq-nO-ghu"/>

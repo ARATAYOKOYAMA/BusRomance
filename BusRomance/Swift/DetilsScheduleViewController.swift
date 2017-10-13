@@ -28,6 +28,7 @@ class DetilsScheduleViewController: UIViewController {
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var placeTextField: UITextField!
     @IBOutlet weak var entryButton: UIButton!
+    @IBOutlet weak var deleateButton: UIButton!
     var naviWeekText = ""
     var naviTimeText = 0
     var tappedCell = 0
@@ -38,23 +39,31 @@ class DetilsScheduleViewController: UIViewController {
     
     var changeText = false
     
+    //var count2 = 0
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "\(naviWeekText)\(naviTimeText)限"
         if loadName != ""{
-            print("いえいえいえい")
+            print("")
             nameTextField.text = loadName
             placeTextField.text = loadPlace
             entryButton.isEnabled = false
             entryButton.alpha = 0.3
+            deleateButton.isEnabled = true
+            deleateButton.alpha = 1
             changeText = true
+        }else{
+            deleateButton.isEnabled = false
+            deleateButton.alpha = 0.3
+            changeText = false
         }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-      //  changeText = false
+        
     }
     
     
@@ -80,16 +89,13 @@ class DetilsScheduleViewController: UIViewController {
             obj.name = nameTextField.text!
             obj.place = placeTextField.text!
             for h in results{
-                var count = 0
-                count += 1
                 if loadTime == h.time{
                     print(h.time)
                     try! realm.write {
-                        print("削除する前\(results[count])")
-                        realm.delete(results[count])
+                        print("削除する前\(h)")
+                        realm.delete(h)
                         realm.add(obj)
-                        print("count = \(count)")
-                        print("削除した後\(results[count])")
+                        print("削除した後\(h)")
                     }
                 }
             }
@@ -97,6 +103,29 @@ class DetilsScheduleViewController: UIViewController {
         }
         self.navigationController?.popViewController(animated: true)
     }
+    
+    @IBAction func deleateButton(_ sender: Any) {
+        let realm = try! Realm()
+        var results = realm.objects(SaveScheduleObject.self)
+        results = results.sorted(byKeyPath: "time",
+                                 ascending: true)
+        for h in results{
+            //var count2 = 0
+            //count2 += 1
+            print("loadTime = \(loadTime)")
+            if loadTime == h.time{
+                try! realm.write {
+                  //  print("count2 = \(count2)")
+                    print("削除する前\(h)")
+                    realm.delete(h)
+                    print("削除した後\(h)")
+                }
+            }
+        }
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    
     
     @IBAction func nameTextFieldEvent(_ sender: Any) {
         if loadName != (sender as AnyObject).text{
