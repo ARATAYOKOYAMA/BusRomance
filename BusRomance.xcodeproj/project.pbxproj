@@ -18,6 +18,7 @@
 		DF4F1D591F822B53005EF84D /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF4F1D581F822B52005EF84D /* SearchViewController.swift */; };
 		DF4F1D5D1F8B6596005EF84D /* PickerTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF4F1D5C1F8B6596005EF84D /* PickerTextField.swift */; };
 		DF4F1D5F1F8B6DC8005EF84D /* PickerDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF4F1D5E1F8B6DC8005EF84D /* PickerDate.swift */; };
+		DF60C03F1F925BF9004D4C9F /* SearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF60C03E1F925BF9004D4C9F /* SearchResultViewController.swift */; };
 		DF79AF2E1F717A60006D7AF6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF79AF2D1F717A60006D7AF6 /* AppDelegate.swift */; };
 		DF79AF301F717A60006D7AF6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF79AF2F1F717A60006D7AF6 /* ViewController.swift */; };
 		DF79AF331F717A60006D7AF6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DF79AF311F717A60006D7AF6 /* Main.storyboard */; };
@@ -73,6 +74,7 @@
 		DF4F1D581F822B52005EF84D /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		DF4F1D5C1F8B6596005EF84D /* PickerTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerTextField.swift; sourceTree = "<group>"; };
 		DF4F1D5E1F8B6DC8005EF84D /* PickerDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerDate.swift; sourceTree = "<group>"; };
+		DF60C03E1F925BF9004D4C9F /* SearchResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultViewController.swift; sourceTree = "<group>"; };
 		DF79AF2A1F717A60006D7AF6 /* BusRomance.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BusRomance.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF79AF2D1F717A60006D7AF6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DF79AF2F1F717A60006D7AF6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -143,6 +145,7 @@
 				DF4F1D581F822B52005EF84D /* SearchViewController.swift */,
 				DF4F1D5C1F8B6596005EF84D /* PickerTextField.swift */,
 				DF4F1D5E1F8B6DC8005EF84D /* PickerDate.swift */,
+				DF60C03E1F925BF9004D4C9F /* SearchResultViewController.swift */,
 			);
 			path = Swift;
 			sourceTree = "<group>";
@@ -341,6 +344,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DF4F1D591F822B53005EF84D /* SearchViewController.swift in Sources */,
+				DF60C03F1F925BF9004D4C9F /* SearchResultViewController.swift in Sources */,
 				158381801F7C99CA00733F56 /* DetilsScheduleViewController.swift in Sources */,
 				15342A651F790180000EB611 /* TimeCell.swift in Sources */,
 				15342A631F78F242000EB611 /* ScheduleViewController.swift in Sources */,

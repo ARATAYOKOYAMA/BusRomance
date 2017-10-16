@@ -60,7 +60,7 @@
                                 </state>
                                 <connections>
                                     <action selector="seach:" destination="GSK-nf-Iiy" eventType="touchUpInside" id="D0n-WP-tfh"/>
-                                    <segue destination="MM0-sp-s5I" kind="show" id="chx-AA-LAc"/>
+                                    <segue destination="MM0-sp-s5I" kind="show" identifier="search_result" id="chx-AA-LAc"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="時間" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="veO-UA-dek" customClass="PickerDate" customModule="BusRomance" customModuleProvider="target">
@@ -89,7 +89,7 @@
         <!--検索結果-->
         <scene sceneID="P0W-7i-c05">
             <objects>
-                <viewController id="MM0-sp-s5I" sceneMemberID="viewController">
+                <viewController id="MM0-sp-s5I" customClass="SearchResultViewController" customModule="BusRomance" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="W87-ps-M75"/>
                         <viewControllerLayoutGuide type="bottom" id="C0t-nM-kdQ"/>
@@ -155,6 +155,10 @@
                         <color key="backgroundColor" white="0.90000000000000002" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="検索結果" id="s8Y-Nh-NJg"/>
+                    <connections>
+                        <outlet property="arrivalTextField" destination="HTT-eu-KZy" id="xR4-lC-44z"/>
+                        <outlet property="departureTextField" destination="dZy-6H-1jY" id="ZiS-Qs-aEZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xk7-oF-dwC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
