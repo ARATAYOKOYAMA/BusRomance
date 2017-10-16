@@ -59,7 +59,7 @@
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="myCollectionView" destination="6RF-SD-RZT" id="FhO-ac-Ug4"/>
-                        <segue destination="HHO-dQ-oRO" kind="show" identifier="toDetilsSchedule" id="vTP-3a-qx1"/>
+                        <segue destination="HHO-dQ-oRO" kind="push" identifier="toDetilsSchedule" id="vTP-3a-qx1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5OC-If-qcr" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -69,7 +69,9 @@
         <!--DetilsSchedule-->
         <scene sceneID="kk9-RV-bqi">
             <objects>
-                <viewControllerPlaceholder storyboardName="DetilsSchedule" id="HHO-dQ-oRO" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="DetilsSchedule" id="HHO-dQ-oRO" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="t1d-Qc-tUm"/>
+                </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bx1-xt-FVh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="640" y="65"/>

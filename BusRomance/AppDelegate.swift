@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,7 +17,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+         let userDefault = UserDefaults.standard
+        let dict = ["firstLaunch": true]
+        userDefault.register(defaults: dict)
+        if userDefault.bool(forKey: "firstLaunch") {
+            userDefault.set(false, forKey: "firstLaunch")
+            print("初回起動です")
+            initialActivation(0, "1", "")
+            initialActivation(6, "2", "")
+            initialActivation(12, "3", "")
+            initialActivation(18, "4", "")
+            initialActivation(24, "5", "")
+        }
         return true
+    }
+    
+    func initialActivation(_ time:Int ,_ name:String ,_ place:String){
+        let realm = try! Realm()
+        let obj = SaveScheduleObject()
+        obj.time = time
+        obj.name = name
+        obj.place = place
+        try! realm.write{
+            realm.add(obj)
+        }
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
