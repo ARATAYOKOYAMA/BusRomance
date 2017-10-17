@@ -100,9 +100,8 @@ class SearchViewController: UIViewController, URLSessionDelegate, URLSessionData
 //        })
 //        // http通信開始
 //        task.resume()
-        
-        
     }
+    
  
     /*  遷移内容をチェックして、値渡しとかする */
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

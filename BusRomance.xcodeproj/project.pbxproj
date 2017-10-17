@@ -15,6 +15,9 @@
 		153A03221F82283A00E53DBD /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 153A031E1F82283A00E53DBD /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		158381801F7C99CA00733F56 /* DetilsScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1583817F1F7C99CA00733F56 /* DetilsScheduleViewController.swift */; };
 		158381841F7C9C7500733F56 /* DetilsSchedule.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 158381831F7C9C7500733F56 /* DetilsSchedule.storyboard */; };
+		15C5767B1F95D87A00143B2F /* InitialActivationStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15C5767A1F95D87A00143B2F /* InitialActivationStoryboard.storyboard */; };
+		15C5767D1F95D8B600143B2F /* InitialActivationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C5767C1F95D8B600143B2F /* InitialActivationViewController.swift */; };
+		15C5767F1F95EEA900143B2F /* InitialSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C5767E1F95EEA900143B2F /* InitialSettingViewController.swift */; };
 		DF4F1D591F822B53005EF84D /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF4F1D581F822B52005EF84D /* SearchViewController.swift */; };
 		DF4F1D5D1F8B6596005EF84D /* PickerTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF4F1D5C1F8B6596005EF84D /* PickerTextField.swift */; };
 		DF4F1D5F1F8B6DC8005EF84D /* PickerDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF4F1D5E1F8B6DC8005EF84D /* PickerDate.swift */; };
@@ -71,6 +74,9 @@
 		153A031E1F82283A00E53DBD /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = "<group>"; };
 		1583817F1F7C99CA00733F56 /* DetilsScheduleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetilsScheduleViewController.swift; sourceTree = "<group>"; };
 		158381831F7C9C7500733F56 /* DetilsSchedule.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DetilsSchedule.storyboard; sourceTree = "<group>"; };
+		15C5767A1F95D87A00143B2F /* InitialActivationStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = InitialActivationStoryboard.storyboard; sourceTree = "<group>"; };
+		15C5767C1F95D8B600143B2F /* InitialActivationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialActivationViewController.swift; sourceTree = "<group>"; };
+		15C5767E1F95EEA900143B2F /* InitialSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = InitialSettingViewController.swift; path = BusRomance/Swift/InitialSettingViewController.swift; sourceTree = SOURCE_ROOT; };
 		DF4F1D581F822B52005EF84D /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		DF4F1D5C1F8B6596005EF84D /* PickerTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerTextField.swift; sourceTree = "<group>"; };
 		DF4F1D5E1F8B6DC8005EF84D /* PickerDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerDate.swift; sourceTree = "<group>"; };
@@ -131,6 +137,7 @@
 				DF79AF311F717A60006D7AF6 /* Main.storyboard */,
 				DF79AF361F717A60006D7AF6 /* LaunchScreen.storyboard */,
 				DF79AF691F717FAE006D7AF6 /* Config.storyboard */,
+				15C5767A1F95D87A00143B2F /* InitialActivationStoryboard.storyboard */,
 			);
 			path = Storyboard;
 			sourceTree = "<group>";
@@ -146,6 +153,8 @@
 				DF4F1D5C1F8B6596005EF84D /* PickerTextField.swift */,
 				DF4F1D5E1F8B6DC8005EF84D /* PickerDate.swift */,
 				DF60C03E1F925BF9004D4C9F /* SearchResultViewController.swift */,
+				15C5767C1F95D8B600143B2F /* InitialActivationViewController.swift */,
+				15C5767E1F95EEA900143B2F /* InitialSettingViewController.swift */,
 			);
 			path = Swift;
 			sourceTree = "<group>";
@@ -317,6 +326,7 @@
 				DF79AF331F717A60006D7AF6 /* Main.storyboard in Resources */,
 				DF79AF6A1F717FAE006D7AF6 /* Config.storyboard in Resources */,
 				DF79AF641F717F92006D7AF6 /* Home.storyboard in Resources */,
+				15C5767B1F95D87A00143B2F /* InitialActivationStoryboard.storyboard in Resources */,
 				DF79AF661F717F9E006D7AF6 /* Search.storyboard in Resources */,
 				DF79AF681F717FA7006D7AF6 /* Schedule.storyboard in Resources */,
 			);
@@ -344,6 +354,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				DF4F1D591F822B53005EF84D /* SearchViewController.swift in Sources */,
+				15C5767D1F95D8B600143B2F /* InitialActivationViewController.swift in Sources */,
+				15C5767F1F95EEA900143B2F /* InitialSettingViewController.swift in Sources */,
 				DF60C03F1F925BF9004D4C9F /* SearchResultViewController.swift in Sources */,
 				158381801F7C99CA00733F56 /* DetilsScheduleViewController.swift in Sources */,
 				15342A651F790180000EB611 /* TimeCell.swift in Sources */,
