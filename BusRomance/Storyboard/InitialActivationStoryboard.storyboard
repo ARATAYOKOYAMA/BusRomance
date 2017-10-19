@@ -18,10 +18,10 @@
             </objects>
             <point key="canvasLocation" x="-345" y="35"/>
         </scene>
-        <!--View Controller-->
+        <!--Initial Setting First View Controller-->
         <scene sceneID="Dlx-md-hAg">
             <objects>
-                <viewController storyboardIdentifier="first" id="Fbr-cW-7Bm" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="first" id="Fbr-cW-7Bm" customClass="InitialSettingFirstViewController" customModule="BusRomance" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Leo-Yk-twc">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -53,10 +53,10 @@
             </objects>
             <point key="canvasLocation" x="368.80000000000001" y="34.632683658170919"/>
         </scene>
-        <!--View Controller-->
+        <!--Initial Setting Second View Controller-->
         <scene sceneID="R8y-6t-zcc">
             <objects>
-                <viewController storyboardIdentifier="second" id="kF4-pu-d2D" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="second" id="kF4-pu-d2D" customClass="InitialSettingSecondViewController" customModule="BusRomance" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="CoS-rg-z1X">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -88,10 +88,10 @@
             </objects>
             <point key="canvasLocation" x="1104.8" y="34.632683658170919"/>
         </scene>
-        <!--Initial Setting View Controller-->
+        <!--Initial Setting Third View Controller-->
         <scene sceneID="0ri-d9-DQ8">
             <objects>
-                <viewController storyboardIdentifier="third" id="CVl-rf-fWe" customClass="InitialSettingViewController" customModule="BusRomance" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="third" id="CVl-rf-fWe" customClass="InitialSettingThirdViewController" customModule="BusRomance" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nkx-nq-xmR">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
