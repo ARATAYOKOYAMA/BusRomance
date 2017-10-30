@@ -28,7 +28,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             initialActivation(12, "3", "")
             initialActivation(18, "4", "")
             initialActivation(24, "5", "")
+            
+            //windowを生成
+            self.window = UIWindow(frame: UIScreen.main.bounds)
+            //Storyboardを指定
+            let storyboard = UIStoryboard(name: "InitialActivationStoryboard", bundle: nil)
+            let initialViewController = storyboard.instantiateViewController(withIdentifier: "InitialActivationViewController")
+            //rootViewControllerに入れる
+            self.window?.rootViewController = initialViewController
+            //表示
+            self.window?.makeKeyAndVisible()
+        }else{
+            print("通常起動です")
         }
+        
         return true
     }
     
