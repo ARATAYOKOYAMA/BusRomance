@@ -50,6 +50,7 @@ class SearchViewController: UIViewController, URLSessionDelegate, URLSessionData
         // 検索結果へ遷移
         performSegue(withIdentifier: "search_result", sender: nil)
     }
+    
  
     /*  遷移内容をチェックして、値渡しとかする */
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

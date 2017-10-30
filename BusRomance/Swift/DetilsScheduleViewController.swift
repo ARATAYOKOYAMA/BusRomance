@@ -14,6 +14,8 @@ class SaveScheduleObject:Object{
     @objc dynamic var name = ""
     @objc dynamic var place = ""
 }
+
+
 func deleateRealm(){
     let realm = try! Realm()
     let obj = realm.objects(SaveScheduleObject.self)
@@ -40,6 +42,10 @@ class DetilsScheduleViewController: UIViewController {
     var changeText = false
     
     //var count2 = 0
+    
+    func iei(){
+        print("いえいえいえい")
+    }
     
     
     override func viewDidLoad() {
@@ -110,12 +116,9 @@ class DetilsScheduleViewController: UIViewController {
         results = results.sorted(byKeyPath: "time",
                                  ascending: true)
         for h in results{
-            //var count2 = 0
-            //count2 += 1
             print("loadTime = \(loadTime)")
             if loadTime == h.time{
                 try! realm.write {
-                  //  print("count2 = \(count2)")
                     print("削除する前\(h)")
                     realm.delete(h)
                     print("削除した後\(h)")

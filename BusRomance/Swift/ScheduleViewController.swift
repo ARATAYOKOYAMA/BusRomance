@@ -148,6 +148,9 @@ class ScheduleViewController: UIViewController, UICollectionViewDataSource,UICol
             performSegue(withIdentifier: "toDetilsSchedule",sender: nil)
         }
     }
+    
+    
+    
     //セルサイズの指定（UICollectionViewDelegateFlowLayoutで必須）　横幅いっぱいにセルが広がるようにしたい
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let numberOfMargin:CGFloat = 8.0
