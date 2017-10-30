@@ -7,6 +7,11 @@
 //
 
 import UIKit
+import RealmSwift
+
+class FrequentlyPlaceObject:Object{
+    @objc dynamic var busStop = ""
+}
 
 class InitialSettingThirdViewController: UIViewController {
 
@@ -42,9 +47,17 @@ class InitialSettingThirdViewController: UIViewController {
     }
     
     @IBAction func entryButton(_ sender: Any) {
-        //        if entryPlaceTextField.text! != ""{
-        //            performSegue(withIdentifier: "toHome",sender: nil)
-        //        }
+        if entryPlaceTextField.text! != ""{
+            let realm = try! Realm()
+            let obj = FrequentlyPlaceObject()
+            obj.busStop = entryPlaceTextField.text!
+            try! realm.write {
+                realm.add(obj)
+            }
+            let resutls = realm.objects(FrequentlyPlaceObject.self)
+            print(resutls.last!.busStop)
+            performSegue(withIdentifier: "toMain",sender: nil)
+        }
     }
     
     

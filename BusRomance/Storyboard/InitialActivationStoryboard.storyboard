@@ -5,7 +5,7 @@
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -13,10 +13,12 @@
         <!--Initial Activation View Controller-->
         <scene sceneID="Lhe-fZ-8lY">
             <objects>
-                <pageViewController storyboardIdentifier="InitialActivationViewController" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="A6e-VX-Vyk" customClass="InitialActivationViewController" customModule="BusRomance" customModuleProvider="target" sceneMemberID="viewController"/>
+                <pageViewController storyboardIdentifier="InitialActivationViewController" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="A6e-VX-Vyk" customClass="InitialActivationViewController" customModule="BusRomance" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="naS-Lt-kVD"/>
+                </pageViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Do3-jz-RPg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-345" y="35"/>
+            <point key="canvasLocation" x="-7.2000000000000002" y="34.632683658170919"/>
         </scene>
         <!--Initial Setting First View Controller-->
         <scene sceneID="Dlx-md-hAg">
@@ -44,6 +46,13 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="左にスワイプする" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xgC-cr-VbH">
+                                <rect key="frame" x="117" y="562" width="141" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.44705882349999998" green="0.90588235289999997" blue="0.94509803920000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="jrO-oA-eY3"/>
@@ -51,7 +60,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dxg-d8-m1S" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="368.80000000000001" y="34.632683658170919"/>
+            <point key="canvasLocation" x="708" y="34.632683658170919"/>
         </scene>
         <!--Initial Setting Second View Controller-->
         <scene sceneID="R8y-6t-zcc">
@@ -79,6 +88,13 @@
                                 <rect key="frame" x="67" y="275" width="240" height="187"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="左にスワイプする" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9X6-82-Yys">
+                                <rect key="frame" x="117" y="562" width="141" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.44705882349999998" green="0.90588235289999997" blue="0.94509803920000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="IwO-Vg-gAg"/>
@@ -86,7 +102,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qKN-ze-DSJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1104.8" y="34.632683658170919"/>
+            <point key="canvasLocation" x="1444" y="34.632683658170919"/>
         </scene>
         <!--Initial Setting Third View Controller-->
         <scene sceneID="0ri-d9-DQ8">
@@ -119,7 +135,7 @@
                                 </state>
                                 <connections>
                                     <action selector="entryButton:" destination="CVl-rf-fWe" eventType="touchUpInside" id="FOw-dl-lz9"/>
-                                    <segue destination="zcN-BI-yoF" kind="show" id="I1l-sD-XZZ"/>
+                                    <segue destination="zcN-BI-yoF" kind="show" identifier="toMain" animates="NO" id="I1l-sD-XZZ"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="ここをタップ" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="36z-rb-4go" customClass="PickerTextField" customModule="BusRomance" customModuleProvider="target">
@@ -129,6 +145,13 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="左にスワイプする" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="39d-6U-H8b">
+                                <rect key="frame" x="117" y="562" width="141" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.44705882349999998" green="0.90588235289999997" blue="0.94509803920000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="4Aw-bu-J3t"/>
@@ -140,17 +163,17 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4o8-Xf-G2z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1864.8" y="34.632683658170919"/>
+            <point key="canvasLocation" x="2204" y="34.632683658170919"/>
         </scene>
-        <!--Home-->
+        <!--Main-->
         <scene sceneID="6QL-IV-VbO">
             <objects>
-                <viewControllerPlaceholder storyboardName="Home" id="zcN-BI-yoF" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="Main" id="zcN-BI-yoF" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="4vI-Oa-cM3"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hEF-LD-JnQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2450" y="34"/>
+            <point key="canvasLocation" x="2788.8000000000002" y="33.283358320839582"/>
         </scene>
     </scenes>
     <resources>

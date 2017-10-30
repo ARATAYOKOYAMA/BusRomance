@@ -16,7 +16,6 @@ class SaveScheduleObject:Object{
 }
 
 
-
 func deleateRealm(){
     let realm = try! Realm()
     let obj = realm.objects(SaveScheduleObject.self)
