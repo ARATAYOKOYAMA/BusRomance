@@ -28,6 +28,26 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        //グラデーションの開始色(朝)
+        let topColor = UIColor(red:0.416, green:0.608, blue:0.784, alpha:1)
+        //グラデーションの終了色(朝)
+        let bottomColor = UIColor(red:0.459, green:0.996, blue:0.992, alpha:1)
+        
+        //グラデーションの色を配列で管理
+        let gradientColors: [CGColor] = [topColor.cgColor, bottomColor.cgColor]
+        
+        //グラデーションレイヤーを作成
+        let gradientLayer: CAGradientLayer = CAGradientLayer()
+        
+        //グラデーションの色をレイヤーに割り当てる
+        gradientLayer.colors = gradientColors
+        //グラデーションレイヤーをスクリーンサイズにする
+        gradientLayer.frame = self.view.bounds
+        
+        //グラデーションレイヤーをビューの一番下に配置
+        self.view.layer.insertSublayer(gradientLayer, at: 0)
+        
         busStopLabel1.text = "\(busStop1)"
         busStopLabel2.text = "\(busStop2)"
         fareLabel.text = "\(fare) 円"
