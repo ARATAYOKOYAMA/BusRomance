@@ -11,7 +11,7 @@ import UIKit
 
 var departureBusStop = ""
 var arrivalBusStop = ""
-var Date = ""
+var dayTime = ""
 
 
 
@@ -40,12 +40,12 @@ class SearchViewController: UIViewController, URLSessionDelegate, URLSessionData
      */
     @IBAction func seach(_ sender: Any) {
 
-        let httpResult = httpTransmission(departureBusStop: departureTextField.text!, arrivalBusStop: arrivalTextField.text!, Date: dateTextField.text!)
+        let httpResult = httpTransmission(departureBusStop: departureTextField.text!, arrivalBusStop: arrivalTextField.text!, dayTime: dateTextField.text!)
         
         // グローバル関数に代入
         departureBusStop = httpResult.departureBusStop
         arrivalBusStop = httpResult.arrivalBusStop
-        Date = httpResult.Date
+        dayTime = httpResult.dayTime
        
         // 検索結果へ遷移
         performSegue(withIdentifier: "search_result", sender: nil)

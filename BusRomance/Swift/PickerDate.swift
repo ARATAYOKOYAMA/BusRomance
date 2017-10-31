@@ -19,18 +19,35 @@ class PickerDate: UITextField{
         // Pickerのtoolbar
         let toolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: 0, height: 35))
         
+        
+        //UIBarButtonItemを追加して，datepicekrを複数形式に??
+        let JayZButton = UIBarButtonItem(title: "JayZ", style: UIBarButtonItemStyle.done, target: self, action: #selector(PickerDate.getNow))
+        
         // Pickerのdone
         let doneItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(PickerDate.done))
         
         // pickerのcancel
         let cancelItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(PickerDate.cancel))
-        toolbar.setItems([cancelItem, doneItem], animated: true)
+        toolbar.setItems([JayZButton, cancelItem, doneItem], animated: true)
+        
+        toolbar.isUserInteractionEnabled = true
+        toolbar.sizeToFit()
         
         // textfieldの入力をdatepickerに
         self.inputView = datePicker
         self.inputAccessoryView = toolbar
     }
     
+    func RapGod(){
+        print("ラップの神様")
+    }
+    
+    
+    func getNow(){
+        // 現在日時
+        let date = Date()
+        datePicker.date = date
+    }
     
     /*
      キャンセルボタン

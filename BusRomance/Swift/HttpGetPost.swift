@@ -8,7 +8,7 @@
 
 import Foundation
 
-func httpTransmission(departureBusStop: String,arrivalBusStop: String,Date: String) -> (departureBusStop: String, arrivalBusStop: String, Date: String) {
+func httpTransmission(departureBusStop: String,arrivalBusStop: String, dayTime: String) -> (departureBusStop: String, arrivalBusStop: String, dayTime: String) {
             // Sessionを生成.
             let session: URLSession = URLSession.shared
             // 通信先のURL
@@ -71,6 +71,6 @@ func httpTransmission(departureBusStop: String,arrivalBusStop: String,Date: Stri
             // http通信開始
             task.resume()
 
-    return (departureBusStop,arrivalBusStop,Date)
+    return (departureBusStop,arrivalBusStop,dayTime)
     
 }
