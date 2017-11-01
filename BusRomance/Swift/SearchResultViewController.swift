@@ -14,14 +14,6 @@ class SearchResultViewController: UIViewController{
     @IBOutlet weak var arrivalTextField: UILabel!
     
     @IBAction func alert(_ sender: Any) {
-//        let alert = UIAlertController(
-//            title: "アラートのタイトル",
-//            message: "アラートの本文",
-//            preferredStyle: .actionSheet)
-//        // アラートにボタンをつける
-//        alert.addAction(UIAlertAction(title: "OK", style: .default))
-//        // アラート表示
-//        self.present(alert, animated: true, completion: nil)
         
     }
     

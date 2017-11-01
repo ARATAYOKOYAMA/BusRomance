@@ -16,6 +16,10 @@ class PickerDate: UITextField{
     let datePicker = UIDatePicker()
     let dateFormatter = DateFormatter()
     
+    let departureButton = UIBarButtonItem(title: "出発", style: .done, target: self, action: #selector(PickerDate.changeDeparture))
+    
+    let arrivalButton = UIBarButtonItem(title: "到着", style: .done, target: self, action: #selector(PickerDate.changeArrival))
+    
     /*
      pickerのセットアップ
      */
@@ -25,18 +29,20 @@ class PickerDate: UITextField{
         let toolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: 0, height: 35))
         
         //UIBarButtonItemを追加して，datepicekrを複数形式に??
-        let JayZButton = UIBarButtonItem(title: "JayZ", style: .done, target: self, action: #selector(PickerDate.getNow))
+        //let JayZButton = UIBarButtonItem(title: "JayZ", style: .done, target: self, action: #selector(PickerDate.getNow))
         
-        let departureButton = UIBarButtonItem(title: "出発", style: .done, target: self, action: #selector(PickerDate.changeDeparture))
-        
-        let arrivalButton = UIBarButtonItem(title: "到着", style: .done, target: self, action: #selector(PickerDate.changeArrival))
+        departureButton.tintColor = UIColor.blue
+
+        arrivalButton.tintColor = UIColor.lightGray
         
         // Pickerのdone
         let doneItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(PickerDate.done))
         
         // pickerのcancel
         let cancelItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(PickerDate.cancel))
-        toolbar.setItems([departureButton, arrivalButton, JayZButton, cancelItem, doneItem], animated: true)
+        
+        
+        toolbar.setItems([departureButton, arrivalButton, cancelItem, doneItem], animated: true)
         
 //        toolbar.isUserInteractionEnabled = true
 //        toolbar.sizeToFit()
@@ -50,6 +56,7 @@ class PickerDate: UITextField{
         dateFormatter.dateStyle = .full
         dateFormatter.timeStyle = .short
     
+        // 現在時刻を初期値として入力
         getNow()
     }
     
@@ -58,6 +65,8 @@ class PickerDate: UITextField{
      出発時刻で検索
      */
     func changeDeparture(){
+        departureButton.tintColor = UIColor.blue
+        arrivalButton.tintColor = UIColor.lightGray
         departureFlag = 1
     }
     
@@ -65,6 +74,8 @@ class PickerDate: UITextField{
      到着時刻で検索
      */
     func changeArrival(){
+        departureButton.tintColor = UIColor.lightGray
+        arrivalButton.tintColor = UIColor.blue
         departureFlag = 0
     }
     
