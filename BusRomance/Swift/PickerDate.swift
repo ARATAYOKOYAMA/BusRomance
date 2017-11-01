@@ -8,45 +8,76 @@
 
 import UIKit
 
+var searchTargetData = (dateTime: "", departureFlag: 0)
+
 class PickerDate: UITextField{
     
+    var departureFlag:Int  = 1 // 1なら乗車する時刻 0なら降車する時刻
     let datePicker = UIDatePicker()
+    let dateFormatter = DateFormatter()
     
     /*
      pickerのセットアップ
      */
+    
     func setup() {
         // Pickerのtoolbar
         let toolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: 0, height: 35))
         
-        
         //UIBarButtonItemを追加して，datepicekrを複数形式に??
-        let JayZButton = UIBarButtonItem(title: "JayZ", style: UIBarButtonItemStyle.done, target: self, action: #selector(PickerDate.getNow))
+        let JayZButton = UIBarButtonItem(title: "JayZ", style: .done, target: self, action: #selector(PickerDate.getNow))
+        
+        let departureButton = UIBarButtonItem(title: "出発", style: .done, target: self, action: #selector(PickerDate.changeDeparture))
+        
+        let arrivalButton = UIBarButtonItem(title: "到着", style: .done, target: self, action: #selector(PickerDate.changeArrival))
         
         // Pickerのdone
         let doneItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(PickerDate.done))
         
         // pickerのcancel
         let cancelItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(PickerDate.cancel))
-        toolbar.setItems([JayZButton, cancelItem, doneItem], animated: true)
+        toolbar.setItems([departureButton, arrivalButton, JayZButton, cancelItem, doneItem], animated: true)
         
-        toolbar.isUserInteractionEnabled = true
-        toolbar.sizeToFit()
-        
+//        toolbar.isUserInteractionEnabled = true
+//        toolbar.sizeToFit()
+//
         // textfieldの入力をdatepickerに
         self.inputView = datePicker
         self.inputAccessoryView = toolbar
+        
+        // 日付のフォーマットを日本時間に設定
+        dateFormatter.locale = Locale(identifier: "ja_JP")
+        dateFormatter.dateStyle = .full
+        dateFormatter.timeStyle = .short
+    
+        getNow()
     }
     
-    func RapGod(){
-        print("ラップの神様")
+    
+    /*
+     出発時刻で検索
+     */
+    func changeDeparture(){
+        departureFlag = 1
+    }
+    
+    /*
+     到着時刻で検索
+     */
+    func changeArrival(){
+        departureFlag = 0
     }
     
     
+    /*
+     現在時刻の取得
+     */
     func getNow(){
         // 現在日時
         let date = Date()
         datePicker.date = date
+        searchTargetData.dateTime = dateFormatter.string(from: datePicker.date)
+        self.text = dateFormatter.string(from: datePicker.date) + "発"
     }
     
     /*
@@ -61,11 +92,18 @@ class PickerDate: UITextField{
      完了ボタン
      */
     func done() {
-        let dateFormatter = DateFormatter()
-        dateFormatter.locale = Locale(identifier: "ja_JP")
-        dateFormatter.dateStyle = .full
-        dateFormatter.timeStyle = .short
-        self.text = dateFormatter.string(from: datePicker.date)
+        
+        var flagResult:String = ""
+        if departureFlag == 1 {
+            flagResult = "発"
+        }else if departureFlag == 0 {
+            flagResult = "着"
+        }
+        
+        searchTargetData.dateTime = dateFormatter.string(from: datePicker.date)
+        searchTargetData.departureFlag = departureFlag
+        self.text = dateFormatter.string(from: datePicker.date) + flagResult
         self.endEditing(true)
     }
+    
 }

@@ -8,7 +8,7 @@
 
 import Foundation
 
-func httpTransmission(departureBusStop: String,arrivalBusStop: String, dayTime: String) -> (departureBusStop: String, arrivalBusStop: String, dayTime: String) {
+func httpTransmission(departureBusStop: String,arrivalBusStop: String, dayTime: String, departureFlag: Int) -> (departureBusStop: String, arrivalBusStop: String, dayTime: String) {
             // Sessionを生成.
             let session: URLSession = URLSession.shared
             // 通信先のURL
@@ -20,7 +20,7 @@ func httpTransmission(departureBusStop: String,arrivalBusStop: String, dayTime: 
             request.httpMethod = "POST"
     
             // 送信するデータを生成・リクエストにセット.
-            //let postString = "departureBusStop=\(departureBusStop)&arrivalBusStop=\(arrivalBusStop)&Date=\(Date)"
+            //let postString = "departureBusStop=\(departureBusStop)&arrivalBusStop=\(arrivalBusStop)&dayTime=\(dayTime)&departureFlag=\(departureFlag)"
             let postString = "departureBusStop=\(departureBusStop)"
             request.httpBody = postString.data(using: .utf8)
     
