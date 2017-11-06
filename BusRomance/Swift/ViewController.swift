@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 class ViewController: UIViewController {
     
@@ -18,10 +19,12 @@ class ViewController: UIViewController {
     @IBOutlet weak var busTimeLabel2: UILabel!
     @IBOutlet weak var busRemainLabel1: UILabel!
     @IBOutlet weak var busRemainLabel2: UILabel!
+
     
     var fare:Int = 190 //乗車運賃
     var busRem1:Int = 3 //乗車までの時間1
     var busRem2:Int = 65 //乗車までの時間2
+
     var busStop1:String = "はこだて未来大学" //乗車バス停名
     var busStop2:String = "赤川通" //降車バス停名
     var topColor:UIColor = UIColor(red:0.000, green:0.000, blue:0.000, alpha:1)
@@ -34,6 +37,10 @@ class ViewController: UIViewController {
         fareLabel.text = "\(fare) 円"
         busRemainLabel1.text = "到着まで約 \(busRem1) 分"
         busRemainLabel2.text = "到着まで約 \(busRem2) 分"
+        let realm = try! Realm()
+        let getOnBusStop = realm.objects(FrequentlyPlaceObject.self)
+        busStopLabel1.text = "\(getOnBusStop.last!.busStop)"
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {

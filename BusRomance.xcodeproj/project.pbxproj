@@ -302,7 +302,7 @@
 				TargetAttributes = {
 					DF79AF291F717A60006D7AF6 = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = 65VW7XZNV5;
+						DevelopmentTeam = KZ443JX5KX;
 						ProvisioningStyle = Automatic;
 					};
 					DF79AF3D1F717A61006D7AF6 = {
@@ -558,7 +558,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 65VW7XZNV5;
+				DEVELOPMENT_TEAM = KZ443JX5KX;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -566,7 +566,7 @@
 				);
 				INFOPLIST_FILE = BusRomance/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = BusRoman.BusRomance;
+				PRODUCT_BUNDLE_IDENTIFIER = BusRoman.BusRomancea;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -576,7 +576,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 65VW7XZNV5;
+				DEVELOPMENT_TEAM = KZ443JX5KX;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -584,7 +584,7 @@
 				);
 				INFOPLIST_FILE = BusRomance/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = BusRoman.BusRomance;
+				PRODUCT_BUNDLE_IDENTIFIER = BusRoman.BusRomancea;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
