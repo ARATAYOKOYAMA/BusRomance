@@ -60,7 +60,6 @@
                                 </state>
                                 <connections>
                                     <action selector="seach:" destination="GSK-nf-Iiy" eventType="touchUpInside" id="D0n-WP-tfh"/>
-                                    <segue destination="MM0-sp-s5I" kind="show" identifier="search_result" id="chx-AA-LAc"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="時間" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="veO-UA-dek" customClass="PickerDate" customModule="BusRomance" customModuleProvider="target">
@@ -80,6 +79,7 @@
                         <outlet property="arrivalTextField" destination="fgC-Tr-fgh" id="dPH-HI-OxA"/>
                         <outlet property="dateTextField" destination="veO-UA-dek" id="VNN-V8-VHl"/>
                         <outlet property="departureTextField" destination="llu-oo-Vfe" id="rnH-xx-BgY"/>
+                        <segue destination="MM0-sp-s5I" kind="push" identifier="search_result" id="A9Q-LX-LYJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gnu-cT-W5n" userLabel="First Responder" sceneMemberID="firstResponder"/>
