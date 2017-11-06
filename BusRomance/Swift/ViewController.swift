@@ -29,23 +29,17 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        //グラデーションの開始色(朝)
-        let topColor = UIColor(red:0.416, green:0.608, blue:0.784, alpha:1)
-        //グラデーションの終了色(朝)
-        let bottomColor = UIColor(red:0.459, green:0.996, blue:0.992, alpha:1)
-        
-        //グラデーションの色を配列で管理
+        let topColor = UIColor(red:0.000, green:0.357, blue:0.918, alpha:1)//朝
+        let bottomColor = UIColor(red:0.455, green:0.822, blue:0.835, alpha:0.4)//朝
+        // let bottomColor = UIColor(red:0.000, green:0.949, blue:0.996, alpha:1)//朝
+        //let topColor = UIColor(red:0.980, green:0.439, blue:0.604, alpha:1)//夕方
+        //let bottomColor = UIColor(red:0.996, green:0.882, blue:0.251, alpha:1)//夕方
+        // let topColor = UIColor(red:0.200, green:0.031, blue:0.404, alpha:1)//夜
+        // let bottomColor = UIColor(red:0.108, green:0.442, blue:0.746, alpha:1)//夜
         let gradientColors: [CGColor] = [topColor.cgColor, bottomColor.cgColor]
-        
-        //グラデーションレイヤーを作成
         let gradientLayer: CAGradientLayer = CAGradientLayer()
-        
-        //グラデーションの色をレイヤーに割り当てる
         gradientLayer.colors = gradientColors
-        //グラデーションレイヤーをスクリーンサイズにする
         gradientLayer.frame = self.view.bounds
-        
-        //グラデーションレイヤーをビューの一番下に配置
         self.view.layer.insertSublayer(gradientLayer, at: 0)
         
         busStopLabel1.text = "\(busStop1)"
