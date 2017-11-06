@@ -40,9 +40,10 @@ class ViewController: UIViewController {
         super.viewWillAppear(animated)
         var nowTimeString = getNowClockString()
         var nowTimeInt:Int = Int(nowTimeString)!
+        nowTimeInt = 7
         if nowTimeInt >= 6 && nowTimeInt <= 15{
-            topColor = UIColor(red:0.000, green:0.357, blue:0.918, alpha:1)//朝
-            bottomColor = UIColor(red:0.455, green:0.822, blue:0.835, alpha:0.4)//朝
+            topColor = UIColor(red:0.000, green:0.557, blue:1.000, alpha:1)//朝
+            bottomColor = UIColor(red:0.000, green:1.000, blue:1.000, alpha:0.0)//朝
         }else if nowTimeInt >= 16 && nowTimeInt <= 18{
             topColor = UIColor(red:0.980, green:0.439, blue:0.604, alpha:1)//夕方
             bottomColor = UIColor(red:0.996, green:0.882, blue:0.251, alpha:1)//夕方
@@ -57,7 +58,6 @@ class ViewController: UIViewController {
         gradientLayer.frame = self.view.bounds
         self.view.layer.insertSublayer(gradientLayer, at: 0)
     }
-    
     
     func getNowClockString() -> String {
         let formatter = DateFormatter()

@@ -11,9 +11,7 @@ import UIKit
 
 var departureBusStop = ""
 var arrivalBusStop = ""
-var Date = ""
-
-
+var Datea = ""
 
 class SearchViewController: UIViewController, URLSessionDelegate, URLSessionDataDelegate{
     
@@ -45,7 +43,7 @@ class SearchViewController: UIViewController, URLSessionDelegate, URLSessionData
         // グローバル関数に代入
         departureBusStop = httpResult.departureBusStop
         arrivalBusStop = httpResult.arrivalBusStop
-        Date = httpResult.Date
+        Datea = httpResult.Date
        
         // 検索結果へ遷移
         performSegue(withIdentifier: "search_result", sender: nil)
