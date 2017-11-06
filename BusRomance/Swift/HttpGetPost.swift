@@ -12,7 +12,7 @@ func httpTransmission(departureBusStop: String,arrivalBusStop: String, dayTime: 
             // Sessionを生成.
             let session: URLSession = URLSession.shared
             // 通信先のURL
-            let url = "http://localhost/hoge/index.php"
+            let url = "http://polls.apiblueprint.org/questions"
     
             // POST用のリクエストを生成.
             var request = URLRequest(url: URL(string:url)!)
@@ -31,13 +31,14 @@ func httpTransmission(departureBusStop: String,arrivalBusStop: String, dayTime: 
                 // エラーかどうか
                 guard error == nil else {
                     // エラー表示
-    
+                    print(error)
                     return
                 }
                 
                 if data != nil {
                     let hoge = NSString(data: data!, encoding: String.Encoding.utf8.rawValue)
-                        print(hoge,"うんち")
+//                        print(hoge,"うんち")
+                        print(hoge)
                     }
     
 //                // 受け取ったJSONの処理
@@ -48,7 +49,7 @@ func httpTransmission(departureBusStop: String,arrivalBusStop: String, dayTime: 
 //                }
 //
 //                // 受け取ったJSONデータをパースして格納
-//                guard let jsonData = try! JSONSerialization.jsonObject(with: data) as? [String:Any] else {
+//                guard let jsonData = try! JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.allowFragments) as? [String:Any] else {
 //                    // 変換失敗
 //                    print("変換失敗")
 //                    return

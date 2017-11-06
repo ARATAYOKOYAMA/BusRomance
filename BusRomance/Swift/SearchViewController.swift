@@ -8,10 +8,6 @@
 
 import UIKit
 
-var departureBusStop = ""
-var arrivalBusStop = ""
-var Datea = ""
-
 class SearchViewController: UIViewController, URLSessionDelegate, URLSessionDataDelegate{
     
     
@@ -46,7 +42,7 @@ class SearchViewController: UIViewController, URLSessionDelegate, URLSessionData
         if departureTextField.text != "" && arrivalTextField.text != "" {
             let httpResult = httpTransmission(departureBusStop: departureTextField.text!, arrivalBusStop: arrivalTextField.text!, dayTime: searchTargetData.dateTime, departureFlag: searchTargetData.departureFlag)
             
-            // グローバル関数に代入
+            // 変数に代入
             departureBusStop = httpResult.departureBusStop
             arrivalBusStop = httpResult.arrivalBusStop
             dayTime = httpResult.dayTime
@@ -79,15 +75,6 @@ class SearchViewController: UIViewController, URLSessionDelegate, URLSessionData
             // アラート表示
             self.present(alert, animated: true, completion: nil)
         }
-        
-
-        // グローバル関数に代入
-        departureBusStop = httpResult.departureBusStop
-        arrivalBusStop = httpResult.arrivalBusStop
-        Datea = httpResult.Date
-       
-        // 検索結果へ遷移
-        performSegue(withIdentifier: "search_result", sender: nil)
 
     }
     
