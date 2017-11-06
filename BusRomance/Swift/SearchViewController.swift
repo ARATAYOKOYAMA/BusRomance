@@ -8,14 +8,17 @@
 
 import UIKit
 
-
 var departureBusStop = ""
 var arrivalBusStop = ""
 var Datea = ""
 
-
-
 class SearchViewController: UIViewController, URLSessionDelegate, URLSessionDataDelegate{
+    
+    
+    var departureBusStop = ""
+    var arrivalBusStop = ""
+    var dayTime = ""
+    
     
     @IBOutlet weak var departureTextField: PickerTextField! //乗車するバス停を入力するtextFeld
     @IBOutlet weak var arrivalTextField: PickerTextField! //降車するバス停を入力するtextFeld
@@ -25,8 +28,8 @@ class SearchViewController: UIViewController, URLSessionDelegate, URLSessionData
         super.viewDidLoad()
         
         // バス停を入力するTextFieldのセットアップ
-        departureTextField.setup(dataList: ["バス停を選択してください","はこだて未来大学", "赤川貯水池", "赤川3区", "赤川小学校", "浄水場下", "低区貯水池", "赤川入口", "赤川１丁目ライフプレステージ白ゆり美原前", "赤川通","函館地方気象台前"])
-        arrivalTextField.setup(dataList: ["バス停を選択してください","はこだて未来大学", "赤川貯水池", "赤川3区", "赤川小学校", "浄水場下", "低区貯水池", "赤川入口", "赤川１丁目ライフプレステージ白ゆり美原前", "赤川通","函館地方気象台前"])
+        departureTextField.setup(dataList: ["選択してください","はこだて未来大学", "赤川貯水池", "赤川3区", "赤川小学校", "浄水場下", "低区貯水池", "赤川入口", "赤川１丁目ライフプレステージ白ゆり美原前", "赤川通","函館地方気象台前"])
+        arrivalTextField.setup(dataList: ["選択してください","はこだて未来大学", "赤川貯水池", "赤川3区", "赤川小学校", "浄水場下", "低区貯水池", "赤川入口", "赤川１丁目ライフプレステージ白ゆり美原前", "赤川通","函館地方気象台前"])
         // datepickerのセットアップ
         dateTextField.setup()
         
@@ -40,8 +43,44 @@ class SearchViewController: UIViewController, URLSessionDelegate, URLSessionData
      */
     @IBAction func seach(_ sender: Any) {
 
-        let httpResult = httpTransmission(departureBusStop: departureTextField.text!, arrivalBusStop: arrivalTextField.text!, Date: dateTextField.text!)
+        if departureTextField.text != "" && arrivalTextField.text != "" {
+            let httpResult = httpTransmission(departureBusStop: departureTextField.text!, arrivalBusStop: arrivalTextField.text!, dayTime: searchTargetData.dateTime, departureFlag: searchTargetData.departureFlag)
+            
+            // グローバル関数に代入
+            departureBusStop = httpResult.departureBusStop
+            arrivalBusStop = httpResult.arrivalBusStop
+            dayTime = httpResult.dayTime
+            
+            // 検索結果へ遷移
+            performSegue(withIdentifier: "search_result", sender: nil)
+            
+        }else {
+            
+            var alertMessage = ""
+            
+            if departureTextField.text == "" {
+                alertMessage = "乗車するバス停を選択してください"
+            }
+            
+            if arrivalTextField.text == "" {
+                alertMessage = "降車するバス停を選択してください"
+            }
+            
+            
+            // アラートを作成
+            let alert = UIAlertController(
+                title: "未選択",
+                message: alertMessage,
+                preferredStyle: .alert)
+            
+            // アラートにボタンをつける
+            alert.addAction(UIAlertAction(title: "OK", style: .default))
+            
+            // アラート表示
+            self.present(alert, animated: true, completion: nil)
+        }
         
+
         // グローバル関数に代入
         departureBusStop = httpResult.departureBusStop
         arrivalBusStop = httpResult.arrivalBusStop
@@ -49,6 +88,7 @@ class SearchViewController: UIViewController, URLSessionDelegate, URLSessionData
        
         // 検索結果へ遷移
         performSegue(withIdentifier: "search_result", sender: nil)
+
     }
     
  

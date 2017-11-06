@@ -13,6 +13,10 @@ class SearchResultViewController: UIViewController{
     @IBOutlet weak var departureTextField: UILabel!
     @IBOutlet weak var arrivalTextField: UILabel!
     
+    @IBAction func alert(_ sender: Any) {
+        
+    }
+    
     var departureBusStop = ""
     var arrivalBusStop = ""
     
