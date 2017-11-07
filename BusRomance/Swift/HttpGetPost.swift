@@ -20,7 +20,7 @@ func httpTransmission(departureBusStop: String,arrivalBusStop: String, dayTime: 
             request.httpMethod = "POST"
     
             // 送信するデータを生成・リクエストにセット.
-            //let postString = "departureBusStop=\(departureBusStop)&arrivalBusStop=\(arrivalBusStop)&dayTime=\(dayTime)&departureFlag=\(departureFlag)"
+           // let postString = "departureBusStop=\(departureBusStop)&arrivalBusStop=\(arrivalBusStop)&dayTime=\(dayTime)&departureFlag=\(departureFlag)"
             let postString = "departureBusStop=\(departureBusStop)"
             request.httpBody = postString.data(using: .utf8)
     

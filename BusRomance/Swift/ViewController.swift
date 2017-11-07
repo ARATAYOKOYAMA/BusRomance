@@ -32,6 +32,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //deleateRealm2()
         busStopLabel1.text = "\(busStop1)"
         busStopLabel2.text = "\(busStop2)"
         fareLabel.text = "\(fare) 円"
@@ -39,7 +40,7 @@ class ViewController: UIViewController {
         busRemainLabel2.text = "到着まで約 \(busRem2) 分"
         let realm = try! Realm()
         let getOnBusStop = realm.objects(FrequentlyPlaceObject.self)
-        busStopLabel1.text = "\(getOnBusStop.last!.busStop)"
+        busStopLabel1.text = "\(getOnBusStop.last!.busStop1)"
         
     }
     
