@@ -16,9 +16,6 @@
 		1564900D1F985C33003680FD /* InitialSettingSecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1564900C1F985C33003680FD /* InitialSettingSecondViewController.swift */; };
 		1564900F1F985C51003680FD /* InitialSettingThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1564900E1F985C51003680FD /* InitialSettingThirdViewController.swift */; };
 		157B73951FB00CC600CE0E4E /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 157B73941FB00CC600CE0E4E /* RealmSwift.framework */; };
-		157B73971FB00CE000CE0E4E /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 157B73961FB00CE000CE0E4E /* Realm.framework */; };
-		157B73981FB00CE000CE0E4E /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 157B73961FB00CE000CE0E4E /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		157B739B1FB00CF000CE0E4E /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 157B73991FB00CF000CE0E4E /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		158381801F7C99CA00733F56 /* DetilsScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1583817F1F7C99CA00733F56 /* DetilsScheduleViewController.swift */; };
 		158381841F7C9C7500733F56 /* DetilsSchedule.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 158381831F7C9C7500733F56 /* DetilsSchedule.storyboard */; };
 		15C5767B1F95D87A00143B2F /* InitialActivationStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15C5767A1F95D87A00143B2F /* InitialActivationStoryboard.storyboard */; };
@@ -65,8 +62,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				157B739B1FB00CF000CE0E4E /* RealmSwift.framework in Embed Frameworks */,
-				157B73981FB00CE000CE0E4E /* Realm.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -84,8 +79,6 @@
 		1564900E1F985C51003680FD /* InitialSettingThirdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialSettingThirdViewController.swift; sourceTree = "<group>"; };
 		157B73921FB00CBA00CE0E4E /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
 		157B73941FB00CC600CE0E4E /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
-		157B73961FB00CE000CE0E4E /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
-		157B73991FB00CF000CE0E4E /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
 		1583817F1F7C99CA00733F56 /* DetilsScheduleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetilsScheduleViewController.swift; sourceTree = "<group>"; };
 		158381831F7C9C7500733F56 /* DetilsSchedule.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DetilsSchedule.storyboard; sourceTree = "<group>"; };
 		15C5767A1F95D87A00143B2F /* InitialActivationStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = InitialActivationStoryboard.storyboard; sourceTree = "<group>"; };
@@ -119,7 +112,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				157B73971FB00CE000CE0E4E /* Realm.framework in Frameworks */,
 				157B73951FB00CC600CE0E4E /* RealmSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -191,8 +183,6 @@
 		DF79AF211F717A60006D7AF6 = {
 			isa = PBXGroup;
 			children = (
-				157B73991FB00CF000CE0E4E /* RealmSwift.framework */,
-				157B73961FB00CE000CE0E4E /* Realm.framework */,
 				DF79AF2C1F717A60006D7AF6 /* BusRomance */,
 				DF79AF411F717A61006D7AF6 /* BusRomanceTests */,
 				DF79AF4C1F717A61006D7AF6 /* BusRomanceUITests */,
@@ -311,7 +301,7 @@
 				TargetAttributes = {
 					DF79AF291F717A60006D7AF6 = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = ESE58KA65M;
+						DevelopmentTeam = KZ443JX5KX;
 						ProvisioningStyle = Automatic;
 					};
 					DF79AF3D1F717A61006D7AF6 = {
@@ -570,7 +560,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = ESE58KA65M;
+				DEVELOPMENT_TEAM = KZ443JX5KX;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -578,7 +568,7 @@
 				);
 				INFOPLIST_FILE = BusRomance/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = BusRoman.BusRomanceajbk;
+				PRODUCT_BUNDLE_IDENTIFIER = BusRoman.BusRomanceajbkjhj;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -588,7 +578,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = ESE58KA65M;
+				DEVELOPMENT_TEAM = KZ443JX5KX;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -596,7 +586,7 @@
 				);
 				INFOPLIST_FILE = BusRomance/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = BusRoman.BusRomanceajbk;
+				PRODUCT_BUNDLE_IDENTIFIER = BusRoman.BusRomanceajbkjhj;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
