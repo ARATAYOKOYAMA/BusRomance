@@ -25,6 +25,15 @@ func deleateRealm(){
     print("dataを削除した")
 }
 
+func deleateRealm2(){
+    let realm = try! Realm()
+    let obj = realm.objects(FrequentlyPlaceObject.self)
+    try! realm.write {
+        realm.delete(obj)//obj削除
+    }
+    print("dataを削除した")
+}
+
 class DetilsScheduleViewController: UIViewController {
     
     @IBOutlet weak var nameTextField: UITextField!
