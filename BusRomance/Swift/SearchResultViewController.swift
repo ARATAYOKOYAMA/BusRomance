@@ -28,4 +28,7 @@ class SearchResultViewController: UIViewController{
     override func didReceiveMemoryWarning() {
         
     }
+    @IBAction func backButton(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
+    }
 }

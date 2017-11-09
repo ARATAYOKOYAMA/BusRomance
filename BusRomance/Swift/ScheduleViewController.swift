@@ -155,7 +155,7 @@ class ScheduleViewController: UIViewController, UICollectionViewDataSource,UICol
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let numberOfMargin:CGFloat = 8.0
         let widths:CGFloat = (collectionView.frame.size.width - cellMargin * numberOfMargin)/CGFloat(numOfDays)
-        let heights:CGFloat = widths * 1.5
+        let heights:CGFloat = (collectionView.frame.size.height - cellMargin * numberOfMargin)/CGFloat(numOfDays)//-49.0/6.0//UIScreen.main.bounds.height/6.0//widths * 1.5
         cellHeight = heights
         cellWidth = widths
         return CGSize(width:widths,height:heights)
