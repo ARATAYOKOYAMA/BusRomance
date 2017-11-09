@@ -18,11 +18,22 @@ func httpTransmission(departureBusStop: String,arrivalBusStop: String, dayTime: 
             var request = URLRequest(url: URL(string:url)!)
             // POSTのメソッドを指定.2
             request.httpMethod = "POST"
+            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
     
             // 送信するデータを生成・リクエストにセット.
-           // let postString = "departureBusStop=\(departureBusStop)&arrivalBusStop=\(arrivalBusStop)&dayTime=\(dayTime)&departureFlag=\(departureFlag)"
-            let postString = "departureBusStop=\(departureBusStop)"
-            request.httpBody = postString.data(using: .utf8)
+            //let postString = "departureBusStop=\(departureBusStop)&arrivalBusStop=\(arrivalBusStop)&dayTime=\(dayTime)&departureFlag=\(departureFlag)"
+            //let postString = "departureBusStop=\(departureBusStop)"
+            //request.httpBody = postString.data(using: .utf8)
+            let  postString : [String: Any] = [
+                "departureBusStop": departureBusStop,
+                "arrivalBusStop": arrivalBusStop
+            ]
+    
+            do{
+                request.httpBody = try JSONSerialization.data(withJSONObject: postString, options: [])
+            }catch{
+                print(error.localizedDescription)
+            }
     
             // リクエストをタスクとして登録
             let task = session.dataTask(with: request, completionHandler: {
@@ -52,7 +63,6 @@ func httpTransmission(departureBusStop: String,arrivalBusStop: String, dayTime: 
                 print(jsonData)
                 // データの解析
                 if let resultDataValues = jsonData as? [String:Any]{
-
                     // 出発時刻
                     guard let departureTime = resultDataValues["departureBusStop"] as? String else {
                         return
@@ -61,7 +71,7 @@ func httpTransmission(departureBusStop: String,arrivalBusStop: String, dayTime: 
 
                 } else {
                     // データなし
-                    print("データなし")
+                    print("該当データなし")
                 }
             })
             // http通信開始
