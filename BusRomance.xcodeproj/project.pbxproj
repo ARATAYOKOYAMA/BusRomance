@@ -301,7 +301,7 @@
 				TargetAttributes = {
 					DF79AF291F717A60006D7AF6 = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = KZ443JX5KX;
+						DevelopmentTeam = 634QW7RT8Y;
 						ProvisioningStyle = Automatic;
 					};
 					DF79AF3D1F717A61006D7AF6 = {
@@ -560,7 +560,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = KZ443JX5KX;
+				DEVELOPMENT_TEAM = 634QW7RT8Y;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -571,6 +571,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = BusRoman.BusRomanceajbkjhj;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -578,7 +579,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = KZ443JX5KX;
+				DEVELOPMENT_TEAM = 634QW7RT8Y;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -589,6 +590,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = BusRoman.BusRomanceajbkjhj;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
