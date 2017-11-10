@@ -87,7 +87,7 @@
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="13"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="24862" translatesAutoresizingMaskIntoConstraints="NO" id="cAM-qx-lHd">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="BusRomance-Bus" translatesAutoresizingMaskIntoConstraints="NO" id="cAM-qx-lHd">
                                 <rect key="frame" x="122" y="512" width="201" height="106"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -131,8 +131,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="24862" width="2771" height="1551"/>
         <image name="BusRomance-Back-White" width="1242" height="2208"/>
+        <image name="BusRomance-Bus" width="2771" height="1551"/>
         <image name="ReloadButton-White" width="206" height="211"/>
         <image name="fukidashi-8p" width="1066" height="885"/>
     </resources>

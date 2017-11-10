@@ -59,6 +59,7 @@ class InitialSettingThirdViewController: UIViewController {
             let resutls = realm.objects(FrequentlyPlaceObject.self)
             print(resutls.last!.busStop1)
             performSegue(withIdentifier: "toMain",sender: nil)
+            
         }
     }
     

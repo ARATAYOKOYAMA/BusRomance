@@ -39,9 +39,9 @@ class ViewController: UIViewController {
         fareLabel.text = "\(fare)円"
         busRemainLabel1.text = "到着まで約 \(busRem1) 分"
         busRemainLabel2.text = "到着まで約 \(busRem2) 分"
-        let realm = try! Realm()
-        let getOnBusStop = realm.objects(FrequentlyPlaceObject.self)
-        busStopLabel1.text = "\(getOnBusStop.last!.busStop1)"
+//        let realm = try! Realm()
+//        let getOnBusStop = realm.objects(FrequentlyPlaceObject.self)
+//        busStopLabel1.text = "\(getOnBusStop.last!.busStop1)"
         
     }
     
@@ -49,7 +49,7 @@ class ViewController: UIViewController {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: false)
         var nowTimeString = getNowClockString()
-        var nowTimeInt:Int = Int(nowTimeString)!+2
+        var nowTimeInt:Int = Int(nowTimeString)!
         if nowTimeInt >= 6 && nowTimeInt <= 15{
             topColor = UIColor(red:0.000, green:0.557, blue:1.000, alpha:1)//朝
             bottomColor = UIColor(red:0.000, green:1.000, blue:1.000, alpha:0)//朝
@@ -79,6 +79,9 @@ class ViewController: UIViewController {
         gradientLayer.colors = gradientColors
         gradientLayer.frame = self.view.bounds
         self.view.layer.insertSublayer(gradientLayer, at: 0)
+        let realm = try! Realm()
+        let getOnBusStop = realm.objects(FrequentlyPlaceObject.self)
+        busStopLabel1.text = "\(getOnBusStop.last!.busStop1)"
     }
     
     
