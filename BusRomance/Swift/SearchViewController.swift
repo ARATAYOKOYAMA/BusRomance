@@ -30,6 +30,12 @@ class SearchViewController: UIViewController, URLSessionDelegate, URLSessionData
         dateTextField.setup()
         
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: false)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }

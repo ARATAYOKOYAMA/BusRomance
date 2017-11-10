@@ -93,6 +93,7 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="検索" id="Ien-gm-o0m"/>
+                    <navigationItem key="navigationItem" title="検索" id="nDO-oJ-ShE"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="arrivalTextField" destination="fgC-Tr-fgh" id="dPH-HI-OxA"/>
@@ -105,7 +106,7 @@
             </objects>
             <point key="canvasLocation" x="512.80000000000007" y="133.5832083958021"/>
         </scene>
-        <!--Search Result View Controller-->
+        <!--検索結果-->
         <scene sceneID="P0W-7i-c05">
             <objects>
                 <viewController id="MM0-sp-s5I" customClass="SearchResultViewController" customModule="BusRomance" customModuleProvider="target" sceneMemberID="viewController">
@@ -201,6 +202,7 @@
                             <constraint firstItem="F5K-q1-XGd" firstAttribute="leading" secondItem="gRJ-Yi-tHl" secondAttribute="leading" id="y5D-TB-6sj"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="検索結果" id="YEi-YD-1WD"/>
                     <connections>
                         <outlet property="arrivalTextField" destination="HTT-eu-KZy" id="xR4-lC-44z"/>
                         <outlet property="departureTextField" destination="dZy-6H-1jY" id="ZiS-Qs-aEZ"/>
