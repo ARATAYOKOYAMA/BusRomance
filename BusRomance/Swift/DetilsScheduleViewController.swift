@@ -155,6 +155,9 @@ class DetilsScheduleViewController: UIViewController {
         }
     }
     
+    @IBAction func cancelButton(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
+    }
     
 
     override func didReceiveMemoryWarning() {

@@ -39,9 +39,6 @@ class ViewController: UIViewController {
         fareLabel.text = "\(fare)円"
         busRemainLabel1.text = "到着まで約 \(busRem1) 分"
         busRemainLabel2.text = "到着まで約 \(busRem2) 分"
-        let realm = try! Realm()
-        let getOnBusStop = realm.objects(FrequentlyPlaceObject.self)
-        busStopLabel1.text = "\(getOnBusStop.last!.busStop1)"
         
     }
     
@@ -79,6 +76,10 @@ class ViewController: UIViewController {
         gradientLayer.colors = gradientColors
         gradientLayer.frame = self.view.bounds
         self.view.layer.insertSublayer(gradientLayer, at: 0)
+    
+        let realm = try! Realm()
+    //    let getOnBusStop = realm.objects(FrequentlyPlaceObject.self)
+      //e  busStopLabel1.text = "\(getOnBusStop.last!.busStop1)"
     }
     
     
