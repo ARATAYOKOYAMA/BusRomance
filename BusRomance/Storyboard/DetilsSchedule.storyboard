@@ -89,23 +89,10 @@
                                     <action selector="deleateButton:" destination="4ps-ot-tkk" eventType="touchUpInside" id="ZqY-6H-Bm3"/>
                                 </connections>
                             </button>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wmj-xC-5g5">
-                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                                <items>
-                                    <navigationItem title="時間割登録" id="83D-X1-lx1">
-                                        <barButtonItem key="leftBarButtonItem" title="cancel" id="ZvW-0E-hUI">
-                                            <connections>
-                                                <action selector="cancelButton:" destination="4ps-ot-tkk" id="vyL-Nk-rm7"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="zgK-yw-dFs" firstAttribute="top" secondItem="DSG-1C-Dcl" secondAttribute="bottom" constant="70" id="3mL-Zf-WeU"/>
-                            <constraint firstItem="wmj-xC-5g5" firstAttribute="top" secondItem="7DB-Q8-g8G" secondAttribute="top" id="5XW-Kr-eco"/>
                             <constraint firstItem="cOu-ux-Z18" firstAttribute="centerY" secondItem="vYu-LN-gOZ" secondAttribute="centerY" constant="50" id="5XY-zI-1dT"/>
                             <constraint firstItem="DSG-1C-Dcl" firstAttribute="leading" secondItem="7DB-Q8-g8G" secondAttribute="leading" constant="20" id="A30-sU-1a1"/>
                             <constraint firstItem="7Kd-QH-Ehp" firstAttribute="top" secondItem="cOu-ux-Z18" secondAttribute="bottom" constant="60" id="A7o-Z4-2HJ"/>
@@ -115,10 +102,8 @@
                             <constraint firstItem="7DB-Q8-g8G" firstAttribute="trailing" secondItem="AlJ-9V-qMV" secondAttribute="trailing" constant="20" id="Okm-Si-wrK"/>
                             <constraint firstItem="zgK-yw-dFs" firstAttribute="centerY" secondItem="vYu-LN-gOZ" secondAttribute="centerY" constant="-60" id="Q2d-Fe-IM9"/>
                             <constraint firstItem="7DB-Q8-g8G" firstAttribute="trailing" secondItem="hYZ-Mt-P9u" secondAttribute="trailing" constant="20" id="RmE-SP-kV0"/>
-                            <constraint firstItem="wmj-xC-5g5" firstAttribute="trailing" secondItem="7DB-Q8-g8G" secondAttribute="trailing" id="SxW-mt-wYu"/>
                             <constraint firstItem="cOu-ux-Z18" firstAttribute="centerX" secondItem="vYu-LN-gOZ" secondAttribute="centerX" id="Uxb-Pl-9jX"/>
                             <constraint firstItem="7Kd-QH-Ehp" firstAttribute="centerX" secondItem="vYu-LN-gOZ" secondAttribute="centerX" id="Xj6-oL-oxl"/>
-                            <constraint firstItem="wmj-xC-5g5" firstAttribute="leading" secondItem="7DB-Q8-g8G" secondAttribute="leading" id="XzV-HW-sUu"/>
                             <constraint firstItem="zgK-yw-dFs" firstAttribute="leading" secondItem="7DB-Q8-g8G" secondAttribute="leading" constant="20" id="jQG-Xp-Tk3"/>
                             <constraint firstItem="hYZ-Mt-P9u" firstAttribute="height" secondItem="zgK-yw-dFs" secondAttribute="height" id="lPa-fh-yQd"/>
                             <constraint firstItem="hYZ-Mt-P9u" firstAttribute="leading" secondItem="zgK-yw-dFs" secondAttribute="trailing" constant="5" id="mcr-jh-m4P"/>

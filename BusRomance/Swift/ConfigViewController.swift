@@ -32,7 +32,8 @@ class ConfigViewController: UIViewController ,UITableViewDataSource, UITableView
         super.viewDidLoad()
         tableView.dataSource = self
         tableView.delegate = self
-        
+        navigationController?.setNavigationBarHidden(false, animated: false)
+        self.navigationItem.title = "設定"
     }
     
     override func viewWillAppear(_ animated: Bool) {

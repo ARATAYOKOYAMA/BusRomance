@@ -20,7 +20,7 @@ class BusStopEntryViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        navigationController?.setNavigationBarHidden(false, animated: false)
         entryButton.layer.borderWidth = 4.0 // 枠線の幅
         entryButton.layer.borderColor = UIColor.blue.cgColor // 枠線の色
         entryButton.layer.cornerRadius = 8.0 // 角丸のサイズ
