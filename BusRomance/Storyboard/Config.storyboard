@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -23,17 +22,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="設定" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fFB-0A-qbQ">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="68"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="fFB-0A-qbQ" secondAttribute="height" multiplier="375:68" id="fcv-1o-mjM"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Hhb-LH-LkW">
-                                <rect key="frame" x="16" y="68" width="343" height="550"/>
+                                <rect key="frame" x="16" y="28" width="343" height="590"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" textLabel="zCv-um-bTD" detailTextLabel="08e-d0-7Wo" style="IBUITableViewCellStyleValue1" id="qrE-ws-IDl">
@@ -69,13 +59,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="fFB-0A-qbQ" secondAttribute="trailing" id="3ws-yB-jXr"/>
-                            <constraint firstItem="fFB-0A-qbQ" firstAttribute="leading" secondItem="ajS-tl-KfD" secondAttribute="leading" id="M1j-eS-uTM"/>
-                            <constraint firstItem="Hhb-LH-LkW" firstAttribute="top" secondItem="fFB-0A-qbQ" secondAttribute="bottom" id="NAm-iA-eSl"/>
+                            <constraint firstItem="Hhb-LH-LkW" firstAttribute="top" secondItem="cvK-ES-P7J" secondAttribute="bottom" constant="8" symbolic="YES" id="6cr-Sh-exl"/>
                             <constraint firstItem="Hhb-LH-LkW" firstAttribute="leading" secondItem="ajS-tl-KfD" secondAttribute="leadingMargin" id="Rfd-0K-BAL"/>
                             <constraint firstItem="Hhb-LH-LkW" firstAttribute="trailing" secondItem="ajS-tl-KfD" secondAttribute="trailingMargin" id="bPz-F5-0ue"/>
                             <constraint firstItem="jFG-gV-4BU" firstAttribute="top" secondItem="Hhb-LH-LkW" secondAttribute="bottom" id="sEe-U5-ciJ"/>
-                            <constraint firstItem="fFB-0A-qbQ" firstAttribute="top" secondItem="ajS-tl-KfD" secondAttribute="top" id="vbE-ax-8Im"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="設定" id="9GG-QA-5Pk"/>

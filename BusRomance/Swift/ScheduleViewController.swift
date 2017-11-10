@@ -54,6 +54,7 @@ class ScheduleViewController: UIViewController, UICollectionViewDataSource,UICol
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: false)
         self.navigationItem.title = "時間割"
         let realm = try! Realm()
         var results = realm.objects(SaveScheduleObject.self)

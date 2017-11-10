@@ -23,6 +23,8 @@ class SearchResultViewController: UIViewController{
     override func viewDidLoad() {
         departureTextField.text = departureBusStop
         arrivalTextField.text = arrivalBusStop
+        navigationController?.setNavigationBarHidden(false, animated: false)
+        self.navigationItem.title = "検索結果"
     }
     
     override func didReceiveMemoryWarning() {
