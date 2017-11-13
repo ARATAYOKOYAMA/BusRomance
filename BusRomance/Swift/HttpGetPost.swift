@@ -8,7 +8,12 @@
 
 import Foundation
 
-func httpTransmission(departureBusStop: String,arrivalBusStop: String, dayTime: String, departureFlag: Int) -> (departureBusStop: String, arrivalBusStop: String, dayTime: String) {
+func httpTransmission(departureBusStop: String,arrivalBusStop: String, dayTime: String, departureFlag: Int) -> (nextOriginTime: String, nextLocatingTime: String) {
+    
+            // サーバーからの値を格納する変数
+            var nextOriginTime = ""
+            var nextLocatingTime = ""
+    
             // Sessionを生成.
             let session: URLSession = URLSession.shared
             // 通信先のURL
@@ -46,7 +51,7 @@ func httpTransmission(departureBusStop: String,arrivalBusStop: String, dayTime: 
                     return
                 }
     
-                // 受け取ったJSONの処理
+                // データがあるかどうか
                 guard let data = data else {
                     //　データなし
                     print("JSONなし")
@@ -59,15 +64,23 @@ func httpTransmission(departureBusStop: String,arrivalBusStop: String, dayTime: 
                     print("変換失敗")
                     return
                 }
-
+                
                 print(jsonData)
+                
                 // データの解析
-                if let resultDataValues = jsonData as? [String:Any]{
+                if let resultDataValues = jsonData["times"] as? [[String:Any]],!resultDataValues.isEmpty {
                     // 出発時刻
-                    guard let departureTime = resultDataValues["departureBusStop"] as? String else {
+                    guard let tmpNextOriginTime = resultDataValues[0]["nextOriginTime"]! as? String else {
                         return
                     }
-                    print(departureTime)
+                    // 運行状況
+                    guard let tmpNextLocatingTime = resultDataValues[0]["nextLocatingTime"]! as? String else {
+                        return
+                    }
+                    nextOriginTime = tmpNextOriginTime
+                    nextLocatingTime = tmpNextLocatingTime
+                    print("getpost",nextOriginTime)
+                    print("getpost",nextLocatingTime)
 
                 } else {
                     // データなし
@@ -77,6 +90,6 @@ func httpTransmission(departureBusStop: String,arrivalBusStop: String, dayTime: 
             // http通信開始
             task.resume()
 
-    return (departureBusStop,arrivalBusStop,dayTime)
+    return(nextOriginTime,nextLocatingTime)
     
 }

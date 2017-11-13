@@ -11,9 +11,8 @@ import UIKit
 class SearchViewController: UIViewController, URLSessionDelegate, URLSessionDataDelegate{
     
     
-    var departureBusStop = ""
-    var arrivalBusStop = ""
-    var dayTime = ""
+    var nextOriginTime = ""
+    var nextLocatingTime = ""
     
     
     @IBOutlet weak var departureTextField: PickerTextField! //乗車するバス停を入力するtextFeld
@@ -44,9 +43,11 @@ class SearchViewController: UIViewController, URLSessionDelegate, URLSessionData
             let httpResult = httpTransmission(departureBusStop: departureTextField.text!, arrivalBusStop: arrivalTextField.text!, dayTime: searchTargetData.dateTime, departureFlag: searchTargetData.departureFlag)
             
             // 変数に代入
-            departureBusStop = httpResult.departureBusStop
-            arrivalBusStop = httpResult.arrivalBusStop
-            dayTime = httpResult.dayTime
+            nextOriginTime = httpResult.nextOriginTime
+            nextLocatingTime = httpResult.nextLocatingTime
+            
+            print("search",nextOriginTime)
+            print("search",nextLocatingTime)
             
             // 検索結果へ遷移
             performSegue(withIdentifier: "search_result", sender: nil)
@@ -87,8 +88,10 @@ class SearchViewController: UIViewController, URLSessionDelegate, URLSessionData
             // Detailをインスタンス化
             let secondVc = segue.destination as! SearchResultViewController
             // 値を渡す
-            secondVc.departureBusStop = departureBusStop
-            secondVc.arrivalBusStop = arrivalBusStop
+            secondVc.departureBusStop = departureTextField.text!
+            secondVc.arrivalBusStop = arrivalTextField.text!
+            secondVc.nextOriginTime = nextOriginTime
+            secondVc.nextLocatingTime = nextLocatingTime
             
         }else {
             // どちらでもない遷移

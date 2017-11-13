@@ -240,6 +240,8 @@
                     <connections>
                         <outlet property="arrivalTextField" destination="HTT-eu-KZy" id="xR4-lC-44z"/>
                         <outlet property="departureTextField" destination="dZy-6H-1jY" id="ZiS-Qs-aEZ"/>
+                        <outlet property="nextLocatingTimeTextField" destination="gRJ-Yi-tHl" id="5qt-Og-wFZ"/>
+                        <outlet property="nextOriginTimeTextField" destination="rkH-xb-qyZ" id="CzV-XV-XQy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xk7-oF-dwC" userLabel="First Responder" sceneMemberID="firstResponder"/>
