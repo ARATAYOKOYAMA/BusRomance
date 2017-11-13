@@ -12,7 +12,7 @@ func httpTransmission(departureBusStop: String,arrivalBusStop: String, dayTime: 
             // Sessionを生成.
             let session: URLSession = URLSession.shared
             // 通信先のURL
-            let url = "http://localhost/hoge/index.php"
+            let url = "http://localhost:8000/api/v1/getBus/"
     
             // POST用のリクエストを生成.
             var request = URLRequest(url: URL(string:url)!)
