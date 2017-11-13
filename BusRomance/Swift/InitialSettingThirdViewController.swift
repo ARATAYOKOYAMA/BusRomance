@@ -49,9 +49,9 @@ class InitialSettingThirdViewController: UIViewController {
     }
     
     @IBAction func entryButton(_ sender: Any) {
-        if entryPlaceTextField.text! != ""{
-            let realm = try! Realm()
-            let obj = FrequentlyPlaceObject()
+        let realm = try! Realm()
+        let obj = FrequentlyPlaceObject()
+        if entryPlaceTextField.text! != ""{//何か選ばれているとき
             obj.busStop1 = entryPlaceTextField.text!
             try! realm.write {
                 realm.add(obj)
@@ -59,8 +59,21 @@ class InitialSettingThirdViewController: UIViewController {
             let resutls = realm.objects(FrequentlyPlaceObject.self)
             print(resutls.last!.busStop1)
             performSegue(withIdentifier: "toMain",sender: nil)
+              }else {//何も入っていないとき
+                let alertController = UIAlertController(title: "",message: "バス停を登録してください", preferredStyle: UIAlertControllerStyle.alert)
+                
+                let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default){ (action: UIAlertAction) in
+                    print("OK")
+                }
+                let cancelButton = UIAlertAction(title: "閉じる", style: UIAlertActionStyle.cancel, handler: nil)
+                alertController.addAction(okAction)
+                alertController.addAction(cancelButton)
+                present(alertController,animated: true,completion: nil)
+            
+            }
+            
         }
-    }
-    
-    
+
+
+
 }
