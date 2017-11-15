@@ -15,9 +15,6 @@ class SearchResultViewController: UIViewController{
     @IBOutlet weak var nextLocatingTimeTextField: UILabel!
     @IBOutlet weak var nextOriginTimeTextField: UILabel!
     
-    @IBAction func alert(_ sender: Any) {
-        
-    }
     
     var departureBusStop = ""
     var arrivalBusStop = ""
@@ -29,8 +26,6 @@ class SearchResultViewController: UIViewController{
         arrivalTextField.text = arrivalBusStop
         nextOriginTimeTextField.text = nextOriginTime
         nextLocatingTimeTextField.text = nextLocatingTime
-        print(nextOriginTime)
-        print(nextLocatingTime)
         navigationController?.setNavigationBarHidden(false, animated: false)
         self.navigationItem.title = "検索結果"
     }

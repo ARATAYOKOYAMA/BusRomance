@@ -199,31 +199,16 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bQj-I8-xjq">
-                                <rect key="frame" x="164" y="468.5" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <action selector="alert:" destination="MM0-sp-s5I" eventType="touchUpInside" id="7Ri-vT-fox"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DUu-1x-6CX">
-                                <rect key="frame" x="164" y="548.5" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.90000000000000002" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="85D-uY-bmJ" firstAttribute="centerX" secondItem="MXQ-Gm-Ayb" secondAttribute="centerX" constant="40" id="8P4-U1-wd6"/>
                             <constraint firstItem="HTT-eu-KZy" firstAttribute="top" secondItem="dZy-6H-1jY" secondAttribute="bottom" constant="110" id="FaB-Gs-DYS"/>
                             <constraint firstItem="gRJ-Yi-tHl" firstAttribute="top" secondItem="F5K-q1-XGd" secondAttribute="bottom" constant="12" id="IFQ-1K-lZG"/>
-                            <constraint firstItem="DUu-1x-6CX" firstAttribute="centerX" secondItem="MXQ-Gm-Ayb" secondAttribute="centerX" id="Ii4-cx-UoN"/>
                             <constraint firstItem="F5K-q1-XGd" firstAttribute="top" secondItem="85D-uY-bmJ" secondAttribute="bottom" constant="12" id="JW6-Zu-8OT"/>
                             <constraint firstItem="qX7-qj-71S" firstAttribute="leading" secondItem="MXQ-Gm-Ayb" secondAttribute="leading" id="LMt-DV-cjX"/>
-                            <constraint firstItem="DUu-1x-6CX" firstAttribute="top" secondItem="bQj-I8-xjq" secondAttribute="bottom" constant="50" id="Nyh-I7-35D"/>
-                            <constraint firstItem="bQj-I8-xjq" firstAttribute="centerX" secondItem="MXQ-Gm-Ayb" secondAttribute="centerX" id="SAS-ia-PuZ"/>
                             <constraint firstItem="gRJ-Yi-tHl" firstAttribute="centerX" secondItem="MXQ-Gm-Ayb" secondAttribute="centerX" constant="40" id="bL5-Y4-ndK"/>
                             <constraint firstItem="85D-uY-bmJ" firstAttribute="top" secondItem="dZy-6H-1jY" secondAttribute="bottom" constant="8" id="bq4-MV-LbC"/>
-                            <constraint firstItem="bQj-I8-xjq" firstAttribute="centerY" secondItem="MXQ-Gm-Ayb" secondAttribute="centerY" constant="150" id="eIA-wT-KnK"/>
                             <constraint firstItem="qX7-qj-71S" firstAttribute="centerY" secondItem="MXQ-Gm-Ayb" secondAttribute="centerY" id="fBD-fe-Zid"/>
                             <constraint firstItem="rkH-xb-qyZ" firstAttribute="leading" secondItem="MXQ-Gm-Ayb" secondAttribute="leading" id="g4h-u6-9dV"/>
                             <constraint firstAttribute="trailing" secondItem="dZy-6H-1jY" secondAttribute="trailing" id="hef-gh-LFN"/>
