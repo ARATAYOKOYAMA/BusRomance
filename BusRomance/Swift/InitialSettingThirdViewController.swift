@@ -49,7 +49,8 @@ class InitialSettingThirdViewController: UIViewController {
     }
     
     @IBAction func entryButton(_ sender: Any) {
-        if entryPlaceTextField.text! != ""{
+        if entryPlaceTextField.text != ""{
+            print("これです\(entryPlaceTextField.text as! String)")
             let realm = try! Realm()
             let obj = FrequentlyPlaceObject()
             obj.busStop1 = entryPlaceTextField.text!
