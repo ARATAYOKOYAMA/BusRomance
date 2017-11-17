@@ -26,7 +26,8 @@ func httpTransmission(departureBusStop: String,arrivalBusStop: String, dayTime: 
             //request.httpBody = postString.data(using: .utf8)
             let  postString : [String: Any] = [
                 "departureBusStop": departureBusStop,
-                "arrivalBusStop": arrivalBusStop
+                "arrivalBusStop": arrivalBusStop,
+                "dayTime": dayTime
             ]
     
             do{
