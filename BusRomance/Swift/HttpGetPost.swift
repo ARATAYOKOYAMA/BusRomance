@@ -21,7 +21,7 @@ class httpGetPost {
     let arrivalBusStop : String
     let dayTime: String
     let departureFlag: Int
-
+    
     
     // Sessionを生成.
     let session: URLSession = URLSession.shared
@@ -47,7 +47,8 @@ class httpGetPost {
         
         let  postString : [String: Any] = [
             "departureBusStop": departureBusStop,
-            "arrivalBusStop": arrivalBusStop
+            "arrivalBusStop": arrivalBusStop,
+            "dayTime": dayTime
         ]
         
         do{
@@ -108,3 +109,4 @@ class httpGetPost {
         task.resume()
     }
 }
+

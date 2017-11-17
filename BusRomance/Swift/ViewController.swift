@@ -39,6 +39,13 @@ class ViewController: UIViewController {
         fareLabel.text = "\(fare)円"
         busRemainLabel1.text = "到着まで約 \(busRem1) 分"
         busRemainLabel2.text = "到着まで約 \(busRem2) 分"
+        let userDefault = UserDefaults.standard
+        var nextBusTime = busTimeLabel1.text!
+        let split = nextBusTime.components(separatedBy: ":")
+        print(split)
+        UserDefaults.standard.set(split[0], forKey: "timeHour")
+        UserDefaults.standard.set(split[1], forKey: "timeMinute")
+
         
     }
     

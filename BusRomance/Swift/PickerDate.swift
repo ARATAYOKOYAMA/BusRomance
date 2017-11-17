@@ -53,7 +53,7 @@ class PickerDate: UITextField{
         
         // 日付のフォーマットを日本時間に設定
         dateFormatter.locale = Locale(identifier: "ja_JP")
-        dateFormatter.dateStyle = .full
+        dateFormatter.dateStyle = .short
         dateFormatter.timeStyle = .short
     
         // 現在時刻を初期値として入力
