@@ -8,16 +8,17 @@
 
 import UIKit
 import RealmSwift
+import UserNotifications
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
 
     var window: UIWindow?
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-         let userDefault = UserDefaults.standard
+        let userDefault = UserDefaults.standard
         let dict = ["firstLaunch": true]
         userDefault.register(defaults: dict)
         if userDefault.bool(forKey: "firstLaunch") {
@@ -42,6 +43,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             print("通常起動です")
         }
         
+        //通知許可リクエスト
+        if #available(iOS 10.0, *) {
+            // iOS 10
+            let center = UNUserNotificationCenter.current()
+            center.delegate = self
+            center.requestAuthorization(options: [.badge, .sound, .alert], completionHandler: { (granted, error) in
+                if error != nil {
+                    return
+                }
+                if granted {
+                    print("通知許可")
+                    let center = UNUserNotificationCenter.current()
+                    center.delegate = self
+                } else {
+                    print("通知拒否")
+                }
+            })
+        } else {
+            // iOS 9以下
+            let settings = UIUserNotificationSettings(types: [.badge, .sound, .alert], categories: nil)
+            UIApplication.shared.registerUserNotificationSettings(settings)
+        }
         return true
     }
     
@@ -62,8 +85,38 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationDidEnterBackground(_ application: UIApplication) {
-        // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
-        // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+        var nextBusTimeHour = 0
+        var nextBusTimeMinute = 0
+        if UserDefaults.standard.object(forKey: "timeHour") != nil {
+            nextBusTimeHour = UserDefaults.standard.integer(forKey: "timeHour")
+            nextBusTimeMinute = UserDefaults.standard.integer(forKey: "timeMinute") + 15
+            print("nextBusTimeHour = \(nextBusTimeHour)")
+            print("nextBusTimeMinute = \(nextBusTimeMinute)")
+        }
+        let trigger: UNNotificationTrigger
+        let date = DateComponents(hour: nextBusTimeHour, minute: nextBusTimeMinute)//(month:7, day:7, hour:12, minute:0)
+        trigger = UNCalendarNotificationTrigger.init(dateMatching: date, repeats: true)
+        //trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
+        
+        //表示の設定
+        let content = UNMutableNotificationContent()
+        content.title = "ばすあぷり"
+        content.body = "明日バス乗らへんの？"
+        content.sound = UNNotificationSound.default()
+        
+        
+        // デフォルトの通知。画像などは設定しない
+        let request = UNNotificationRequest(identifier: "normal",
+                                            content: content,
+                                            trigger: trigger)
+        //通知を予約
+        UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
+    }
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter,
+                                willPresent notification: UNNotification,
+                                withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        completionHandler([.alert,.sound])
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {
