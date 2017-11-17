@@ -10,15 +10,17 @@ import UIKit
 
 class SearchViewController: UIViewController, URLSessionDelegate, URLSessionDataDelegate{
     
-    
-    var departureBusStop = ""
-    var arrivalBusStop = ""
-    var dayTime = ""
+    // サーバからの結果を保持
+    var nextOriginTime = ""
+    var nextLocatingTime = ""
     
     
     @IBOutlet weak var departureTextField: PickerTextField! //乗車するバス停を入力するtextFeld
     @IBOutlet weak var arrivalTextField: PickerTextField! //降車するバス停を入力するtextFeld
     @IBOutlet weak var dateTextField: PickerDate!
+    
+    // インジケータのインスタンス
+    let indicator = UIActivityIndicatorView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,17 +41,50 @@ class SearchViewController: UIViewController, URLSessionDelegate, URLSessionData
      サーバー側へリクエスト
      */
     @IBAction func seach(_ sender: Any) {
+        
+        let tmpDeparture = departureTextField.text!
+        let tmpArrival = arrivalTextField.text!
 
-        if departureTextField.text != "" && arrivalTextField.text != "" {
-            let httpResult = httpTransmission(departureBusStop: departureTextField.text!, arrivalBusStop: arrivalTextField.text!, dayTime: searchTargetData.dateTime, departureFlag: searchTargetData.departureFlag)
+        if tmpDeparture != "" && tmpArrival != "" {
             
-            // 変数に代入
-            departureBusStop = httpResult.departureBusStop
-            arrivalBusStop = httpResult.arrivalBusStop
-            dayTime = httpResult.dayTime
+            let object = httpGetPost(departureBusStop: tmpDeparture,arrivalBusStop: tmpArrival, dayTime: searchTargetData.dateTime, departureFlag: searchTargetData.departureFlag)
             
-            // 検索結果へ遷移
-            performSegue(withIdentifier: "search_result", sender: nil)
+            // UIActivityIndicatorView のスタイルをテンプレートから選択
+            self.indicator.activityIndicatorViewStyle = .whiteLarge
+            
+            // 表示位置
+            self.indicator.center = self.view.center
+            
+            // 色の設定
+            self.indicator.color = UIColor.black
+            
+            // アニメーション停止と同時に隠す設定
+            self.indicator.hidesWhenStopped = true
+            
+            // 画面に追加
+            self.view.addSubview(self.indicator)
+            
+            // 最前面に移動
+            self.view.bringSubview(toFront: self.indicator)
+            
+            // アニメーション開始
+            self.indicator.startAnimating()
+            
+            DispatchQueue(label: "httpGetPost").async {
+                object.httpTransmission({ (str:ResultData?) -> () in
+                    self.nextOriginTime = (str?.nextOriginTime)!
+                    self.nextLocatingTime = (str?.nextLocatingTime)!
+                })
+                // 2秒後に実行
+                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + .seconds(2)) {
+                    self.indicator.stopAnimating()
+                    
+                    // 検索結果へ遷移
+                    self.performSegue(withIdentifier: "search_result", sender: nil)
+                }
+                
+            }
+            
             
         }else {
             
@@ -87,8 +122,10 @@ class SearchViewController: UIViewController, URLSessionDelegate, URLSessionData
             // Detailをインスタンス化
             let secondVc = segue.destination as! SearchResultViewController
             // 値を渡す
-            secondVc.departureBusStop = departureBusStop
-            secondVc.arrivalBusStop = arrivalBusStop
+            secondVc.departureBusStop = departureTextField.text!
+            secondVc.arrivalBusStop = arrivalTextField.text!
+            secondVc.nextOriginTime = nextOriginTime
+            secondVc.nextLocatingTime = nextLocatingTime
             
         }else {
             // どちらでもない遷移
