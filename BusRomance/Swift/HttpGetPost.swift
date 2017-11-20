@@ -77,8 +77,6 @@ class httpGetPost {
                 return
             }
             
-            //print(self.departureBusStop)
-            //print(response)
             // 受け取ったJSONデータをパースして格納
             guard let jsonData = try! JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.allowFragments) as? [String:Any] else {
                 // 変換失敗
@@ -100,7 +98,6 @@ class httpGetPost {
                 }
 
                 let resultData = ResultData(nextOriginTime: tmpNextOriginTime, nextLocatingTime: tmpNextLocatingTime)
-                print(resultData)
                 after(resultData)
 
 

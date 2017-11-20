@@ -62,6 +62,8 @@ class ViewController: UIViewController {
         //print("hhhhhhh",dateFormatter.string(from: date))
         
         
+        // to do 現在時刻を取得する関数を別ファイル定義
+        // to do dispatchの内容を別関数で定義して，didload viewWillEnterForeground 更新ボタン　の3つでそれぞれ実行
         let object = httpGetPost(departureBusStop: getOnBusStop!,arrivalBusStop: "はこだて未来大学", dayTime: dateFormatter.string(from: date), departureFlag: 0)
         
         DispatchQueue(label: "httpGetPost").async {
@@ -70,7 +72,7 @@ class ViewController: UIViewController {
                 self.nextLocatingTime = (str?.nextLocatingTime)!
             })
             // 2秒後に実行
-            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + .seconds(2)) {
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) {
                 self.busTimeLabel1.text = self.nextOriginTime
                 self.busRemainLabel1.text = self.nextLocatingTime
             }
