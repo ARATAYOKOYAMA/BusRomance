@@ -14,6 +14,15 @@ struct ResultData {
     let nextLocatingTime: String
 }
 
+func getNowTime()->String{
+    let date = Date()
+    let dateFormatter = DateFormatter()
+    dateFormatter.dateFormat = "yyyy/MM/dd' 'HH:mm"
+    let nowTime = dateFormatter.string(from: date)
+    return nowTime
+}
+
+
 
 class httpGetPost {
     
@@ -43,7 +52,7 @@ class httpGetPost {
         var request = URLRequest(url: URL(string:self.url)!)
         // POSTのメソッドを指定.2
         request.httpMethod = "POST"
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
         
         let  postString : [String: Any] = [
             "departureBusStop": departureBusStop,
@@ -52,10 +61,12 @@ class httpGetPost {
         ]
         
         do{
-            request.httpBody = try JSONSerialization.data(withJSONObject: postString, options: [])
+            request.httpBody = try JSONSerialization.data(withJSONObject: postString, options: .prettyPrinted)
         }catch{
             print(error.localizedDescription)
         }
+        
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         
         // リクエストをタスクとして登録
         let task = session.dataTask(with: request, completionHandler: {
@@ -81,9 +92,9 @@ class httpGetPost {
                 print("変換失敗")
                 return
             }
-            
+
             print(jsonData)
-            
+
             // データの解析
             if let resultDataValues = jsonData["times"] as? [[String:Any]],!resultDataValues.isEmpty {
                 // 出発時刻
@@ -94,12 +105,11 @@ class httpGetPost {
                 guard let tmpNextLocatingTime = resultDataValues[0]["nextLocatingTime"]! as? String else {
                     return
                 }
-                
+
                 let resultData = ResultData(nextOriginTime: tmpNextOriginTime, nextLocatingTime: tmpNextLocatingTime)
-                print(resultData)
                 after(resultData)
-                
-                
+
+
             } else {
                 // データなし
                 print("該当データなし")
