@@ -31,6 +31,9 @@ class ViewController: UIViewController {
     var topColor:UIColor = UIColor(red:0.000, green:0.000, blue:0.000, alpha:1)
     var bottomColor:UIColor = UIColor(red:0.000, green:0.000, blue:0.000, alpha:1)
     
+    var nextOriginTime = ""
+    var nextLocatingTime = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         //deleateRealm2()
@@ -45,7 +48,26 @@ class ViewController: UIViewController {
         print(split)
         UserDefaults.standard.set(split[0], forKey: "timeHour")
         UserDefaults.standard.set(split[1], forKey: "timeMinute")
-
+        
+//         NotificationCenter.default.addObserver(self, selector: #selector(Controller名.viewWillEnterForeground(_:)), name: NSNotification.Name.UIApplicationWillEnterForeground, object: nil)
+        
+        let realm = try! Realm()
+        let getOnBusStop = realm.objects(FrequentlyPlaceObject.self).last?.busStop1
+       //print("よく使うやすううううううう\(getOnBusStop!)")
+        
+        let object = httpGetPost(departureBusStop: getOnBusStop!,arrivalBusStop: "はこだて未来大学", dayTime: searchTargetData.dateTime, departureFlag: 0)
+        
+        DispatchQueue(label: "httpGetPost").async {
+            object.httpTransmission({ (str:ResultData?) -> () in
+                self.nextOriginTime = (str?.nextOriginTime)!
+                self.nextLocatingTime = (str?.nextLocatingTime)!
+            })
+            // 2秒後に実行
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + .seconds(2)) {
+                self.busStopLabel1.text = self.nextOriginTime
+                self.busStopLabel2.text = self.nextLocatingTime
+            }
+        }
         
     }
     

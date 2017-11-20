@@ -44,7 +44,7 @@ class SearchViewController: UIViewController, URLSessionDelegate, URLSessionData
         
         let tmpDeparture = departureTextField.text!
         let tmpArrival = arrivalTextField.text!
-
+        
         if tmpDeparture != "" && tmpArrival != "" {
             
             let object = httpGetPost(departureBusStop: tmpDeparture,arrivalBusStop: tmpArrival, dayTime: searchTargetData.dateTime, departureFlag: searchTargetData.departureFlag)
