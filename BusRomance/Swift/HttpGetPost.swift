@@ -14,6 +14,15 @@ struct ResultData {
     let nextLocatingTime: String
 }
 
+func getNowTime()->String{
+    let date = Date()
+    let dateFormatter = DateFormatter()
+    dateFormatter.dateFormat = "yyyy/MM/dd' 'HH:mm"
+    let nowTime = dateFormatter.string(from: date)
+    return nowTime
+}
+
+
 
 class httpGetPost {
     

@@ -50,34 +50,7 @@ class ViewController: UIViewController {
         UserDefaults.standard.set(split[1], forKey: "timeMinute")
         
 //         NotificationCenter.default.addObserver(self, selector: #selector(Controller名.viewWillEnterForeground(_:)), name: NSNotification.Name.UIApplicationWillEnterForeground, object: nil)
-        
-        let realm = try! Realm()
-        let getOnBusStop = realm.objects(FrequentlyPlaceObject.self).last?.busStop1
-       //print("よく使うやすううううううう\(getOnBusStop!)")
-        
-        // 現在日時
-        let date = Date()
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy/MM/dd' 'HH:mm"
-        //print("hhhhhhh",dateFormatter.string(from: date))
-        
-        
-        // to do 現在時刻を取得する関数を別ファイル定義
-        // to do dispatchの内容を別関数で定義して，didload viewWillEnterForeground 更新ボタン　の3つでそれぞれ実行
-        let object = httpGetPost(departureBusStop: getOnBusStop!,arrivalBusStop: "はこだて未来大学", dayTime: dateFormatter.string(from: date), departureFlag: 0)
-        
-        DispatchQueue(label: "httpGetPost").async {
-            object.httpTransmission({ (str:ResultData?) -> () in
-                self.nextOriginTime = (str?.nextOriginTime)!
-                self.nextLocatingTime = (str?.nextLocatingTime)!
-            })
-            // 2秒後に実行
-            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) {
-                self.busTimeLabel1.text = self.nextOriginTime
-                self.busRemainLabel1.text = self.nextLocatingTime
-            }
-        }
-        
+        getDate()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -133,6 +106,23 @@ class ViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func getDate(){
+        let realm = try! Realm()
+        let getOnBusStop = realm.objects(FrequentlyPlaceObject.self).last?.busStop1
+        let object = httpGetPost(departureBusStop: getOnBusStop!,arrivalBusStop: "はこだて未来大学", dayTime: getNowTime(), departureFlag: 0)
+        DispatchQueue(label: "httpGetPost").async {
+            object.httpTransmission({ (str:ResultData?) -> () in
+                self.nextOriginTime = (str?.nextOriginTime)!
+                self.nextLocatingTime = (str?.nextLocatingTime)!
+            })
+            // 2秒後に実行
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) {
+                self.busTimeLabel1.text = self.nextOriginTime
+                self.busRemainLabel1.text = self.nextLocatingTime
+            }
+        }
     }
 
 
