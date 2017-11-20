@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="dWz-zB-Hfd">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="dWz-zB-Hfd">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -61,7 +61,7 @@
                             <constraint firstAttribute="trailing" secondItem="6RF-SD-RZT" secondAttribute="trailing" id="dDn-mG-nI9"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="時間割" id="6rX-wr-XXW"/>
+                    <tabBarItem key="tabBarItem" title="時間割" image="schedule" id="6rX-wr-XXW"/>
                     <navigationItem key="navigationItem" title="時間割" id="tW7-dD-ZXo"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
@@ -84,4 +84,7 @@
             <point key="canvasLocation" x="640" y="65"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="schedule" width="25" height="25"/>
+    </resources>
 </document>
