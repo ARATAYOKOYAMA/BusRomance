@@ -55,7 +55,14 @@ class ViewController: UIViewController {
         let getOnBusStop = realm.objects(FrequentlyPlaceObject.self).last?.busStop1
        //print("よく使うやすううううううう\(getOnBusStop!)")
         
-        let object = httpGetPost(departureBusStop: getOnBusStop!,arrivalBusStop: "はこだて未来大学", dayTime: searchTargetData.dateTime, departureFlag: 0)
+        // 現在日時
+        let date = Date()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy/MM/dd' 'HH:mm"
+        //print("hhhhhhh",dateFormatter.string(from: date))
+        
+        
+        let object = httpGetPost(departureBusStop: getOnBusStop!,arrivalBusStop: "はこだて未来大学", dayTime: dateFormatter.string(from: date), departureFlag: 0)
         
         DispatchQueue(label: "httpGetPost").async {
             object.httpTransmission({ (str:ResultData?) -> () in
@@ -64,8 +71,8 @@ class ViewController: UIViewController {
             })
             // 2秒後に実行
             DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + .seconds(2)) {
-                self.busStopLabel1.text = self.nextOriginTime
-                self.busStopLabel2.text = self.nextLocatingTime
+                self.busTimeLabel1.text = self.nextOriginTime
+                self.busRemainLabel1.text = self.nextLocatingTime
             }
         }
         
