@@ -49,7 +49,10 @@ class ViewController: UIViewController {
         UserDefaults.standard.set(split[0], forKey: "timeHour")
         UserDefaults.standard.set(split[1], forKey: "timeMinute")
         
-//         NotificationCenter.default.addObserver(self, selector: #selector(Controller名.viewWillEnterForeground(_:)), name: NSNotification.Name.UIApplicationWillEnterForeground, object: nil)
+        // バックグラウンドからの復帰を監視するやつ
+        NotificationCenter.default.addObserver(self, selector: #selector(ViewController.viewWillEnterForeground(_:)),
+                                               name: NSNotification.Name.UIApplicationWillEnterForeground, object: nil)
+        
         getDate()
     }
     
@@ -94,6 +97,13 @@ class ViewController: UIViewController {
       //e  busStopLabel1.text = "\(getOnBusStop.last!.busStop1)"
     }
     
+    @objc func viewWillEnterForeground(_ notification: Notification?) {
+        getDate()
+    }
+    
+    @IBAction func reloadButton(_ sender: Any) {
+        getDate()
+    }
     
     func getNowClockString() -> String {
         let formatter = DateFormatter()
