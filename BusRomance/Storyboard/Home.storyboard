@@ -79,6 +79,9 @@
                                 <rect key="frame" x="315" y="28" width="49" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="更新" image="Reload-White"/>
+                                <connections>
+                                    <action selector="reloadButton:" destination="TYp-C1-Ng5" eventType="touchUpInside" id="Gdu-Zq-WDU"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="→" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2vG-eX-BY4">
                                 <rect key="frame" x="177" y="253" width="21" height="33"/>
