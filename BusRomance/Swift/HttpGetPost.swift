@@ -85,6 +85,11 @@ class httpGetPost {
                 print("JSONなし")
                 return
             }
+           
+//            let str = String(data: data, encoding: .utf8)
+//            print(str ?? "data not in UTF-8")
+            
+            //print(data)
             
             // 受け取ったJSONデータをパースして格納
             guard let jsonData = try! JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.allowFragments) as? [String:Any] else {
@@ -93,10 +98,9 @@ class httpGetPost {
                 return
             }
 
-            print(jsonData)
 
             // データの解析
-            if let resultDataValues = jsonData["times"] as? [[String:Any]],!resultDataValues.isEmpty {
+            if let resultDataValues = jsonData["busDatas"] as? [[String:Any]],!resultDataValues.isEmpty {
                 // 出発時刻
                 guard let tmpNextOriginTime = resultDataValues[0]["nextOriginTime"]! as? String else {
                     return
@@ -107,7 +111,7 @@ class httpGetPost {
                 }
 
                 let resultData = ResultData(nextOriginTime: tmpNextOriginTime, nextLocatingTime: tmpNextLocatingTime)
-                after(resultData)
+                //after(resultData)
 
 
             } else {
