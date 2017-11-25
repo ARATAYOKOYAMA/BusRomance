@@ -12,7 +12,12 @@ class SearchViewController: UIViewController, URLSessionDelegate, URLSessionData
     
     // サーバからの結果を保持
     var nextOriginTime = ""
+    var arrivalTime = ""
     var nextLocatingTime = ""
+    var afterNextOriginTime = ""
+    var afterNextLocationTime  = ""
+    var cost = ""
+    var lineage = ""
     
     
     @IBOutlet weak var departureTextField: PickerTextField! //乗車するバス停を入力するtextFeld
@@ -74,6 +79,11 @@ class SearchViewController: UIViewController, URLSessionDelegate, URLSessionData
                 object.httpTransmission({ (str:ResultData?) -> () in
                     self.nextOriginTime = (str?.nextOriginTime)!
                     self.nextLocatingTime = (str?.nextLocatingTime)!
+                    self.arrivalTime = (str?.arrivalTime)!
+                    self.afterNextOriginTime = (str?.afterNextOriginTime)!
+                    self.afterNextLocationTime = (str?.afterNextLocationTime)!
+                    self.cost = (str?.cost)!
+                    self.lineage = (str?.lineage)!
                 })
                 // 2秒後に実行
                 DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + .seconds(2)) {
@@ -126,7 +136,9 @@ class SearchViewController: UIViewController, URLSessionDelegate, URLSessionData
             secondVc.arrivalBusStop = arrivalTextField.text!
             secondVc.nextOriginTime = nextOriginTime
             secondVc.nextLocatingTime = nextLocatingTime
-            
+            secondVc.arrivalTime = arrivalTime
+            secondVc.cost = cost
+            secondVc.lineage = lineage
         }else {
             // どちらでもない遷移
         }

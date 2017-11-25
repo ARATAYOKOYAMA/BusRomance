@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="GSK-nf-Iiy">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="GSK-nf-Iiy">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -224,7 +224,10 @@
                     <navigationItem key="navigationItem" title="検索結果" id="s8Y-Nh-NJg"/>
                     <connections>
                         <outlet property="arrivalTextField" destination="HTT-eu-KZy" id="xR4-lC-44z"/>
+                        <outlet property="arrivalTimeTextField" destination="qX7-qj-71S" id="EC4-1f-FJ3"/>
+                        <outlet property="costTextField" destination="F5K-q1-XGd" id="y0a-4m-dtT"/>
                         <outlet property="departureTextField" destination="dZy-6H-1jY" id="ZiS-Qs-aEZ"/>
+                        <outlet property="lineageTextField" destination="85D-uY-bmJ" id="4H1-Vf-ZqQ"/>
                         <outlet property="nextLocatingTimeTextField" destination="gRJ-Yi-tHl" id="5qt-Og-wFZ"/>
                         <outlet property="nextOriginTimeTextField" destination="rkH-xb-qyZ" id="CzV-XV-XQy"/>
                     </connections>

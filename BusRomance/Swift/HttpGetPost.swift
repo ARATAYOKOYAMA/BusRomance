@@ -60,8 +60,8 @@ class httpGetPost {
         request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
         
         let  postString : [String: Any] = [
-            "departureBusStop": departureBusStop,
-            "arrivalBusStop": arrivalBusStop,
+            "departureBusStop": "赤川貯水池",
+            "arrivalBusStop": "赤川通",
             "dayTime": dayTime
         ]
         
@@ -97,7 +97,7 @@ class httpGetPost {
             //print(data)
             
             // 受け取ったJSONデータをパースして格納
-            guard let jsonData = try! JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.allowFragments) as? [String:Any] else {
+            guard let jsonData = try? JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.allowFragments) as? [String:Any] else {
                 // 変換失敗
                 print("変換失敗")
                 return
@@ -105,7 +105,7 @@ class httpGetPost {
 
 
             // データの解析
-            if let resultDataValues = jsonData["busDatas"] as? [[String:Any]],!resultDataValues.isEmpty {
+            if let resultDataValues = jsonData?["busDatas"] as? [[String:Any]],!resultDataValues.isEmpty {
                 // 最早の出発時刻
                 guard let tmpNextOriginTime = resultDataValues[0]["nextOriginTime"]! as? String else {
                     return
