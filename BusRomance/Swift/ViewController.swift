@@ -23,7 +23,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var tsugiLabel: UILabel!
     
     var fare:Int = 190 //乗車運賃
-    var busRem1:Int = 3 //乗車までの時間1
+    //var busRem1:Int = 3 //乗車までの時間1
     var busRem2:Int = 65 //乗車までの時間2
 
     var busStop1:String = "はこだて未来大学" //乗車バス停名
@@ -34,20 +34,17 @@ class ViewController: UIViewController {
     var nextOriginTime = ""
     var nextLocatingTime = ""
     
+    // インジケータのインスタンス
+    let indicator = UIActivityIndicatorView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         //deleateRealm2()
         busStopLabel1.text = "\(busStop1)"
         busStopLabel2.text = "\(busStop2)"
         fareLabel.text = "\(fare)円"
-        busRemainLabel1.text = "到着まで約 \(busRem1) 分"
+        //busRemainLabel1.text = "到着まで約 \(busRem1) 分"
         busRemainLabel2.text = "到着まで約 \(busRem2) 分"
-        let userDefault = UserDefaults.standard
-        var nextBusTime = busTimeLabel1.text!
-        let split = nextBusTime.components(separatedBy: ":")
-        print(split)
-        UserDefaults.standard.set(split[0], forKey: "timeHour")
-        UserDefaults.standard.set(split[1], forKey: "timeMinute")
         
         // バックグラウンドからの復帰を監視するやつ
         NotificationCenter.default.addObserver(self, selector: #selector(ViewController.viewWillEnterForeground(_:)),
@@ -122,16 +119,53 @@ class ViewController: UIViewController {
         let realm = try! Realm()
         let getOnBusStop = realm.objects(FrequentlyPlaceObject.self).last?.busStop1
         let object = httpGetPost(departureBusStop: getOnBusStop!,arrivalBusStop: "はこだて未来大学", dayTime: getNowTime(), departureFlag: 0)
-        DispatchQueue(label: "httpGetPost").async {
+        
+        let dispatchGroup = DispatchGroup()
+        // 直列キュー / attibutes指定なし
+        let dispatchQueue = DispatchQueue(label: "queue")
+        
+        // UIActivityIndicatorView のスタイルをテンプレートから選択
+        self.indicator.activityIndicatorViewStyle = .whiteLarge
+        
+        // 表示位置
+        self.indicator.center = self.view.center
+        
+        // 色の設定
+        self.indicator.color = UIColor.black
+        
+        // アニメーション停止と同時に隠す設定
+        self.indicator.hidesWhenStopped = true
+        
+        // 画面に追加
+        self.view.addSubview(self.indicator)
+        
+        // 最前面に移動
+        self.view.bringSubview(toFront: self.indicator)
+        
+        // アニメーション開始
+        self.indicator.startAnimating()
+        
+        // 非同期処理を実行
+        dispatchGroup.enter()
+        dispatchQueue.async(group: dispatchGroup) {
+            [weak self] in
             object.httpTransmission({ (str:ResultData?) -> () in
-                self.nextOriginTime = (str?.nextOriginTime)!
-                self.nextLocatingTime = (str?.nextLocatingTime)!
+                self?.nextOriginTime = (str?.nextOriginTime)!
+                self?.nextLocatingTime = (str?.nextLocatingTime)!
+                dispatchGroup.leave()
             })
-            // 2秒後に実行
-            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) {
-                self.busTimeLabel1.text = self.nextOriginTime
-                self.busRemainLabel1.text = self.nextLocatingTime
-            }
+        }
+        
+        // 全ての非同期処理完了後にメインスレッドで処理
+        dispatchGroup.notify(queue: .main) {
+            self.indicator.stopAnimating()
+            self.busTimeLabel1.text = self.nextOriginTime
+            self.busRemainLabel1.text = self.nextLocatingTime
+            let nextBusTime = self.busTimeLabel1.text!
+            let split = nextBusTime.components(separatedBy: ":")
+            //print(split)
+            UserDefaults.standard.set(split[0], forKey: "timeHour")
+            UserDefaults.standard.set(split[1], forKey: "timeMinute")
         }
     }
 
