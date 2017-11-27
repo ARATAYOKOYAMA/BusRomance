@@ -145,7 +145,7 @@ class ViewController: UIViewController {
         // アニメーション開始
         self.indicator.startAnimating()
         
-        // 5つの非同期処理を実行
+        // 非同期処理を実行
         dispatchGroup.enter()
         dispatchQueue.async(group: dispatchGroup) {
             [weak self] in

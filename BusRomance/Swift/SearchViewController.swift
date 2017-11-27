@@ -19,6 +19,9 @@ class SearchViewController: UIViewController, URLSessionDelegate, URLSessionData
     var cost = ""
     var lineage = ""
     
+    let dispatchGroup = DispatchGroup()
+    // 直列キュー / attibutes指定なし
+    let dispatchQueue = DispatchQueue(label: "queue")
     
     @IBOutlet weak var departureTextField: PickerTextField! //乗車するバス停を入力するtextFeld
     @IBOutlet weak var arrivalTextField: PickerTextField! //降車するバス停を入力するtextFeld
@@ -75,25 +78,30 @@ class SearchViewController: UIViewController, URLSessionDelegate, URLSessionData
             // アニメーション開始
             self.indicator.startAnimating()
             
-            DispatchQueue(label: "httpGetPost").async {
+            // 非同期処理を実行
+            dispatchGroup.enter()
+            dispatchQueue.async(group: dispatchGroup) {
+                [weak self] in
                 object.httpTransmission({ (str:ResultData?) -> () in
-                    self.nextOriginTime = (str?.nextOriginTime)!
-                    self.nextLocatingTime = (str?.nextLocatingTime)!
-                    self.arrivalTime = (str?.arrivalTime)!
-                    self.afterNextOriginTime = (str?.afterNextOriginTime)!
-                    self.afterNextLocationTime = (str?.afterNextLocationTime)!
-                    self.cost = (str?.cost)!
-                    self.lineage = (str?.lineage)!
+                    self?.nextOriginTime = (str?.nextOriginTime)!
+                    self?.nextLocatingTime = (str?.nextLocatingTime)!
+                    self?.arrivalTime = (str?.arrivalTime)!
+                    self?.afterNextOriginTime = (str?.afterNextOriginTime)!
+                    self?.afterNextLocationTime = (str?.afterNextLocationTime)!
+                    self?.cost = (str?.cost)!
+                    self?.lineage = (str?.lineage)!
+                    self?.dispatchGroup.leave()
                 })
-                // 2秒後に実行
-                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + .seconds(2)) {
-                    self.indicator.stopAnimating()
-                    
-                    // 検索結果へ遷移
-                    self.performSegue(withIdentifier: "search_result", sender: nil)
-                }
-                
             }
+            
+            // 全ての非同期処理完了後にメインスレッドで処理
+            dispatchGroup.notify(queue: .main) {
+                self.indicator.stopAnimating()
+                
+                // 検索結果へ遷移
+                self.performSegue(withIdentifier: "search_result", sender: nil)
+            }
+            
             
             
         }else {
