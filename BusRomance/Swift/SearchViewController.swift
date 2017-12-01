@@ -27,6 +27,7 @@ class SearchViewController: UIViewController, URLSessionDelegate, URLSessionData
     @IBOutlet weak var arrivalTextField: PickerTextField! //降車するバス停を入力するtextFeld
     @IBOutlet weak var dateTextField: PickerDate!
     
+    
     // インジケータのインスタンス
     let indicator = UIActivityIndicatorView()
     
@@ -131,6 +132,15 @@ class SearchViewController: UIViewController, URLSessionDelegate, URLSessionData
             self.present(alert, animated: true, completion: nil)
         }
 
+    }
+    
+    /*
+     乗車と降車のバス停名の切り替え
+    */
+    @IBAction func changeStationName(_ sender: Any) {
+        let tmpStationName = departureTextField.text!
+        departureTextField.text! = arrivalTextField.text!
+        arrivalTextField.text! = tmpStationName
     }
     
  
