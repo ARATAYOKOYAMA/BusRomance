@@ -53,7 +53,7 @@ class SearchViewController: UIViewController, URLSessionDelegate, URLSessionData
         let tmpDeparture = departureTextField.text!
         let tmpArrival = arrivalTextField.text!
         
-        if tmpDeparture != "" && tmpArrival != "" {
+        if tmpDeparture != "" && tmpArrival != "" && tmpDeparture != "選択してください" && tmpArrival != "選択してください" && tmpDeparture != tmpArrival{
             
             let object = httpGetPost(departureBusStop: tmpDeparture,arrivalBusStop: tmpArrival, dayTime: searchTargetData.dateTime, departureFlag: searchTargetData.departureFlag)
             
@@ -107,19 +107,20 @@ class SearchViewController: UIViewController, URLSessionDelegate, URLSessionData
         }else {
             
             var alertMessage = ""
+            var alertTitle = "未選択"
             
-            if departureTextField.text == "" {
+            if tmpDeparture == "" {
                 alertMessage = "乗車するバス停を選択してください"
-            }
-            
-            if arrivalTextField.text == "" {
+            }else if tmpArrival == "" {
                 alertMessage = "降車するバス停を選択してください"
+            }else if tmpDeparture == tmpArrival {
+                alertTitle = "エラー"
+                alertMessage = "異なるバス停を選択してください"
             }
-            
             
             // アラートを作成
             let alert = UIAlertController(
-                title: "未選択",
+                title: alertTitle,
                 message: alertMessage,
                 preferredStyle: .alert)
             
