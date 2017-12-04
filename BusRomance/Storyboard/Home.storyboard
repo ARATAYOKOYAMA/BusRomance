@@ -122,7 +122,7 @@
                         <outlet property="busStopLabel2" destination="AvE-hw-Oms" id="GSn-0u-c79"/>
                         <outlet property="busTimeLabel1" destination="kmX-ZG-TGi" id="OV7-yV-nOO"/>
                         <outlet property="busTimeLabel2" destination="Odq-12-8fD" id="nh9-Da-YWw"/>
-                        <outlet property="fareLabel" destination="2Ox-TI-ATf" id="4IT-sq-6vH"/>
+                        <outlet property="costLabel" destination="2Ox-TI-ATf" id="1ap-HJ-3JQ"/>
                         <outlet property="hayaLabel" destination="lIT-LT-1YU" id="B4e-kB-FHo"/>
                         <outlet property="reloadButton" destination="FDT-sp-nhs" id="t9N-r1-nlL"/>
                         <outlet property="tsugiLabel" destination="e38-J8-s3H" id="b9y-AC-sft"/>

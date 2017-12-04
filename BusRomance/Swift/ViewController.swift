@@ -14,7 +14,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var reloadButton: UIButton!
     @IBOutlet weak var busStopLabel1: UILabel!
     @IBOutlet weak var busStopLabel2: UILabel!
-    @IBOutlet weak var fareLabel: UILabel!
+    @IBOutlet weak var costLabel: UILabel!
     @IBOutlet weak var busTimeLabel1: UILabel!
     @IBOutlet weak var busTimeLabel2: UILabel!
     @IBOutlet weak var busRemainLabel1: UILabel!
@@ -22,7 +22,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var hayaLabel: UILabel!
     @IBOutlet weak var tsugiLabel: UILabel!
     
-    //var fare:Int = 0 //乗車運賃
+    //var cost:Int = 0 //乗車運賃
     //var busRem1:Int = 3 //乗車までの時間1
     //var busRem2:Int = 65 //乗車までの時間2
 
@@ -35,7 +35,7 @@ class ViewController: UIViewController {
     var nextLocatingTime = ""
     var afterNextOriginTime = ""
     var afterNextLocationTime = ""
-    var fare = ""
+    var cost = ""
     
     // インジケータのインスタンス
     let indicator = UIActivityIndicatorView()
@@ -45,7 +45,7 @@ class ViewController: UIViewController {
         //deleateRealm2()
         //busStopLabel1.text = "\(busStop1)"
         busStopLabel2.text = "\(busStop2)"
-      //  fareLabel.text = "\(fare)円"
+      //  costLabel.text = "\(cost)円"
         //busRemainLabel1.text = "到着まで約 \(busRem1) 分"
        // busRemainLabel2.text = "到着まで約 \(busRem2) 分"
         
@@ -157,7 +157,7 @@ class ViewController: UIViewController {
                 self?.nextLocatingTime = (str?.nextLocatingTime)!
                 self?.afterNextOriginTime = (str?.afterNextOriginTime)!
                 self?.afterNextLocationTime = (str?.afterNextLocationTime)!
-                self?.fare = (str?.cost)!
+                self?.cost = (str?.cost)!
                 dispatchGroup.leave()
             })
         }
@@ -169,7 +169,7 @@ class ViewController: UIViewController {
             self.busRemainLabel1.text = self.nextLocatingTime
             self.busTimeLabel2.text = self.afterNextOriginTime
             self.busRemainLabel2.text = self.afterNextLocationTime
-            self.fareLabel.text = self.fare
+            self.costLabel.text = self.cost
             let nextBusTime = self.busTimeLabel1.text!
             let split = nextBusTime.components(separatedBy: ":")
             //print(split)
