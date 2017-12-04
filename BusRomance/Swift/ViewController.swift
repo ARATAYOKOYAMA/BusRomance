@@ -14,7 +14,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var reloadButton: UIButton!
     @IBOutlet weak var busStopLabel1: UILabel!
     @IBOutlet weak var busStopLabel2: UILabel!
-    @IBOutlet weak var fareLabel: UILabel!
+    @IBOutlet weak var costLabel: UILabel!
     @IBOutlet weak var busTimeLabel1: UILabel!
     @IBOutlet weak var busTimeLabel2: UILabel!
     @IBOutlet weak var busRemainLabel1: UILabel!
@@ -22,17 +22,20 @@ class ViewController: UIViewController {
     @IBOutlet weak var hayaLabel: UILabel!
     @IBOutlet weak var tsugiLabel: UILabel!
     
-    var fare:Int = 190 //乗車運賃
+    //var cost:Int = 0 //乗車運賃
     //var busRem1:Int = 3 //乗車までの時間1
-    var busRem2:Int = 65 //乗車までの時間2
+    //var busRem2:Int = 65 //乗車までの時間2
 
-    var busStop1:String = "はこだて未来大学" //乗車バス停名
+    var busStop1:String = ""//"はこだて未来大学" //乗車バス停名
     var busStop2:String = "はこだて未来大学" //降車バス停名
     var topColor:UIColor = UIColor(red:0.000, green:0.000, blue:0.000, alpha:1)
     var bottomColor:UIColor = UIColor(red:0.000, green:0.000, blue:0.000, alpha:1)
     
     var nextOriginTime = ""
     var nextLocatingTime = ""
+    var afterNextOriginTime = ""
+    var afterNextLocationTime = ""
+    var cost = ""
     
     // インジケータのインスタンス
     let indicator = UIActivityIndicatorView()
@@ -40,11 +43,11 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         //deleateRealm2()
-        busStopLabel1.text = "\(busStop1)"
+        //busStopLabel1.text = "\(busStop1)"
         busStopLabel2.text = "\(busStop2)"
-        fareLabel.text = "\(fare)円"
+      //  costLabel.text = "\(cost)円"
         //busRemainLabel1.text = "到着まで約 \(busRem1) 分"
-        busRemainLabel2.text = "到着まで約 \(busRem2) 分"
+       // busRemainLabel2.text = "到着まで約 \(busRem2) 分"
         
         // バックグラウンドからの復帰を監視するやつ
         NotificationCenter.default.addObserver(self, selector: #selector(ViewController.viewWillEnterForeground(_:)),
@@ -90,8 +93,8 @@ class ViewController: UIViewController {
         self.view.layer.insertSublayer(gradientLayer, at: 0)
     
         let realm = try! Realm()
-    //    let getOnBusStop = realm.objects(FrequentlyPlaceObject.self)
-      //e  busStopLabel1.text = "\(getOnBusStop.last!.busStop1)"
+        let getOnBusStop = realm.objects(FrequentlyPlaceObject.self)
+        busStopLabel1.text = "\(getOnBusStop.last!.busStop1)"
     }
     
     @objc func viewWillEnterForeground(_ notification: Notification?) {
@@ -152,6 +155,9 @@ class ViewController: UIViewController {
             object.httpTransmission({ (str:ResultData?) -> () in
                 self?.nextOriginTime = (str?.nextOriginTime)!
                 self?.nextLocatingTime = (str?.nextLocatingTime)!
+                self?.afterNextOriginTime = (str?.afterNextOriginTime)!
+                self?.afterNextLocationTime = (str?.afterNextLocationTime)!
+                self?.cost = (str?.cost)!
                 dispatchGroup.leave()
             })
         }
@@ -161,6 +167,9 @@ class ViewController: UIViewController {
             self.indicator.stopAnimating()
             self.busTimeLabel1.text = self.nextOriginTime
             self.busRemainLabel1.text = self.nextLocatingTime
+            self.busTimeLabel2.text = self.afterNextOriginTime
+            self.busRemainLabel2.text = self.afterNextLocationTime
+            self.costLabel.text = self.cost
             let nextBusTime = self.busTimeLabel1.text!
             let split = nextBusTime.components(separatedBy: ":")
             //print(split)

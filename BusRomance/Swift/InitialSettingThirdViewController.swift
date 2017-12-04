@@ -40,7 +40,7 @@ class InitialSettingThirdViewController: UIViewController {
         entryButton.layer.borderWidth = 4.0 // 枠線の幅
         entryButton.layer.borderColor = UIColor.white.cgColor // 枠線の色
         entryButton.layer.cornerRadius = 8.0 // 角丸のサイズ
-        entryPlaceTextField.setup(dataList: ["バス停を選択してください","はこだて未来大学", "赤川貯水池", "赤川3区", "赤川小学校", "浄水場下", "低区貯水池", "赤川入口", "赤川１丁目ライフプレステージ白ゆり美原前", "赤川通","函館地方気象台前"])
+        entryPlaceTextField.setup(dataList: ["バス停を選択してください","はこだて未来大学", "赤川貯水池", "赤川3区", "赤川小学校", "浄水場下", "低区貯水池", "赤川入口", "赤川１丁目ライフプレステージ白ゆり美原前", "赤川通","函館地方気象台前","亀田支所前","富岡","医師会病院前","田家入口","警察署前","五稜郭公園入口","五稜郭","中央病院前","千代台","堀川町","昭和橋","千歳町","新川町","松風町","棒二森屋前","函館駅前"])
     }
     
     override func didReceiveMemoryWarning() {
