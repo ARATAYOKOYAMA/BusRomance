@@ -12,14 +12,19 @@
 		1541446C1FB167A6002D5019 /* BusStopEntry.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1541446B1FB167A6002D5019 /* BusStopEntry.storyboard */; };
 		1541446E1FB167C4002D5019 /* BusStopEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1541446D1FB167C4002D5019 /* BusStopEntryViewController.swift */; };
 		15482A861FB1510C00D030BC /* ConfigViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15482A851FB1510C00D030BC /* ConfigViewController.swift */; };
+		155B3EDF1FD539190013A1FF /* ScheduleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155B3EDE1FD539190013A1FF /* ScheduleCell.swift */; };
 		1564900B1F985C21003680FD /* InitialSettingFirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1564900A1F985C21003680FD /* InitialSettingFirstViewController.swift */; };
 		1564900D1F985C33003680FD /* InitialSettingSecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1564900C1F985C33003680FD /* InitialSettingSecondViewController.swift */; };
 		1564900F1F985C51003680FD /* InitialSettingThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1564900E1F985C51003680FD /* InitialSettingThirdViewController.swift */; };
 		157B73951FB00CC600CE0E4E /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 157B73941FB00CC600CE0E4E /* RealmSwift.framework */; };
 		158381801F7C99CA00733F56 /* DetilsScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1583817F1F7C99CA00733F56 /* DetilsScheduleViewController.swift */; };
 		158381841F7C9C7500733F56 /* DetilsSchedule.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 158381831F7C9C7500733F56 /* DetilsSchedule.storyboard */; };
+		158500461FD53CF400617A84 /* SpreadsheetView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 155B3EE01FD5397D0013A1FF /* SpreadsheetView.framework */; };
 		15C5767B1F95D87A00143B2F /* InitialActivationStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15C5767A1F95D87A00143B2F /* InitialActivationStoryboard.storyboard */; };
 		15C5767D1F95D8B600143B2F /* InitialActivationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C5767C1F95D8B600143B2F /* InitialActivationViewController.swift */; };
+		6DEFCF5B1E5D2C9853E24F25 /* Pods_BusRomanceUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 460AB15941D140997A754070 /* Pods_BusRomanceUITests.framework */; };
+		B78C6AE2D52FE3DF6AB0F247 /* Pods_BusRomance.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B412E766ABEDCD927030808A /* Pods_BusRomance.framework */; };
+		C495253A02ED799FCEA6091F /* Pods_BusRomanceTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A888A20853045D12AE9EEB09 /* Pods_BusRomanceTests.framework */; };
 		DF4F1D591F822B53005EF84D /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF4F1D581F822B52005EF84D /* SearchViewController.swift */; };
 		DF4F1D5D1F8B6596005EF84D /* PickerTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF4F1D5C1F8B6596005EF84D /* PickerTextField.swift */; };
 		DF4F1D5F1F8B6DC8005EF84D /* PickerDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF4F1D5E1F8B6DC8005EF84D /* PickerDate.swift */; };
@@ -55,25 +60,15 @@
 		};
 /* End PBXContainerItemProxy section */
 
-/* Begin PBXCopyFilesBuildPhase section */
-		1532E46E1F7E04AE0013B580 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
+		017837A1A6989F2AA9FAE3B3 /* Pods-BusRomanceUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BusRomanceUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BusRomanceUITests/Pods-BusRomanceUITests.release.xcconfig"; sourceTree = "<group>"; };
 		15342A621F78F242000EB611 /* ScheduleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleViewController.swift; sourceTree = "<group>"; };
 		15342A641F790180000EB611 /* TimeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeCell.swift; sourceTree = "<group>"; };
 		1541446B1FB167A6002D5019 /* BusStopEntry.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = BusStopEntry.storyboard; sourceTree = "<group>"; };
 		1541446D1FB167C4002D5019 /* BusStopEntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BusStopEntryViewController.swift; path = BusRomance/Swift/BusStopEntryViewController.swift; sourceTree = SOURCE_ROOT; };
 		15482A851FB1510C00D030BC /* ConfigViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ConfigViewController.swift; path = BusRomance/Swift/ConfigViewController.swift; sourceTree = SOURCE_ROOT; };
+		155B3EDE1FD539190013A1FF /* ScheduleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleCell.swift; sourceTree = "<group>"; };
+		155B3EE01FD5397D0013A1FF /* SpreadsheetView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpreadsheetView.framework; path = Carthage/Build/iOS/SpreadsheetView.framework; sourceTree = "<group>"; };
 		1564900A1F985C21003680FD /* InitialSettingFirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialSettingFirstViewController.swift; sourceTree = "<group>"; };
 		1564900C1F985C33003680FD /* InitialSettingSecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialSettingSecondViewController.swift; sourceTree = "<group>"; };
 		1564900E1F985C51003680FD /* InitialSettingThirdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialSettingThirdViewController.swift; sourceTree = "<group>"; };
@@ -83,6 +78,14 @@
 		158381831F7C9C7500733F56 /* DetilsSchedule.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DetilsSchedule.storyboard; sourceTree = "<group>"; };
 		15C5767A1F95D87A00143B2F /* InitialActivationStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = InitialActivationStoryboard.storyboard; sourceTree = "<group>"; };
 		15C5767C1F95D8B600143B2F /* InitialActivationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialActivationViewController.swift; sourceTree = "<group>"; };
+		1F01737FB89A730BEE991AF8 /* Pods-BusRomanceUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BusRomanceUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BusRomanceUITests/Pods-BusRomanceUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		3D33369376D209D0883BECFF /* Pods-BusRomance.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BusRomance.release.xcconfig"; path = "Pods/Target Support Files/Pods-BusRomance/Pods-BusRomance.release.xcconfig"; sourceTree = "<group>"; };
+		460AB15941D140997A754070 /* Pods_BusRomanceUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BusRomanceUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		795C1F6425E8E087491DF210 /* Pods-BusRomance.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BusRomance.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BusRomance/Pods-BusRomance.debug.xcconfig"; sourceTree = "<group>"; };
+		A6F1648137BA654908A3C2D5 /* Pods-BusRomanceTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BusRomanceTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BusRomanceTests/Pods-BusRomanceTests.debug.xcconfig"; sourceTree = "<group>"; };
+		A888A20853045D12AE9EEB09 /* Pods_BusRomanceTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BusRomanceTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B412E766ABEDCD927030808A /* Pods_BusRomance.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BusRomance.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BE7FDA51EE9F66312BE984EB /* Pods-BusRomanceTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BusRomanceTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BusRomanceTests/Pods-BusRomanceTests.release.xcconfig"; sourceTree = "<group>"; };
 		DF4F1D581F822B52005EF84D /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		DF4F1D5C1F8B6596005EF84D /* PickerTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerTextField.swift; sourceTree = "<group>"; };
 		DF4F1D5E1F8B6DC8005EF84D /* PickerDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerDate.swift; sourceTree = "<group>"; };
@@ -112,7 +115,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				158500461FD53CF400617A84 /* SpreadsheetView.framework in Frameworks */,
 				157B73951FB00CC600CE0E4E /* RealmSwift.framework in Frameworks */,
+				B78C6AE2D52FE3DF6AB0F247 /* Pods_BusRomance.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -120,6 +125,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C495253A02ED799FCEA6091F /* Pods_BusRomanceTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -127,6 +133,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6DEFCF5B1E5D2C9853E24F25 /* Pods_BusRomanceUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -136,10 +143,27 @@
 		157B73911FB00CBA00CE0E4E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				155B3EE01FD5397D0013A1FF /* SpreadsheetView.framework */,
 				157B73941FB00CC600CE0E4E /* RealmSwift.framework */,
 				157B73921FB00CBA00CE0E4E /* Realm.framework */,
+				B412E766ABEDCD927030808A /* Pods_BusRomance.framework */,
+				A888A20853045D12AE9EEB09 /* Pods_BusRomanceTests.framework */,
+				460AB15941D140997A754070 /* Pods_BusRomanceUITests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		6FBAB9E2F63C373C52F4A870 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				795C1F6425E8E087491DF210 /* Pods-BusRomance.debug.xcconfig */,
+				3D33369376D209D0883BECFF /* Pods-BusRomance.release.xcconfig */,
+				A6F1648137BA654908A3C2D5 /* Pods-BusRomanceTests.debug.xcconfig */,
+				BE7FDA51EE9F66312BE984EB /* Pods-BusRomanceTests.release.xcconfig */,
+				1F01737FB89A730BEE991AF8 /* Pods-BusRomanceUITests.debug.xcconfig */,
+				017837A1A6989F2AA9FAE3B3 /* Pods-BusRomanceUITests.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 		DF4F1D561F8215B8005EF84D /* Storyboard */ = {
@@ -164,6 +188,7 @@
 				1583817F1F7C99CA00733F56 /* DetilsScheduleViewController.swift */,
 				1541446D1FB167C4002D5019 /* BusStopEntryViewController.swift */,
 				15342A621F78F242000EB611 /* ScheduleViewController.swift */,
+				155B3EDE1FD539190013A1FF /* ScheduleCell.swift */,
 				DF79AF2F1F717A60006D7AF6 /* ViewController.swift */,
 				15342A641F790180000EB611 /* TimeCell.swift */,
 				DF60C0421F9494E3004D4C9F /* HttpGetPost.swift */,
@@ -188,6 +213,7 @@
 				DF79AF4C1F717A61006D7AF6 /* BusRomanceUITests */,
 				DF79AF2B1F717A60006D7AF6 /* Products */,
 				157B73911FB00CBA00CE0E4E /* Frameworks */,
+				6FBAB9E2F63C373C52F4A870 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -238,11 +264,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DF79AF521F717A61006D7AF6 /* Build configuration list for PBXNativeTarget "BusRomance" */;
 			buildPhases = (
+				7D4790CEDAFB968D880B8D06 /* [CP] Check Pods Manifest.lock */,
 				DF79AF261F717A60006D7AF6 /* Sources */,
 				DF79AF271F717A60006D7AF6 /* Frameworks */,
 				DF79AF281F717A60006D7AF6 /* Resources */,
-				1532E46E1F7E04AE0013B580 /* Embed Frameworks */,
 				157B739C1FB00D1600CE0E4E /* ShellScript */,
+				FD7246FBB6105EDEA757759F /* [CP] Embed Pods Frameworks */,
+				1521051346B9C2917028C6B9 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -257,9 +285,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DF79AF551F717A61006D7AF6 /* Build configuration list for PBXNativeTarget "BusRomanceTests" */;
 			buildPhases = (
+				ABDB1EEC843D30D64A3D3ED4 /* [CP] Check Pods Manifest.lock */,
 				DF79AF3A1F717A61006D7AF6 /* Sources */,
 				DF79AF3B1F717A61006D7AF6 /* Frameworks */,
 				DF79AF3C1F717A61006D7AF6 /* Resources */,
+				711DD3B3973AA0D146C59B00 /* [CP] Embed Pods Frameworks */,
+				F5FE25DBB2DDEA788F0C2DA6 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -275,9 +306,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DF79AF581F717A61006D7AF6 /* Build configuration list for PBXNativeTarget "BusRomanceUITests" */;
 			buildPhases = (
+				CCAAEED93D106E672A72C35F /* [CP] Check Pods Manifest.lock */,
 				DF79AF451F717A61006D7AF6 /* Sources */,
 				DF79AF461F717A61006D7AF6 /* Frameworks */,
 				DF79AF471F717A61006D7AF6 /* Resources */,
+				3A6B517ED711CBDA08B757EA /* [CP] Embed Pods Frameworks */,
+				E4CCBDDF92F5416D252FA362 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -301,7 +335,7 @@
 				TargetAttributes = {
 					DF79AF291F717A60006D7AF6 = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = 634QW7RT8Y;
+						DevelopmentTeam = ESE58KA65M;
 						ProvisioningStyle = Automatic;
 					};
 					DF79AF3D1F717A61006D7AF6 = {
@@ -371,6 +405,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		1521051346B9C2917028C6B9 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BusRomance/Pods-BusRomance-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		157B739C1FB00D1600CE0E4E /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -386,6 +435,138 @@
 			shellPath = /bin/sh;
 			shellScript = "/usr/local/bin/carthage/ copy-frameworks";
 		};
+		3A6B517ED711CBDA08B757EA /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BusRomanceUITests/Pods-BusRomanceUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		711DD3B3973AA0D146C59B00 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BusRomanceTests/Pods-BusRomanceTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7D4790CEDAFB968D880B8D06 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-BusRomance-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		ABDB1EEC843D30D64A3D3ED4 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-BusRomanceTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CCAAEED93D106E672A72C35F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-BusRomanceUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E4CCBDDF92F5416D252FA362 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BusRomanceUITests/Pods-BusRomanceUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F5FE25DBB2DDEA788F0C2DA6 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BusRomanceTests/Pods-BusRomanceTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FD7246FBB6105EDEA757759F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-BusRomance/Pods-BusRomance-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/SpreadsheetView/SpreadsheetView.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SpreadsheetView.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BusRomance/Pods-BusRomance-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -398,6 +579,7 @@
 				15C5767D1F95D8B600143B2F /* InitialActivationViewController.swift in Sources */,
 				DF60C03F1F925BF9004D4C9F /* SearchResultViewController.swift in Sources */,
 				158381801F7C99CA00733F56 /* DetilsScheduleViewController.swift in Sources */,
+				155B3EDF1FD539190013A1FF /* ScheduleCell.swift in Sources */,
 				1564900B1F985C21003680FD /* InitialSettingFirstViewController.swift in Sources */,
 				15342A651F790180000EB611 /* TimeCell.swift in Sources */,
 				15342A631F78F242000EB611 /* ScheduleViewController.swift in Sources */,
@@ -558,9 +740,10 @@
 		};
 		DF79AF531F717A61006D7AF6 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 795C1F6425E8E087491DF210 /* Pods-BusRomance.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 634QW7RT8Y;
+				DEVELOPMENT_TEAM = ESE58KA65M;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -568,7 +751,7 @@
 				);
 				INFOPLIST_FILE = BusRomance/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = BusRoman.BusRomance;
+				PRODUCT_BUNDLE_IDENTIFIER = BusRoman.BusRomancesasgs;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -577,9 +760,10 @@
 		};
 		DF79AF541F717A61006D7AF6 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3D33369376D209D0883BECFF /* Pods-BusRomance.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 634QW7RT8Y;
+				DEVELOPMENT_TEAM = ESE58KA65M;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -587,7 +771,7 @@
 				);
 				INFOPLIST_FILE = BusRomance/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = BusRoman.BusRomance;
+				PRODUCT_BUNDLE_IDENTIFIER = BusRoman.BusRomancesasgs;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -596,6 +780,7 @@
 		};
 		DF79AF561F717A61006D7AF6 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A6F1648137BA654908A3C2D5 /* Pods-BusRomanceTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -610,6 +795,7 @@
 		};
 		DF79AF571F717A61006D7AF6 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BE7FDA51EE9F66312BE984EB /* Pods-BusRomanceTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -624,6 +810,7 @@
 		};
 		DF79AF591F717A61006D7AF6 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1F01737FB89A730BEE991AF8 /* Pods-BusRomanceUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				INFOPLIST_FILE = BusRomanceUITests/Info.plist;
@@ -637,6 +824,7 @@
 		};
 		DF79AF5A1F717A61006D7AF6 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 017837A1A6989F2AA9FAE3B3 /* Pods-BusRomanceUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				INFOPLIST_FILE = BusRomanceUITests/Info.plist;
