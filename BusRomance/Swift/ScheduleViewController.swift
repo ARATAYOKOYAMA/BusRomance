@@ -8,192 +8,147 @@
 
 import UIKit
 import RealmSwift
+import SpreadsheetView
 
-class ScheduleViewController: UIViewController, UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout {
+class  ScheduleViewController: UIViewController, SpreadsheetViewDataSource, SpreadsheetViewDelegate  {
     
-    @IBOutlet weak var myCollectionView: UICollectionView!
+    @IBOutlet weak var spreadsheetView: SpreadsheetView!
     
-    let weekArray = ["","月","火","水","木","金"]
-    var schedule:[String]=["1","","","","","","2","","","","","","3","","","","","","4","","","","","","5","","","","","",]
-    let numOfDays = 6       //1週間の日数 + 時間割の枠
-    let cellMargin : CGFloat = 1.0  //セルのマージン。セルのアイテムのマージンも別にあって紛らわしい。アイテムのマージンはゼロに設定し直してる
-    var cellHeight:CGFloat = 0.0
-    var cellWidth:CGFloat = 0.0
-    var tapCell = 0
-    var timeTitle = 0
-    var weekTitle = ""
-    
+    let week = ["月","火","水","木","金"]
+    var month = ["","","","",""]
+    var tues = ["","","","",""]
+    var wednes = ["","","","",""]
+    var thurs = ["","","","",""]
+    var fri = ["","","","",""]
+    let time = ["1","2","3","4","5"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        myCollectionView.delegate = self
-        myCollectionView.dataSource = self
-       self.navigationItem.title = "時間割"
-        //deleateRealm()
-        let realm = try! Realm()
-        var results = realm.objects(SaveScheduleObject.self)
-        results = results.sorted(byKeyPath: "time",
-                                 ascending: true)
-        schedule = []
-        var flag = 0
-        print("\(results)")
-        for i in 0...29{
-            for h in results{
-                if i == h.time{
-                    schedule.append(h.name+"\n"+h.place)
-                    flag = 1
-                }
-            }
-            if flag == 0{
-                schedule.append("")
-            }
-            flag = 0
-        }
-        print(schedule)
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        navigationController?.setNavigationBarHidden(false, animated: false)
-        self.navigationItem.title = "時間割"
-        let realm = try! Realm()
-        var results = realm.objects(SaveScheduleObject.self)
-        results = results.sorted(byKeyPath: "time",
-                                 ascending: true)
-        schedule = []
-        var flag = 0
-        print("\(results)")
-        for i in 0...29{
-            for h in results{
-                if i == h.time{
-                    schedule.append("\(h.name)\n\(h.place)")
-                    flag = 1
-                }
-            }
-            if flag == 0{
-                schedule.append("")
-            }
-            flag = 0
-        }
-        print(schedule)
-        myCollectionView.reloadData()
         
+        spreadsheetView.dataSource = self
+        spreadsheetView.delegate = self
+        
+        let hairline = 1 / UIScreen.main.scale
+        spreadsheetView.intercellSpacing = CGSize(width: hairline, height: hairline)
+        spreadsheetView.gridStyle = .solid(width: hairline, color: .lightGray)
+        
+        spreadsheetView.register(HeaderCell.self, forCellWithReuseIdentifier: String(describing: HeaderCell.self))
+        spreadsheetView.register(TextCell.self, forCellWithReuseIdentifier: String(describing: TextCell.self))
+        spreadsheetView.register(TaskCell.self, forCellWithReuseIdentifier: String(describing: TaskCell.self))
+        spreadsheetView.register(ChartBarCell.self, forCellWithReuseIdentifier: String(describing: ChartBarCell.self))
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        spreadsheetView.flashScrollIndicators()
     }
     
-
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 2
+    func numberOfColumns(in spreadsheetView: SpreadsheetView) -> Int {
+        return 6//3 + titles.count * 2 + 5
     }
     
-    //データの個数（DataSourceを設定した場合に必要な項目）
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if(section == 0){   //section:0は曜日を表示
-            return numOfDays
+    func numberOfRows(in spreadsheetView: SpreadsheetView) -> Int {
+        return 6//2 + 22
+    }
+    
+    //cellのwidth
+    func spreadsheetView(_ spreadsheetView: SpreadsheetView, widthForColumn column: Int) -> CGFloat {
+        if case 0 = column {
+            return UIScreen.main.bounds.width/6.0/2.0
         }else{
-            return 30
+        return UIScreen.main.bounds.width/6.0 + UIScreen.main.bounds.width/6.0/6/2
         }
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TimeCell", for: indexPath) as! TimeCell
-        if(indexPath.section == 0){             //曜日表示
-            cell.backgroundColor = UIColor.lightGray
-            cell.textLabel.text = weekArray[indexPath.row]
-            cell.textLabel.center = CGPoint(x:cellWidth/2,y:cellHeight/2)
-            cell.textLabel.font = UIFont.systemFont(ofSize: 20)
+    //cellのheight
+    func spreadsheetView(_ spreadsheetView: SpreadsheetView, heightForRow row: Int) -> CGFloat {
+        if case 0 = row{
+            return (UIScreen.main.bounds.height-93.0)/6.0/2.0
+        }else{
+            return (UIScreen.main.bounds.height-93.0)/6.0 + (UIScreen.main.bounds.height-93.0)/6.0/6.0/2.0
+        }
+    }
+    
+    //何行固定するか
+    func frozenColumns(in spreadsheetView: SpreadsheetView) -> Int {
+        return 6
+    }
+    
+    //何列固定するか
+    func frozenRows(in spreadsheetView: SpreadsheetView) -> Int {
+        return 6
+    }
+    
+    func spreadsheetView(_ spreadsheetView: SpreadsheetView, cellForItemAt indexPath: IndexPath) -> Cell? {
+        switch (indexPath.column, indexPath.row) {
+        case (0, 0):
+            let cell = spreadsheetView.dequeueReusableCell(withReuseIdentifier: String(describing: HeaderCell.self), for: indexPath) as! HeaderCell
+            //cell.backgroundColor = UIColor.white
+            cell.label.text = ""
+            cell.gridlines.left = .default
+            cell.gridlines.right = .default
+            return cell
+            //12345限
+        case (0,1...5):
+            let cell = spreadsheetView.dequeueReusableCell(withReuseIdentifier: String(describing: HeaderCell.self), for: indexPath) as! HeaderCell
+            cell.label.text = time[indexPath.row-1]
+            cell.gridlines.left = .default
+            cell.gridlines.right = .default
+            return cell
+        //月火水木金
+        case (1...5,0):
+            let cell = spreadsheetView.dequeueReusableCell(withReuseIdentifier: String(describing: HeaderCell.self), for: indexPath) as! HeaderCell
+            cell.label.text = week[indexPath.column-1]
+            cell.gridlines.left = .default
+            cell.gridlines.right = .default
+            return cell
+            //月曜日の授業
+        case (1,1...5):
+            let cell = spreadsheetView.dequeueReusableCell(withReuseIdentifier: String(describing: HeaderCell.self), for: indexPath) as! HeaderCell
+            cell.label.text = month[indexPath.row-1]
+            cell.gridlines.left = .default
+            cell.gridlines.right = .default
+            return cell
+            //火曜日の授業
+        case (2,1...5):
+            let cell = spreadsheetView.dequeueReusableCell(withReuseIdentifier: String(describing: HeaderCell.self), for: indexPath) as! HeaderCell
+            cell.label.text = tues[indexPath.row-1]
+            cell.gridlines.left = .default
+            cell.gridlines.right = .default
+            return cell
+            //水曜日の授業
+        case (3,1...5):
+            let cell = spreadsheetView.dequeueReusableCell(withReuseIdentifier: String(describing: HeaderCell.self), for: indexPath) as! HeaderCell
+            cell.label.text = wednes[indexPath.row-1]
+            cell.gridlines.left = .default
+            cell.gridlines.right = .default
+            return cell
+            //木曜日の授業
+        case (4,1...5):
+            let cell = spreadsheetView.dequeueReusableCell(withReuseIdentifier: String(describing: HeaderCell.self), for: indexPath) as! HeaderCell
+            cell.label.text = thurs[indexPath.row-1]
+            cell.gridlines.left = .default
+            cell.gridlines.right = .default
+            return cell
+            //金曜日の授業
+        case (5,1...5):
+            let cell = spreadsheetView.dequeueReusableCell(withReuseIdentifier: String(describing: HeaderCell.self), for: indexPath) as! HeaderCell
+            cell.label.text = fri[indexPath.row-1]
+            cell.gridlines.left = .default
+            cell.gridlines.right = .default
+            return cell
             
-        }else{
-            cell.backgroundColor = UIColor.white
-            cell.textLabel.text = schedule[indexPath.row]
-            cell.textLabel.center = CGPoint(x:cellWidth/2,y:cellHeight/2)
-            cell.textLabel.numberOfLines = 0
-            cell.textLabel.adjustsFontSizeToFitWidth = true  // 自動調整を有効にする
-            cell.textLabel.minimumScaleFactor = 0.5  // 半分の大きさまで縮小させられる
-            cell.textLabel.font = UIFont.systemFont(ofSize: 16)
-        }
-        return cell
-    }
-    
-    //セルをクリックしたら呼ばれる
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("Num：\(indexPath.row) Section:\(indexPath.section)")
-        if indexPath.section == 1 && indexPath.row != 0 && indexPath.row != 6 && indexPath.row != 12 && indexPath.row != 18 && indexPath.row != 24 && indexPath.row != 30{
-            tapCell = indexPath.row
-            if tapCell >= 1 && tapCell <= 5{
-                timeTitle = 1
-            }else if tapCell >= 7 && tapCell <= 11{
-                timeTitle = 2
-            }else if tapCell >= 13 && tapCell <= 17{
-                timeTitle = 3
-            }else if tapCell >= 19 && tapCell <= 23{
-                timeTitle = 4
-            }else if tapCell >= 25 && tapCell <= 29{
-                timeTitle = 5
-            }
-            if tapCell==1||tapCell==7||tapCell==13||tapCell==19||tapCell==25{
-                weekTitle = "月曜日"
-            }else if tapCell==2||tapCell==8||tapCell==14||tapCell==20||tapCell==26{
-                weekTitle = "火曜日"
-            }else if tapCell==3||tapCell==9||tapCell==15||tapCell==21||tapCell==27{
-                weekTitle = "水曜日"
-            }else if tapCell==4||tapCell==10||tapCell==16||tapCell==22||tapCell==28{
-                weekTitle = "木曜日"
-            }else if tapCell==5||tapCell==11||tapCell==17||tapCell==23||tapCell==29{
-                weekTitle = "金曜日"
-            }
-            performSegue(withIdentifier: "toDetilsSchedule",sender: nil)
+        default:
+            return nil
         }
     }
     
-    
-    
-    //セルサイズの指定（UICollectionViewDelegateFlowLayoutで必須）　横幅いっぱいにセルが広がるようにしたい
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let numberOfMargin:CGFloat = 8.0
-        let widths:CGFloat = (collectionView.frame.size.width - cellMargin * numberOfMargin)/CGFloat(numOfDays)
-        let heights:CGFloat = (collectionView.frame.size.height - cellMargin * numberOfMargin)/CGFloat(numOfDays)//-49.0/6.0//UIScreen.main.bounds.height/6.0//widths * 1.5
-        cellHeight = heights
-        cellWidth = widths
-        return CGSize(width:widths,height:heights)
+    /// Delegate
+    func spreadsheetView(_ spreadsheetView: SpreadsheetView, didSelectItemAt indexPath: IndexPath) {
+        print("Selected: (row: \(indexPath.row), column: \(indexPath.column))")
     }
     
-    //セルのアイテムのマージンを設定
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsetsMake(0.0 , 0.0 , 0.0 , 0.0 )  //マージン(top , left , bottom , right)
-    }
     
-    //セルの水平方向のマージンを設定
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return cellMargin
-    }
-    //セルの垂直方向のマージンを設定
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return cellMargin
-    }
-    
-    // Segue 準備
-    override func prepare(for segue: UIStoryboardSegue, sender: Any!) {
-        if (segue.identifier == "toDetilsSchedule") {
-            let detilsVC: DetilsScheduleViewController = (segue.destination as? DetilsScheduleViewController)!
-            let realm = try! Realm()
-            let results = realm.objects(SaveScheduleObject.self)
-                for h in results{
-                    if tapCell == h.time{
-                        detilsVC.loadTime = h.time
-                        detilsVC.loadName = h.name
-                        detilsVC.loadPlace = h.place
-                    }
-                }
-                detilsVC.naviWeekText = "\(weekTitle)"
-                detilsVC.naviTimeText = timeTitle
-                detilsVC.tappedCell = tapCell
-            }
-        }
-    }
+}
 
 
