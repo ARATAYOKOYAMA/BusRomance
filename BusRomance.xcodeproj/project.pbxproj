@@ -25,6 +25,7 @@
 		6DEFCF5B1E5D2C9853E24F25 /* Pods_BusRomanceUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 460AB15941D140997A754070 /* Pods_BusRomanceUITests.framework */; };
 		B78C6AE2D52FE3DF6AB0F247 /* Pods_BusRomance.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B412E766ABEDCD927030808A /* Pods_BusRomance.framework */; };
 		C495253A02ED799FCEA6091F /* Pods_BusRomanceTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A888A20853045D12AE9EEB09 /* Pods_BusRomanceTests.framework */; };
+		DF02E0DB1FDE7531004A0047 /* HomeSecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF02E0DA1FDE7531004A0047 /* HomeSecondViewController.swift */; };
 		DF4F1D591F822B53005EF84D /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF4F1D581F822B52005EF84D /* SearchViewController.swift */; };
 		DF4F1D5D1F8B6596005EF84D /* PickerTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF4F1D5C1F8B6596005EF84D /* PickerTextField.swift */; };
 		DF4F1D5F1F8B6DC8005EF84D /* PickerDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF4F1D5E1F8B6DC8005EF84D /* PickerDate.swift */; };
@@ -86,6 +87,7 @@
 		A888A20853045D12AE9EEB09 /* Pods_BusRomanceTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BusRomanceTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B412E766ABEDCD927030808A /* Pods_BusRomance.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BusRomance.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE7FDA51EE9F66312BE984EB /* Pods-BusRomanceTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BusRomanceTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BusRomanceTests/Pods-BusRomanceTests.release.xcconfig"; sourceTree = "<group>"; };
+		DF02E0DA1FDE7531004A0047 /* HomeSecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSecondViewController.swift; sourceTree = "<group>"; };
 		DF4F1D581F822B52005EF84D /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		DF4F1D5C1F8B6596005EF84D /* PickerTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerTextField.swift; sourceTree = "<group>"; };
 		DF4F1D5E1F8B6DC8005EF84D /* PickerDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerDate.swift; sourceTree = "<group>"; };
@@ -201,6 +203,7 @@
 				1564900A1F985C21003680FD /* InitialSettingFirstViewController.swift */,
 				1564900C1F985C33003680FD /* InitialSettingSecondViewController.swift */,
 				1564900E1F985C51003680FD /* InitialSettingThirdViewController.swift */,
+				DF02E0DA1FDE7531004A0047 /* HomeSecondViewController.swift */,
 			);
 			path = Swift;
 			sourceTree = "<group>";
@@ -480,7 +483,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		ABDB1EEC843D30D64A3D3ED4 /* [CP] Check Pods Manifest.lock */ = {
@@ -498,7 +501,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		CCAAEED93D106E672A72C35F /* [CP] Check Pods Manifest.lock */ = {
@@ -516,7 +519,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		E4CCBDDF92F5416D252FA362 /* [CP] Copy Pods Resources */ = {
@@ -587,6 +590,7 @@
 				15482A861FB1510C00D030BC /* ConfigViewController.swift in Sources */,
 				DF4F1D5D1F8B6596005EF84D /* PickerTextField.swift in Sources */,
 				DF60C0431F9494E3004D4C9F /* HttpGetPost.swift in Sources */,
+				DF02E0DB1FDE7531004A0047 /* HomeSecondViewController.swift in Sources */,
 				DF79AF301F717A60006D7AF6 /* ViewController.swift in Sources */,
 				DF79AF2E1F717A60006D7AF6 /* AppDelegate.swift in Sources */,
 				1564900D1F985C33003680FD /* InitialSettingSecondViewController.swift in Sources */,
