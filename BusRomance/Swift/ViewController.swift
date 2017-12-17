@@ -53,7 +53,7 @@ class ViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(ViewController.viewWillEnterForeground(_:)),
                                                name: NSNotification.Name.UIApplicationWillEnterForeground, object: nil)
         
-        getDate()
+        //getDate()
     }
     
     override func viewWillAppear(_ animated: Bool) {
