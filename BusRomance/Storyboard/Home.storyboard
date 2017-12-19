@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="TYp-C1-Ng5">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="uRs-dN-6dr">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--ホーム-->
         <scene sceneID="YtA-eF-cvI">
             <objects>
-                <viewController id="TYp-C1-Ng5" customClass="ViewController" customModule="BusRomance" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="firstPage" id="TYp-C1-Ng5" customClass="ViewController" customModule="BusRomance" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="fiN-Cl-3Fb"/>
                         <viewControllerLayoutGuide type="bottom" id="bTE-DG-P1o"/>
@@ -114,6 +114,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="ホーム" image="home" id="dPz-Fi-vfp"/>
+                    <navigationItem key="navigationItem" id="Gyv-cV-tKZ"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="busRemainLabel1" destination="jVe-Sk-WDV" id="hdl-i4-82G"/>
@@ -123,14 +124,55 @@
                         <outlet property="busTimeLabel1" destination="kmX-ZG-TGi" id="OV7-yV-nOO"/>
                         <outlet property="busTimeLabel2" destination="Odq-12-8fD" id="nh9-Da-YWw"/>
                         <outlet property="costLabel" destination="2Ox-TI-ATf" id="1ap-HJ-3JQ"/>
+                        <outlet property="firstView" destination="7hp-8R-WbU" id="Ztk-bF-PnF"/>
                         <outlet property="hayaLabel" destination="lIT-LT-1YU" id="B4e-kB-FHo"/>
                         <outlet property="reloadButton" destination="FDT-sp-nhs" id="t9N-r1-nlL"/>
                         <outlet property="tsugiLabel" destination="e38-J8-s3H" id="b9y-AC-sft"/>
+                        <segue destination="jiX-1n-ua6" kind="show" identifier="homeSegue" id="Wvf-Bj-YMC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kJu-th-G72" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="77.599999999999994" y="109.29535232383809"/>
+            <point key="canvasLocation" x="-151" y="108"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="YE7-cw-0E8">
+            <objects>
+                <navigationController id="uRs-dN-6dr" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="P3r-qY-7Py">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="TYp-C1-Ng5" kind="relationship" relationship="rootViewController" id="5IV-me-MCv"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RHU-hk-0xy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-937" y="107"/>
+        </scene>
+        <!--Home Second View Controller-->
+        <scene sceneID="Ss2-3Z-izz">
+            <objects>
+                <viewController storyboardIdentifier="secondPage" id="jiX-1n-ua6" customClass="HomeSecondViewController" customModule="BusRomance" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="QNY-Lh-u4p"/>
+                        <viewControllerLayoutGuide type="bottom" id="lHW-nr-Lsa"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="6bX-0r-79I">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="nS6-yP-6fZ"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="secondView" destination="6bX-0r-79I" id="PVK-2p-mCP"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="H9F-yI-MbF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="625" y="107"/>
         </scene>
     </scenes>
     <resources>
