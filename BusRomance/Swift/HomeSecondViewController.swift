@@ -14,7 +14,7 @@ class HomeSecondViewController: UIViewController {
     var tapEndPosX:CGFloat = 0
     var tapEndPosY:CGFloat = 0
     
-    
+    /* ---「今日」のバス情報を表示するView・Label --- */
     @IBOutlet weak var todayLabel: UILabel! //「今日」と表示するラベル
     @IBOutlet weak var todayDateLabel: UILabel! //今日の日付を表示するラベル
     @IBOutlet weak var todayView: UIView! //今日の情報を表示する白いview
@@ -27,6 +27,20 @@ class HomeSecondViewController: UIViewController {
     @IBOutlet weak var todayLastBusLabel: UILabel! //「帰」のバス系統名を表示するラベル
     @IBOutlet weak var todayLastBusStopLabel: UILabel! //「帰」の乗車停留所名を表示するラベル
     
+    /* ---「明日（又は来週）」のバス情報を表示するView・Label --- */
+    @IBOutlet weak var nextdayLabel: UILabel! //「明日（又は来週）」と表示するラベル
+    @IBOutlet weak var nextdayDateLabel: UILabel! //「明日」の日付を表示するラベル
+    @IBOutlet weak var nextdayView: UIView! //「明日」の情報を表示する白いview
+    @IBOutlet weak var nextdayFirstScheduleLabel: UILabel! //「行」の講義名を表示するラベル
+    @IBOutlet weak var nextdayFirstTimeLabel: UILabel! //「行」のバスの時刻を表示するラベル
+    @IBOutlet weak var nextdayFirstBusLabel: UILabel! //「行」のバス系統名を表示するラベル
+    @IBOutlet weak var nextdayFirstBusStopLabel: UILabel! //「行」の乗車停留所名を表示するラベル
+    @IBOutlet weak var nextdayLastScheduleLabel: UILabel! //「帰」の講義名を表示するラベル
+    @IBOutlet weak var nextdayLastTimeLabel: UILabel! //「帰」のバスの時刻を表示するラベル
+    @IBOutlet weak var nextdayLastBusLabel: UILabel! //「帰」のバス系統名を表示するラベル
+    @IBOutlet weak var nextdayLastBusStopLabel: UILabel! //「帰」の乗車停留所名を表示するラベル
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -34,9 +48,11 @@ class HomeSecondViewController: UIViewController {
         let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(panGesture(sender:)))
         secondView.addGestureRecognizer(panGestureRecognizer)
         
-        /* --- Label・Viewの初期設定 --- */
+        /* --- Viewの初期設定 --- */
         todayView.layer.cornerRadius = 20 //白いviewに角丸を設定
         todayView.backgroundColor = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 0.8) //背景色を半透明化
+        nextdayView.layer.cornerRadius = 20 //白いviewに角丸を設定
+        nextdayView.backgroundColor = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 0.8) //背景色を半透明化
         
         /* --- ラベルの初期値を設定.（現在は仮） ---*/
         //「今日（上のview）」のラベル
@@ -49,7 +65,20 @@ class HomeSecondViewController: UIViewController {
         todayLastScheduleLabel.text = "1限　AAAAAAA"
         todayLastTimeLabel.text = "12:00"
         todayLastBusLabel.text = "105系統"
-        todayLastBusStopLabel.text = "赤川入口"
+        todayLastBusStopLabel.text = "公立はこだて未来大学"
+        
+        //「明日（下のview）」のラベル
+        nextdayLabel.text = "明日"
+        nextdayDateLabel.text = "2017/02/03"
+        nextdayFirstScheduleLabel.text = "3限　BBBBBBBBBBBBBBBB"
+        nextdayFirstTimeLabel.text = "12:00"
+        nextdayFirstBusLabel.text = "105系統"
+        nextdayFirstBusStopLabel.text = "赤川入口"
+        nextdayLastScheduleLabel.text = "5限　BBBBBB"
+        nextdayLastTimeLabel.text = "12:00"
+        nextdayLastBusLabel.text = "105系統"
+        nextdayLastBusStopLabel.text = "公立はこだて未来大学"
+
     }
 
     override func didReceiveMemoryWarning() {
