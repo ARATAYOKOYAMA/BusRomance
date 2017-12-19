@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="egV-wr-kVJ">
+
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -21,8 +23,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                          
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="24862" translatesAutoresizingMaskIntoConstraints="NO" id="iSD-Tc-Rqe">
                                 <rect key="frame" x="122" y="512" width="201" height="106"/>
+
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oIP-j2-dGv">
@@ -33,9 +37,34 @@
                                 </items>
                             </navigationBar>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Oiv-TL-Ls2" customClass="SpreadsheetView" customModule="SpreadsheetView">
-                                <rect key="frame" x="0.0" y="44" width="375" height="574"/>
+                                <rect key="frame" x="16" y="131" width="343" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <view tag="1" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aHV-9g-ZS5" customClass="SpreadsheetView" customModule="SpreadsheetView">
+                                <rect key="frame" x="16" y="174" width="343" height="70"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <view tag="2" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HfI-jn-fdp" customClass="SpreadsheetView" customModule="SpreadsheetView">
+                                <rect key="frame" x="16" y="252" width="343" height="70"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <view tag="3" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0es-ft-Jyq" customClass="SpreadsheetView" customModule="SpreadsheetView">
+                                <rect key="frame" x="16" y="330" width="343" height="70"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <view tag="4" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="81P-Xg-362" customClass="SpreadsheetView" customModule="SpreadsheetView">
+                                <rect key="frame" x="16" y="408" width="343" height="70"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <view tag="5" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gJJ-xw-H2B" customClass="SpreadsheetView" customModule="SpreadsheetView">
+                                <rect key="frame" x="16" y="486" width="343" height="70"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -44,7 +73,12 @@
                     <navigationItem key="navigationItem" title="時間割" id="tW7-dD-ZXo"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="spreadsheetView" destination="Oiv-TL-Ls2" id="G6R-w1-iLR"/>
+                        <outlet property="fifthSpreadsheetView" destination="gJJ-xw-H2B" id="ZQj-kg-7gU"/>
+                        <outlet property="firstSpreadsheetView" destination="aHV-9g-ZS5" id="4tM-P3-jcf"/>
+                        <outlet property="fourthSpreadsheetView" destination="81P-Xg-362" id="J5v-ue-WWH"/>
+                        <outlet property="secondSpreadsheetView" destination="HfI-jn-fdp" id="JyQ-dY-POw"/>
+                        <outlet property="thirdSpreadsheetView" destination="0es-ft-Jyq" id="ZKJ-Kk-jrV"/>
+                        <outlet property="weekSpreadsheetView" destination="Oiv-TL-Ls2" id="wgS-B1-scs"/>
                         <segue destination="HHO-dQ-oRO" kind="push" identifier="toDetilsSchedule" id="vTP-3a-qx1"/>
                     </connections>
                 </viewController>
@@ -82,5 +116,6 @@
     <resources>
         <image name="24862" width="2771" height="1551"/>
         <image name="schedule" width="25" height="25"/>
+        <image name="時間割背景2" width="1242" height="2208"/>
     </resources>
 </document>
