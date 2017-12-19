@@ -21,7 +21,6 @@ class  ScheduleViewController: UIViewController, SpreadsheetViewDataSource, Spre
     
     var topColor:UIColor = UIColor(red:0.000, green:0.000, blue:0.000, alpha:1)
     var bottomColor:UIColor = UIColor(red:0.000, green:0.000, blue:0.000, alpha:1)
-    
     let week = ["","月","火","水","木","金"]
     var first = ["1","","","","",""]
     var second = ["2","","","","",""]
@@ -80,7 +79,7 @@ class  ScheduleViewController: UIViewController, SpreadsheetViewDataSource, Spre
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: false)
         let nowTimeString = getNowClockString()
-        var nowTimeInt:Int = Int(nowTimeString)!+6
+        var nowTimeInt:Int = Int(nowTimeString)!
         
         if nowTimeInt >= 6 && nowTimeInt <= 15{
             topColor = UIColor(red:0.000, green:0.557, blue:1.000, alpha:1)//朝
@@ -168,6 +167,7 @@ class  ScheduleViewController: UIViewController, SpreadsheetViewDataSource, Spre
             cell.label.text = first[indexPath.column]
             noneGridline(indexPath.column, cell)
             return cell
+
         case (0...5, 0, 2):
             cell.label.text = second[indexPath.column]
             noneGridline(indexPath.column, cell)

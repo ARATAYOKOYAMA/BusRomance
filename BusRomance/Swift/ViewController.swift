@@ -71,7 +71,7 @@ class ViewController: UIViewController {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: false)
         let nowTimeString = getNowClockString()
-        var nowTimeInt:Int = Int(nowTimeString)!+6
+        var nowTimeInt:Int = Int(nowTimeString)!
         
         if nowTimeInt >= 6 && nowTimeInt <= 15{
             topColor = UIColor(red:0.000, green:0.557, blue:1.000, alpha:1)//朝
