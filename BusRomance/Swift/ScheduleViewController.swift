@@ -19,7 +19,9 @@ class  ScheduleViewController: UIViewController, SpreadsheetViewDataSource, Spre
     @IBOutlet weak var fourthSpreadsheetView: SpreadsheetView!
     @IBOutlet weak var fifthSpreadsheetView: SpreadsheetView!
     
-    
+    var topColor:UIColor = UIColor(red:0.000, green:0.000, blue:0.000, alpha:1)
+    var bottomColor:UIColor = UIColor(red:0.000, green:0.000, blue:0.000, alpha:1)
+   　
     let week = ["","月","火","水","木","金"]
     var first = ["1","","","","",""]
     var second = ["2","","","","",""]
@@ -72,6 +74,37 @@ class  ScheduleViewController: UIViewController, SpreadsheetViewDataSource, Spre
         thirdSpreadsheetView.flashScrollIndicators()
         fourthSpreadsheetView.flashScrollIndicators()
         fifthSpreadsheetView.flashScrollIndicators()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: false)
+        let nowTimeString = getNowClockString()
+        var nowTimeInt:Int = Int(nowTimeString)!
+        
+        if nowTimeInt >= 6 && nowTimeInt <= 15{
+            topColor = UIColor(red:0.000, green:0.557, blue:1.000, alpha:1)//朝
+            bottomColor = UIColor(red:0.000, green:1.000, blue:1.000, alpha:0)//朝
+        }else if nowTimeInt >= 16 && nowTimeInt <= 18{
+            topColor = UIColor(red:0.980, green:0.439, blue:0.604, alpha:1)//夕方
+            bottomColor = UIColor(red:0.996, green:0.882, blue:0.251, alpha:1)//夕方
+        }else if nowTimeInt >= 19 && nowTimeInt <= 24 || nowTimeInt >= 0 && nowTimeInt <= 5{
+            topColor = UIColor(red:0.200, green:0.031, blue:0.404, alpha:1)//夜
+            bottomColor = UIColor(red:0.108, green:0.442, blue:0.746, alpha:1)//夜
+        }
+        print(nowTimeString)
+        let gradientColors: [CGColor] = [topColor.cgColor, bottomColor.cgColor]
+        let gradientLayer: CAGradientLayer = CAGradientLayer()
+        gradientLayer.colors = gradientColors
+        gradientLayer.frame = self.view.bounds
+        self.view.layer.insertSublayer(gradientLayer, at: 0)
+    }
+    
+    func getNowClockString() -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "HH"
+        let now = Date()
+        return formatter.string(from: now)
     }
     
     func numberOfColumns(in spreadsheetView: SpreadsheetView) -> Int {
