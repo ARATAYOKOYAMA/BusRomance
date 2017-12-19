@@ -61,6 +61,7 @@ class ViewController: UIViewController {
                                                name: NSNotification.Name.UIApplicationWillEnterForeground, object: nil)
         
         //getDate()
+
         // パン（フリック）ジェスチャーのレコグナイザを定義、自分で定義した関数「panGesture」を呼び出すようにする
         let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(panGesture(sender:)))
         firstView.addGestureRecognizer(panGestureRecognizer)
@@ -70,7 +71,7 @@ class ViewController: UIViewController {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: false)
         let nowTimeString = getNowClockString()
-        var nowTimeInt:Int = Int(nowTimeString)!
+        var nowTimeInt:Int = Int(nowTimeString)!+6
         
         if nowTimeInt >= 6 && nowTimeInt <= 15{
             topColor = UIColor(red:0.000, green:0.557, blue:1.000, alpha:1)//朝
@@ -107,12 +108,26 @@ class ViewController: UIViewController {
         busStopLabel1.text = "\(getOnBusStop.last!.busStop1)"
     }
     
+    override func viewDidDisappear(_ animated: Bool) { // 他の画面に遷移後、背景を白にリセット
+        backColorInitialize()
+        let gradientColors: [CGColor] = [topColor.cgColor, bottomColor.cgColor]
+        let gradientLayer: CAGradientLayer = CAGradientLayer()
+        gradientLayer.colors = gradientColors
+        gradientLayer.frame = self.view.bounds
+        self.view.layer.insertSublayer(gradientLayer, at: 0)
+    }
+    
     @objc func viewWillEnterForeground(_ notification: Notification?) {
         getDate()
     }
     
     @IBAction func reloadButton(_ sender: Any) {
         getDate()
+    }
+    
+    func backColorInitialize(){ // 背景を白く塗りつぶす
+        topColor = UIColor(red:1.000, green:1.000, blue:1.000, alpha:1)
+        bottomColor = UIColor(red:1.000, green:1.000, blue:1.000, alpha:1)
     }
     
     func getNowClockString() -> String {
