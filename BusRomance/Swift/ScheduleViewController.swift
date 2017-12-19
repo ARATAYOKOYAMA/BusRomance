@@ -26,6 +26,8 @@ class  ScheduleViewController: UIViewController, SpreadsheetViewDataSource, Spre
     var third = ["3","","","","",""]
     var fourth = ["4","","","","",""]
     var fifth = ["5","","","","",""]
+    var tappedTime = 0//タップしたcellの時間
+    var tappedWeek = ""//タップしたcellの曜日
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -161,8 +163,21 @@ class  ScheduleViewController: UIViewController, SpreadsheetViewDataSource, Spre
     /// Delegate
     func spreadsheetView(_ spreadsheetView: SpreadsheetView, didSelectItemAt indexPath: IndexPath) {
         print("Selected: (row: \(indexPath.row), column: \(indexPath.column))")
+        tappedWeek = week[indexPath.column]
+        tappedTime = spreadsheetView.tag
+        self.performSegue(withIdentifier: "toDetilsSchedule", sender: nil)
     }
-    
+        
+        /*  遷移内容をチェックして、値渡しとかする */
+        override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+            if segue.identifier == "toDetilsSchedule" {
+                let secondVc = segue.destination as! DetilsScheduleViewController
+                secondVc.naviWeekText = tappedWeek
+                secondVc.naviTimeText = tappedTime
+            }
+        }
+        
+        
 }
 
 
