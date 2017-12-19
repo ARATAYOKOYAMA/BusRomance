@@ -49,14 +49,7 @@ class DetilsScheduleViewController: UIViewController {
     var loadPlace = ""
     
     var changeText = false
-    
-    //var count2 = 0
-    
-    func iei(){
-        print("いえいえいえい")
-    }
-    
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "\(naviWeekText)\(naviTimeText)限"
