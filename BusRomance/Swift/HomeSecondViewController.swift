@@ -53,6 +53,11 @@ class HomeSecondViewController: UIViewController {
         todayView.backgroundColor = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 0.8) //背景色を半透明化
         nextdayView.layer.cornerRadius = 20 //白いviewに角丸を設定
         nextdayView.backgroundColor = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 0.8) //背景色を半透明化
+        //時刻の表示が表示しきれない時の文字サイズ自動縮小を許可
+        todayFirstTimeLabel.adjustsFontSizeToFitWidth = true
+        todayLastTimeLabel.adjustsFontSizeToFitWidth = true
+        nextdayFirstTimeLabel.adjustsFontSizeToFitWidth = true
+        nextdayLastTimeLabel.adjustsFontSizeToFitWidth = true
         
         /* --- ラベルの初期値を設定.（現在は仮） ---*/
         //「今日（上のview）」のラベル
