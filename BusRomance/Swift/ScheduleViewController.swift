@@ -21,6 +21,7 @@ class  ScheduleViewController: UIViewController, SpreadsheetViewDataSource, Spre
     
     var topColor:UIColor = UIColor(red:0.000, green:0.000, blue:0.000, alpha:1)
     var bottomColor:UIColor = UIColor(red:0.000, green:0.000, blue:0.000, alpha:1)
+  
     let week = ["","月","火","水","木","金"]
     var first = ["1","","","","",""]
     var second = ["2","","","","",""]
