@@ -21,7 +21,7 @@ class  ScheduleViewController: UIViewController, SpreadsheetViewDataSource, Spre
     
     var topColor:UIColor = UIColor(red:0.000, green:0.000, blue:0.000, alpha:1)
     var bottomColor:UIColor = UIColor(red:0.000, green:0.000, blue:0.000, alpha:1)
-    
+  
     let week = ["","月","火","水","木","金"]
     var first = ["1","","","","",""]
     var second = ["2","","","","",""]
@@ -100,6 +100,20 @@ class  ScheduleViewController: UIViewController, SpreadsheetViewDataSource, Spre
         self.view.layer.insertSublayer(gradientLayer, at: 0)
     }
     
+    override func viewDidDisappear(_ animated: Bool) { // 他の画面に遷移後、背景を白にリセット
+        backColorInitialize()
+        let gradientColors: [CGColor] = [topColor.cgColor, bottomColor.cgColor]
+        let gradientLayer: CAGradientLayer = CAGradientLayer()
+        gradientLayer.colors = gradientColors
+        gradientLayer.frame = self.view.bounds
+        self.view.layer.insertSublayer(gradientLayer, at: 0)
+    }
+    
+    func backColorInitialize(){ // 背景を白く塗りつぶす
+        topColor = UIColor(red:1.000, green:1.000, blue:1.000, alpha:1)
+        bottomColor = UIColor(red:1.000, green:1.000, blue:1.000, alpha:1)
+    }
+    
     func getNowClockString() -> String {
         let formatter = DateFormatter()
         formatter.dateFormat = "HH"
@@ -154,6 +168,7 @@ class  ScheduleViewController: UIViewController, SpreadsheetViewDataSource, Spre
             cell.label.text = first[indexPath.column]
             noneGridline(indexPath.column, cell)
             return cell
+
         case (0...5, 0, 2):
             cell.label.text = second[indexPath.column]
             noneGridline(indexPath.column, cell)
