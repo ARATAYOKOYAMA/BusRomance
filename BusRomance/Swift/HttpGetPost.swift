@@ -48,7 +48,8 @@ class httpGetPost {
         self.arrivalBusStop = arrivalBusStop
         self.dayTime = dayTime
         self.departureFlag = departureFlag
-        self.url = "http://localhost:8000/api/v1/getBus/"
+        //self.url = "http://localhost:8000/api/v1/getBus/"
+        self.url = "https://busproject-190313.appspot.com/api/v1/getBus/"
     }
     
     
