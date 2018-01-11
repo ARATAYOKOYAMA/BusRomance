@@ -31,47 +31,18 @@ class  ScheduleViewController: UIViewController, SpreadsheetViewDataSource, Spre
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        weekSpreadsheetView.dataSource = self
-        weekSpreadsheetView.delegate = self
-        firstSpreadsheetView.dataSource = self
-        firstSpreadsheetView.delegate = self
-        secondSpreadsheetView.dataSource = self
-        secondSpreadsheetView.delegate = self
-        thirdSpreadsheetView.dataSource = self
-        thirdSpreadsheetView.delegate = self
-        fourthSpreadsheetView.dataSource = self
-        fourthSpreadsheetView.delegate = self
-        fifthSpreadsheetView.dataSource = self
-        fifthSpreadsheetView.delegate = self
-        setUpSpreadsheetView(weekSpreadsheetView)
-        weekSpreadsheetView.layer.cornerRadius = 7
-        setUpSpreadsheetView(firstSpreadsheetView)
-        setUpSpreadsheetView(secondSpreadsheetView)
-        setUpSpreadsheetView(thirdSpreadsheetView)
-        setUpSpreadsheetView(fourthSpreadsheetView)
-        setUpSpreadsheetView(fifthSpreadsheetView)
-        weekSpreadsheetView.register(TextCell.self, forCellWithReuseIdentifier: String(describing: TextCell.self))
-        weekSpreadsheetView.register(HeaderCell.self, forCellWithReuseIdentifier: String(describing: HeaderCell.self))
-        firstSpreadsheetView.register(HeaderCell.self, forCellWithReuseIdentifier: String(describing: HeaderCell.self))
-        firstSpreadsheetView.register(TextCell.self, forCellWithReuseIdentifier: String(describing: TextCell.self))
-        secondSpreadsheetView.register(HeaderCell.self, forCellWithReuseIdentifier: String(describing: HeaderCell.self))
-        secondSpreadsheetView.register(TextCell.self, forCellWithReuseIdentifier: String(describing: TextCell.self))
-        thirdSpreadsheetView.register(HeaderCell.self, forCellWithReuseIdentifier: String(describing: HeaderCell.self))
-        thirdSpreadsheetView.register(TextCell.self, forCellWithReuseIdentifier: String(describing: TextCell.self))
-        fourthSpreadsheetView.register(TextCell.self, forCellWithReuseIdentifier: String(describing: TextCell.self))
-        fourthSpreadsheetView.register(HeaderCell.self, forCellWithReuseIdentifier: String(describing: HeaderCell.self))
-        fifthSpreadsheetView.register(TextCell.self, forCellWithReuseIdentifier: String(describing: TextCell.self))
-        fifthSpreadsheetView.register(HeaderCell.self, forCellWithReuseIdentifier: String(describing: HeaderCell.self))
+        setUpSpreadSheetView()
+        readSchedule()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        weekSpreadsheetView.flashScrollIndicators()
-        firstSpreadsheetView.flashScrollIndicators()
-        secondSpreadsheetView.flashScrollIndicators()
-        thirdSpreadsheetView.flashScrollIndicators()
-        fourthSpreadsheetView.flashScrollIndicators()
-        fifthSpreadsheetView.flashScrollIndicators()
+        readSchedule()
+        firstSpreadsheetView.reloadData()
+        secondSpreadsheetView.reloadData()
+        thirdSpreadsheetView.reloadData()
+        fourthSpreadsheetView.reloadData()
+        fifthSpreadsheetView.reloadData()
     }
     
     func numberOfColumns(in spreadsheetView: SpreadsheetView) -> Int {
@@ -160,24 +131,108 @@ class  ScheduleViewController: UIViewController, SpreadsheetViewDataSource, Spre
         }
     }
     
-    /// Delegate
     func spreadsheetView(_ spreadsheetView: SpreadsheetView, didSelectItemAt indexPath: IndexPath) {
         print("Selected: (row: \(indexPath.row), column: \(indexPath.column))")
         tappedWeek = week[indexPath.column]
         tappedTime = spreadsheetView.tag
         self.performSegue(withIdentifier: "toDetilsSchedule", sender: nil)
     }
-        
-        /*  遷移内容をチェックして、値渡しとかする */
-        override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-            if segue.identifier == "toDetilsSchedule" {
-                let secondVc = segue.destination as! DetilsScheduleViewController
-                secondVc.naviWeekText = tappedWeek
-                secondVc.naviTimeText = tappedTime
+    
+    /*  遷移内容をチェックして、値渡しとかする */
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toDetilsSchedule" {
+            let secondVc = segue.destination as! DetilsScheduleViewController
+            secondVc.naviWeekText = tappedWeek
+            secondVc.naviTimeText = tappedTime
+        }
+    }
+    
+    func setUpSpreadSheetView(){
+        weekSpreadsheetView.dataSource = self
+        weekSpreadsheetView.delegate = self
+        firstSpreadsheetView.dataSource = self
+        firstSpreadsheetView.delegate = self
+        secondSpreadsheetView.dataSource = self
+        secondSpreadsheetView.delegate = self
+        thirdSpreadsheetView.dataSource = self
+        thirdSpreadsheetView.delegate = self
+        fourthSpreadsheetView.dataSource = self
+        fourthSpreadsheetView.delegate = self
+        fifthSpreadsheetView.dataSource = self
+        fifthSpreadsheetView.delegate = self
+        setUpSpreadsheetView(weekSpreadsheetView)
+        weekSpreadsheetView.layer.cornerRadius = 7
+        setUpSpreadsheetView(firstSpreadsheetView)
+        setUpSpreadsheetView(secondSpreadsheetView)
+        setUpSpreadsheetView(thirdSpreadsheetView)
+        setUpSpreadsheetView(fourthSpreadsheetView)
+        setUpSpreadsheetView(fifthSpreadsheetView)
+        weekSpreadsheetView.register(TextCell.self, forCellWithReuseIdentifier: String(describing: TextCell.self))
+        weekSpreadsheetView.register(HeaderCell.self, forCellWithReuseIdentifier: String(describing: HeaderCell.self))
+        firstSpreadsheetView.register(HeaderCell.self, forCellWithReuseIdentifier: String(describing: HeaderCell.self))
+        firstSpreadsheetView.register(TextCell.self, forCellWithReuseIdentifier: String(describing: TextCell.self))
+        secondSpreadsheetView.register(HeaderCell.self, forCellWithReuseIdentifier: String(describing: HeaderCell.self))
+        secondSpreadsheetView.register(TextCell.self, forCellWithReuseIdentifier: String(describing: TextCell.self))
+        thirdSpreadsheetView.register(HeaderCell.self, forCellWithReuseIdentifier: String(describing: HeaderCell.self))
+        thirdSpreadsheetView.register(TextCell.self, forCellWithReuseIdentifier: String(describing: TextCell.self))
+        fourthSpreadsheetView.register(TextCell.self, forCellWithReuseIdentifier: String(describing: TextCell.self))
+        fourthSpreadsheetView.register(HeaderCell.self, forCellWithReuseIdentifier: String(describing: HeaderCell.self))
+        fifthSpreadsheetView.register(TextCell.self, forCellWithReuseIdentifier: String(describing: TextCell.self))
+        fifthSpreadsheetView.register(HeaderCell.self, forCellWithReuseIdentifier: String(describing: HeaderCell.self))
+    }
+    
+    func readSchedule(){
+        let realm = try! Realm()
+        var results = realm.objects(SaveScheduleObject.self)
+        results = results.sorted(byKeyPath: "time",
+                                 ascending: true)
+        print("results = \(results)")
+        for i in 0..<results.count{
+            if results[i].time >= 11 && results[i].time <= 15{
+                let time = results[i].time - 10
+                distributeWeek(time,"\(results[i].name)",1)
+            }else if results[i].time >= 21 && results[i].time <= 25{
+                let time = results[i].time - 20
+                distributeWeek(time,"\(results[i].name)",2)
+            }else if results[i].time >= 31 && results[i].time <= 35{
+                let time = results[i].time - 30
+                distributeWeek(time,"\(results[i].name)",3)
+            }else if results[i].time >= 41 && results[i].time <= 45{
+                let time = results[i].time - 40
+                distributeWeek(time,"\(results[i].name)",4)
+            }else if results[i].time >= 51 && results[i].time <= 55{
+                let time = results[i].time - 50
+                distributeWeek(time,"\(results[i].name)",5)
             }
         }
-        
-        
+        print("first = \(first)")
+        print("second = \(second)")
+        print("third = \(third)")
+        print("fourth = \(fourth)")
+        print("fifth = \(fifth)")
+    }
+    
+    func distributeWeek(_ time:Int,_ name:String,_ value:Int){
+        switch time{
+        case 1:
+            first.remove(at: value)
+            first.insert("\(name)", at: value)
+        case 2:
+            second.remove(at: value)
+            second.insert("\(name)", at: value)
+        case 3:
+            third.remove(at: value)
+            third.insert("\(name)", at: value)
+        case 4:
+            fourth.remove(at: value)
+            fourth.insert("\(name)", at: value)
+        case 5:
+            fifth.remove(at: value)
+            fifth.insert("\(name)", at: value)
+        default:
+            break
+        }
+    }
 }
 
 

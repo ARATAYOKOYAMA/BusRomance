@@ -15,8 +15,7 @@ class SaveScheduleObject:Object{
     @objc dynamic var place = ""
 }
 
-
-func deleateRealm(){
+func deleateRealmSchedule(){
     let realm = try! Realm()
     let obj = realm.objects(SaveScheduleObject.self)
     try! realm.write {
@@ -25,7 +24,7 @@ func deleateRealm(){
     print("dataを削除した")
 }
 
-func deleateRealm2(){
+func deleateRealmPlace(){
     let realm = try! Realm()
     let obj = realm.objects(FrequentlyPlaceObject.self)
     try! realm.write {
@@ -49,7 +48,7 @@ class DetilsScheduleViewController: UIViewController {
     var loadPlace = ""
     
     var changeText = false
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "\(naviWeekText)\(naviTimeText)限"
@@ -67,28 +66,39 @@ class DetilsScheduleViewController: UIViewController {
             deleateButton.alpha = 0.3
             changeText = false
         }
+        switch naviWeekText{
+        case "月"://月曜日は1~5限まで11,12,13,14,15というようにする
+            naviTimeText += 10
+        case "火"://火曜日は1~5限まで21,22,23,24,25というようにする
+            naviTimeText += 20
+        case "水"://水曜日は1~5限まで31,32,33,34,35というようにする
+            naviTimeText += 30
+        case "木"://木曜日は1~5限まで41,42,43,44,45というようにする
+            naviTimeText += 40
+        case "金"://金曜日は1~5限まで51,52,53,54,55というようにする
+            naviTimeText += 50
+        default:
+            break
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(false, animated: false)
-        
     }
     
     
     @IBAction func entryButton(_ sender: Any) {
         if nameTextField != nil && placeTextField != nil && changeText == false{
-            print("上のif分実行")
             let realm = try! Realm()
             let obj = SaveScheduleObject()
-            obj.time = tappedCell//Int型に変えたい
+            obj.time = naviTimeText
             obj.name = nameTextField.text!
             obj.place = placeTextField.text!
             try! realm.write {
                 realm.add(obj)
             }
         }else if nameTextField != nil && placeTextField != nil && changeText == true{
-            print("下のif分実行")
             let realm = try! Realm()
             var results = realm.objects(SaveScheduleObject.self)
             results = results.sorted(byKeyPath: "time",
@@ -131,13 +141,10 @@ class DetilsScheduleViewController: UIViewController {
         self.navigationController?.popViewController(animated: true)
     }
     
-    
-    
     @IBAction func nameTextFieldEvent(_ sender: Any) {
         if loadName != (sender as AnyObject).text{
             entryButton.isEnabled = true
             entryButton.alpha = 1.0
-            //changeText = true
         }
     }
     
@@ -145,7 +152,6 @@ class DetilsScheduleViewController: UIViewController {
         if loadPlace != (sender as AnyObject).text{
             entryButton.isEnabled = true
             entryButton.alpha = 1.0
-            //changeText = true
         }
     }
     
@@ -153,7 +159,6 @@ class DetilsScheduleViewController: UIViewController {
         self.navigationController?.popViewController(animated: true)
     }
     
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }

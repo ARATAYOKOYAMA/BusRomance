@@ -49,7 +49,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //deleateRealm2()
+        //deleateRealmSchedule()
         //busStopLabel1.text = "\(busStop1)"
         busStopLabel2.text = "\(busStop2)"
       //  costLabel.text = "\(cost)円"
