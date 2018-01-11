@@ -37,6 +37,16 @@ class ViewController: UIViewController {
     var afterNextLocationTime = ""
     var cost = ""
     
+    var monday:[String] = ["","","","","",""]
+    var thuesday:[String] = ["","","","","",""]
+    var wednesday:[String] = ["","","","","",""]
+    var thursday:[String] = ["","","","","",""]
+    var friday:[String] = ["","","","","",""]
+    
+    var todayFirstClass = 0//今日の最初の授業のコマ数
+    var todayLastClass = 0//今日の最後の授業のコマ数
+    var tomorrowFirstClass = 0//明日の最初の授業のコマ数
+    var tomorrowLastClass = 0//明日の最後の授業のコマ数
     
     //ページ遷移系
     @IBOutlet var firstView: UIView!
@@ -55,8 +65,10 @@ class ViewController: UIViewController {
       //  costLabel.text = "\(cost)円"
         //busRemainLabel1.text = "到着まで約 \(busRem1) 分"
        // busRemainLabel2.text = "到着まで約 \(busRem2) 分"
-        
-        // バックグラウンドからの復帰を監視するやつ
+        readSchedule()
+        let today = checkToday()
+        todayAndTomorrowSchedule(today)
+        // バックグラウンドからの復帰を監視する
         NotificationCenter.default.addObserver(self, selector: #selector(ViewController.viewWillEnterForeground(_:)),
                                                name: NSNotification.Name.UIApplicationWillEnterForeground, object: nil)
         
@@ -71,38 +83,16 @@ class ViewController: UIViewController {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: false)
         let nowTimeString = getNowClockString()
-        var nowTimeInt:Int = Int(nowTimeString)!
+        let nowTimeInt:Int = Int(nowTimeString)!
+        readSchedule()
+        let today = checkToday()
+        todayAndTomorrowSchedule(today)
+        print("todayFirstClass = \(todayFirstClass)")
+        print("todayLastClass = \(todayLastClass)")
+        print("tomorrowFirstClass = \(tomorrowFirstClass)")
+        print("tomorrowLastClass = \(tomorrowLastClass)")
+        setColor(nowTimeInt)
         
-        if nowTimeInt >= 6 && nowTimeInt <= 15{
-            topColor = UIColor(red:0.000, green:0.557, blue:1.000, alpha:1)//朝
-            bottomColor = UIColor(red:0.000, green:1.000, blue:1.000, alpha:0)//朝
-            hayaLabel.backgroundColor = UIColor(red:0.000, green:0.557, blue:1.000, alpha:1)
-            busStopLabel1.backgroundColor = UIColor(red:0.000, green:0.707, blue:1.000, alpha:0.7)
-            busStopLabel2.backgroundColor = UIColor(red:0.000, green:0.707, blue:1.000, alpha:0.7)
-            hayaLabel.backgroundColor =  UIColor(red:0.000, green:0.777, blue:1.000, alpha:0.7)
-            tsugiLabel.backgroundColor =  UIColor(red:0.000, green:0.777, blue:1.000, alpha:0.7)
-        }else if nowTimeInt >= 16 && nowTimeInt <= 18{
-            topColor = UIColor(red:0.980, green:0.439, blue:0.604, alpha:1)//夕方
-            bottomColor = UIColor(red:0.996, green:0.882, blue:0.251, alpha:1)//夕方
-            busStopLabel1.backgroundColor = UIColor(red:0.985, green:0.587, blue:0.484, alpha:1)
-            busStopLabel2.backgroundColor = UIColor(red:0.985, green:0.587, blue:0.484, alpha:1)
-            hayaLabel.backgroundColor =  UIColor(red:0.990, green:0.659, blue:0.421, alpha:1)
-            tsugiLabel.backgroundColor =  UIColor(red:0.990, green:0.659, blue:0.421, alpha:1)
-        }else if nowTimeInt >= 19 && nowTimeInt <= 24 || nowTimeInt >= 0 && nowTimeInt <= 5{
-            topColor = UIColor(red:0.200, green:0.031, blue:0.404, alpha:1)//夜
-            bottomColor = UIColor(red:0.108, green:0.442, blue:0.746, alpha:1)//夜
-            busStopLabel1.backgroundColor = UIColor(red:0.170, green:0.170, blue:0.520, alpha:1)
-            busStopLabel2.backgroundColor = UIColor(red:0.170, green:0.170, blue:0.520, alpha:1)
-            hayaLabel.backgroundColor =  UIColor(red:0.150, green:0.240, blue:0.570, alpha:1)
-            tsugiLabel.backgroundColor =  UIColor(red:0.150, green:0.240, blue:0.570, alpha:1)
-        }
-        print(nowTimeString)
-        let gradientColors: [CGColor] = [topColor.cgColor, bottomColor.cgColor]
-        let gradientLayer: CAGradientLayer = CAGradientLayer()
-        gradientLayer.colors = gradientColors
-        gradientLayer.frame = self.view.bounds
-        self.view.layer.insertSublayer(gradientLayer, at: 0)
-    
         let realm = try! Realm()
         let getOnBusStop = realm.objects(FrequentlyPlaceObject.self)
         busStopLabel1.text = "\(getOnBusStop.last!.busStop1)"
@@ -242,6 +232,135 @@ class ViewController: UIViewController {
             // どちらでもない遷移
         }
     }
-
+    
+    func setColor(_ nowTimeInt:Int){
+        if nowTimeInt >= 6 && nowTimeInt <= 15{
+            topColor = UIColor(red:0.000, green:0.557, blue:1.000, alpha:1)//朝
+            bottomColor = UIColor(red:0.000, green:1.000, blue:1.000, alpha:0)//朝
+            hayaLabel.backgroundColor = UIColor(red:0.000, green:0.557, blue:1.000, alpha:1)
+            busStopLabel1.backgroundColor = UIColor(red:0.000, green:0.707, blue:1.000, alpha:0.7)
+            busStopLabel2.backgroundColor = UIColor(red:0.000, green:0.707, blue:1.000, alpha:0.7)
+            hayaLabel.backgroundColor =  UIColor(red:0.000, green:0.777, blue:1.000, alpha:0.7)
+            tsugiLabel.backgroundColor =  UIColor(red:0.000, green:0.777, blue:1.000, alpha:0.7)
+        }else if nowTimeInt >= 16 && nowTimeInt <= 18{
+            topColor = UIColor(red:0.980, green:0.439, blue:0.604, alpha:1)//夕方
+            bottomColor = UIColor(red:0.996, green:0.882, blue:0.251, alpha:1)//夕方
+            busStopLabel1.backgroundColor = UIColor(red:0.985, green:0.587, blue:0.484, alpha:1)
+            busStopLabel2.backgroundColor = UIColor(red:0.985, green:0.587, blue:0.484, alpha:1)
+            hayaLabel.backgroundColor =  UIColor(red:0.990, green:0.659, blue:0.421, alpha:1)
+            tsugiLabel.backgroundColor =  UIColor(red:0.990, green:0.659, blue:0.421, alpha:1)
+        }else if nowTimeInt >= 19 && nowTimeInt <= 24 || nowTimeInt >= 0 && nowTimeInt <= 5{
+            topColor = UIColor(red:0.200, green:0.031, blue:0.404, alpha:1)//夜
+            bottomColor = UIColor(red:0.108, green:0.442, blue:0.746, alpha:1)//夜
+            busStopLabel1.backgroundColor = UIColor(red:0.170, green:0.170, blue:0.520, alpha:1)
+            busStopLabel2.backgroundColor = UIColor(red:0.170, green:0.170, blue:0.520, alpha:1)
+            hayaLabel.backgroundColor =  UIColor(red:0.150, green:0.240, blue:0.570, alpha:1)
+            tsugiLabel.backgroundColor =  UIColor(red:0.150, green:0.240, blue:0.570, alpha:1)
+        }
+        let gradientColors: [CGColor] = [topColor.cgColor, bottomColor.cgColor]
+        let gradientLayer: CAGradientLayer = CAGradientLayer()
+        gradientLayer.colors = gradientColors
+        gradientLayer.frame = self.view.bounds
+        self.view.layer.insertSublayer(gradientLayer, at: 0)
+    }
+    
+    func readSchedule(){
+        let realm = try! Realm()
+        var results = realm.objects(SaveScheduleObject.self)
+        results = results.sorted(byKeyPath: "time",
+                                 ascending: true)
+        print("results = \(results)")
+        for i in 0..<results.count{
+            if results[i].time >= 11 && results[i].time <= 15{
+                let time = results[i].time - 10
+                monday.remove(at: time)
+                monday.insert("\(results[i].name)", at: time)
+            }else if results[i].time >= 21 && results[i].time <= 25{
+                let time = results[i].time - 20
+                thuesday.remove(at: time)
+                thuesday.insert("\(results[i].name)", at: time)
+            }else if results[i].time >= 31 && results[i].time <= 35{
+                let time = results[i].time - 30
+                wednesday.remove(at: time)
+                wednesday.insert("\(results[i].name)", at: time)
+            }else if results[i].time >= 41 && results[i].time <= 45{
+                let time = results[i].time - 40
+                thursday.remove(at: time)
+                thursday.insert("\(results[i].name)", at: time)
+            }else if results[i].time >= 51 && results[i].time <= 55{
+                let time = results[i].time - 50
+                friday.remove(at: time)
+                friday.insert("\(results[i].name)", at: time)
+            }
+        }
+    }
+    
+    func checkToday()->Int{
+        let date: NSDate = NSDate()
+        let cal: NSCalendar = NSCalendar(identifier: NSCalendar.Identifier.gregorian)!
+        let comp: NSDateComponents = cal.components(
+            [NSCalendar.Unit.weekday],
+            from: date as Date
+            ) as NSDateComponents
+        let weekday: Int = comp.weekday - 1//月曜日から1234567
+        return weekday
+    }
+    
+    func todayAndTomorrowSchedule(_ today:Int){
+        switch today {
+        case 1://月曜日
+            setSchedule(monday, thuesday)
+        case 2://火曜日
+            setSchedule(thuesday, wednesday)
+        case 3://水曜日
+            setSchedule(wednesday, thursday)
+        case 4://木曜日
+            setSchedule(thursday, friday)
+        case 5://金曜日
+            setSchedule(friday, [])
+        case 6://土曜日
+            setSchedule([], [])
+        case 7://日曜日
+            setSchedule([], monday)
+        default:
+            break
+        }
+        
+    }
+    
+    func setSchedule(_ todayArray:[String],_ tomorrowArray:[String]){
+        for i in 1..<todayArray.count{
+            if todayArray[i] != ""{
+                todayFirstClass = i
+                break
+            }
+        }
+        for i in (1...5).reversed() {
+            if todayArray[i] != ""{
+                todayLastClass = i
+                break
+            }
+        }
+        for i in 1..<tomorrowArray.count{
+            if tomorrowArray[i] != ""{
+                tomorrowFirstClass = i
+                break
+            }
+        }
+        for i in (1...5).reversed() {
+            if tomorrowArray[i] != ""{
+                tomorrowLastClass = i
+                break
+            }
+        }
+        if todayArray == []{
+            todayFirstClass = 0
+            todayLastClass = 0
+        }
+        if tomorrowArray == []{
+            tomorrowFirstClass = 0
+            tomorrowLastClass = 0
+        }
+    }
 }
 
