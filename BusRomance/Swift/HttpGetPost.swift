@@ -61,8 +61,8 @@ class httpGetPost {
         request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
         
         let  postString : [String: Any] = [
-            "departureBusStop": "赤川貯水池",
-            "arrivalBusStop": "赤川通",
+            "departureBusStop": self.departureBusStop,
+            "arrivalBusStop": self.arrivalBusStop,
             "dayTime": dayTime
         ]
         
