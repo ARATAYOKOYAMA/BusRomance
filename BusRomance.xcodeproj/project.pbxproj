@@ -338,7 +338,7 @@
 				TargetAttributes = {
 					DF79AF291F717A60006D7AF6 = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = KZ443JX5KX;
+						DevelopmentTeam = 634QW7RT8Y;
 						ProvisioningStyle = Automatic;
 					};
 					DF79AF3D1F717A61006D7AF6 = {
@@ -747,7 +747,7 @@
 			baseConfigurationReference = 795C1F6425E8E087491DF210 /* Pods-BusRomance.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = KZ443JX5KX;
+				DEVELOPMENT_TEAM = 634QW7RT8Y;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -767,7 +767,7 @@
 			baseConfigurationReference = 3D33369376D209D0883BECFF /* Pods-BusRomance.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = KZ443JX5KX;
+				DEVELOPMENT_TEAM = 634QW7RT8Y;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",

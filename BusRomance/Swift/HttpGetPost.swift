@@ -48,7 +48,8 @@ class httpGetPost {
         self.arrivalBusStop = arrivalBusStop
         self.dayTime = dayTime
         self.departureFlag = departureFlag
-        self.url = "http://localhost:8000/api/v1/getBus/"
+        //self.url = "http://localhost:8000/api/v1/getBus/"
+        self.url = "https://busproject-190313.appspot.com/api/v1/getBus/"
     }
     
     
@@ -60,8 +61,8 @@ class httpGetPost {
         request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
         
         let  postString : [String: Any] = [
-            "departureBusStop": "赤川貯水池",
-            "arrivalBusStop": "赤川通",
+            "departureBusStop": self.departureBusStop,
+            "arrivalBusStop": self.arrivalBusStop,
             "dayTime": dayTime
         ]
         
