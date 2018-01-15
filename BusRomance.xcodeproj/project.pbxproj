@@ -20,6 +20,7 @@
 		158381801F7C99CA00733F56 /* DetilsScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1583817F1F7C99CA00733F56 /* DetilsScheduleViewController.swift */; };
 		158381841F7C9C7500733F56 /* DetilsSchedule.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 158381831F7C9C7500733F56 /* DetilsSchedule.storyboard */; };
 		158500461FD53CF400617A84 /* SpreadsheetView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 155B3EE01FD5397D0013A1FF /* SpreadsheetView.framework */; };
+		15B47FAA200C7DD900C34D2F /* buss.json in Resources */ = {isa = PBXBuildFile; fileRef = 15B47FA9200C7DD900C34D2F /* buss.json */; };
 		15C5767B1F95D87A00143B2F /* InitialActivationStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15C5767A1F95D87A00143B2F /* InitialActivationStoryboard.storyboard */; };
 		15C5767D1F95D8B600143B2F /* InitialActivationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C5767C1F95D8B600143B2F /* InitialActivationViewController.swift */; };
 		6DEFCF5B1E5D2C9853E24F25 /* Pods_BusRomanceUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 460AB15941D140997A754070 /* Pods_BusRomanceUITests.framework */; };
@@ -77,6 +78,7 @@
 		157B73941FB00CC600CE0E4E /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
 		1583817F1F7C99CA00733F56 /* DetilsScheduleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetilsScheduleViewController.swift; sourceTree = "<group>"; };
 		158381831F7C9C7500733F56 /* DetilsSchedule.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DetilsSchedule.storyboard; sourceTree = "<group>"; };
+		15B47FA9200C7DD900C34D2F /* buss.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = buss.json; sourceTree = "<group>"; };
 		15C5767A1F95D87A00143B2F /* InitialActivationStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = InitialActivationStoryboard.storyboard; sourceTree = "<group>"; };
 		15C5767C1F95D8B600143B2F /* InitialActivationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialActivationViewController.swift; sourceTree = "<group>"; };
 		1F01737FB89A730BEE991AF8 /* Pods-BusRomanceUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BusRomanceUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BusRomanceUITests/Pods-BusRomanceUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -237,6 +239,7 @@
 				DF4F1D571F82165D005EF84D /* Swift */,
 				DF79AF2D1F717A60006D7AF6 /* AppDelegate.swift */,
 				DF79AF341F717A60006D7AF6 /* Assets.xcassets */,
+				15B47FA9200C7DD900C34D2F /* buss.json */,
 				DF79AF391F717A60006D7AF6 /* Info.plist */,
 			);
 			path = BusRomance;
@@ -388,6 +391,7 @@
 				15C5767B1F95D87A00143B2F /* InitialActivationStoryboard.storyboard in Resources */,
 				DF79AF661F717F9E006D7AF6 /* Search.storyboard in Resources */,
 				DF79AF681F717FA7006D7AF6 /* Schedule.storyboard in Resources */,
+				15B47FAA200C7DD900C34D2F /* buss.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -560,10 +564,12 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-BusRomance/Pods-BusRomance-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/SpreadsheetView/SpreadsheetView.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SpreadsheetView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;

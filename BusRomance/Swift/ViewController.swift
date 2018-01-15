@@ -8,6 +8,7 @@
 
 import UIKit
 import RealmSwift
+import SwiftyJSON
 
 class ViewController: UIViewController {
     
@@ -68,6 +69,10 @@ class ViewController: UIViewController {
         readSchedule()
         let today = checkToday()
         todayAndTomorrowSchedule(today)
+        let json = loadJson("buss")!
+        if let title = json["1"][0]["函館駅前 ５番のりば"].string {
+            print(title)
+        }
         // バックグラウンドからの復帰を監視する
         NotificationCenter.default.addObserver(self, selector: #selector(ViewController.viewWillEnterForeground(_:)),
                                                name: NSNotification.Name.UIApplicationWillEnterForeground, object: nil)
@@ -116,7 +121,7 @@ class ViewController: UIViewController {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        
     }
     
     func getDate(){
@@ -361,6 +366,17 @@ class ViewController: UIViewController {
             tomorrowFirstClass = 0
             tomorrowLastClass = 0
         }
+    }
+}
+
+func loadJson(_ fileName : String) -> JSON? {
+    let path = Bundle.main.path(forResource: fileName, ofType: "json")
+    do{
+        let jsonStr = try String(contentsOfFile: path!)
+        let json =  JSON.parse(jsonStr)
+        return json
+    } catch{
+        return nil
     }
 }
 
