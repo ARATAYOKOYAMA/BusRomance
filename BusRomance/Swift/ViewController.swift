@@ -77,7 +77,8 @@ class ViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(ViewController.viewWillEnterForeground(_:)),
                                                name: NSNotification.Name.UIApplicationWillEnterForeground, object: nil)
         
-        //getDate()
+        // バグ処理を終えたら，要修正
+        getDate()
 
         // パン（フリック）ジェスチャーのレコグナイザを定義、自分で定義した関数「panGesture」を呼び出すようにする
         let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(panGesture(sender:)))
