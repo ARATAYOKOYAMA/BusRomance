@@ -14,7 +14,7 @@ class HeaderCell: Cell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = UIColor(white: 0.95, alpha: 1.0)
+        backgroundColor = UIColor(red:0.953, green:0.941, blue:0.914, alpha:1.0) //UIColor(white: 0.95, alpha: 1.0)
         
         label.frame = bounds
         label.autoresizingMask = [.flexibleWidth, .flexibleHeight]
